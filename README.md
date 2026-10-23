@@ -79,6 +79,21 @@ Seed: context mới, giỏ trống. Sản phẩm seed là `iPhone 15 Pro Max`, I
 | `confirm-before-removing.spec.mjs` | Có một sản phẩm → bấm Xóa → có xác nhận; hủy thì dòng vẫn còn; xác nhận xóa thì giỏ trống. |
 | `correct-total-label.spec.mjs` | Có một sản phẩm → hiển thị nhãn chính xác `Tổng cộng` và số tiền đúng. |
 
+### Thanh toán
+
+Seed: context mới; đăng nhập user UUID, thêm một sản phẩm ID 1 từ Home, đi bằng link tới Cart rồi bấm Tiến hành thanh toán. Hai ca guest bỏ qua đăng nhập.
+
+| File trong `tests/checkout/` | Bước và kết quả cần kiểm tra |
+|---|---|
+| `guest-checkout-ui-rejected.spec.mjs` | Chưa đăng nhập, thêm sản phẩm, bấm thanh toán → yêu cầu đăng nhập. |
+| `guest-checkout-api-rejected.spec.mjs` | Gửi checkout không token → API trả 401. |
+| `order-summary.spec.mjs` | Đăng nhập, thêm một sản phẩm, mở Checkout → danh sách có đúng sản phẩm, số lượng và thành tiền. |
+| `read-only-total.spec.mjs` | Mở Checkout có sản phẩm → tổng đúng giá server và không cho chỉnh trực tiếp. |
+| `successful-checkout-clears-cart.spec.mjs` | Thanh toán qua UI → response thành công, banner thành công, đơn lưu đúng, quay lại giỏ phải trống. |
+| `server-recalculates-total.spec.mjs` | Đăng nhập qua UI; gửi API checkout với `total_amount=1` và giá sản phẩm giả 1 → từ chối 4xx hoặc lưu đơn với tổng tính từ giá server. Không chấp nhận HTTP 200 làm bằng chứng tổng đúng. |
+
+Ca API không token dùng hợp đồng API của bản SUT (401). Ca tổng giả kiểm tra FR-08 ở backend độc lập với widget readonly; không cần sửa DOM hay mở khóa input để gửi request. Những assertion sau checkpoint fail chưa được kiểm chứng.
+
 HTTP 2xx/4xx, chuỗi lỗi giao diện và vị trí lưu JWT trong `localStorage.token` là hợp đồng của bản SUT được khảo sát; SRS quy định kết quả nghiệp vụ, không ấn định các chi tiết này. Bộ test không tuyên bố bao phủ toàn bộ SRS. Controls +/- thiếu trong SUT được giữ thành lỗi yêu cầu; chưa có giao diện để xác minh locator sau khi SUT bổ sung controls đó.
 
 ## Kết quả kiểm chứng local (2026-10-23)
@@ -89,10 +104,16 @@ HTTP 2xx/4xx, chuỗi lỗi giao diện và vị trí lưu JWT trong `localStora
 |---|---:|---:|---:|
 | Đăng nhập | 8 | 4 | 4 |
 | Giỏ hàng | 6 | 2 | 4 |
+| Thanh toán | 6 | 3 | 3 |
+| **Tổng** | **20** | **9** | **11** |
 
 Bốn lỗi đăng nhập quan sát được: email và mật khẩu đều có `type=text`; tài khoản bị khóa sau mới 2 lần sai; sau 31 giây vẫn chưa mở khóa. Đây là khác biệt so với FR-02/FR-22. Những ca kiểm tra sai mật khẩu, email không tồn tại, đăng nhập đúng và trạng thái khóa sau 3 lần sai đều pass. Ca khóa sau 3 lần pass không chứng minh ngưỡng khóa đúng; ca 2 lần kiểm tra riêng ngưỡng dưới.
 
 Bốn lỗi giỏ hàng: thiếu controls +/−; xóa ngay không xác nhận; nhãn `Tổng tạm tính` thay vì `Tổng cộng`; thêm trùng tạo 2 dòng thay vì gộp. Empty state và thêm một sản phẩm có số lượng/thành tiền đúng đều pass.
+
+Ba lỗi thanh toán: tổng tiền vẫn editable; backend lưu tổng giả `1` thay vì tự tính `30.000.000`; thanh toán thành công chưa xóa giỏ. Chặn guest ở UI/API và danh sách sản phẩm checkout đều pass.
+
+Các số trên tổng hợp hai lượt chạy độc lập trên SUT có sẵn: 14 ca đăng nhập/giỏ hàng và 6 ca thanh toán, không tính đợt đăng nhập đầu dùng bản sao. HTML report luôn hiển thị lượt chạy gần nhất; chạy `npm.cmd test` để tạo report chung cho đủ 20 ca. JSON kiểm chứng local được giữ trong `test-results/verification/` và không đưa lên Git.
 
 ## Đọc kết quả
 
