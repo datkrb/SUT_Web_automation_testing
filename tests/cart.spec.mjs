@@ -3,12 +3,15 @@
 import { test as base, expect } from 'playwright/test';
 
 const test = base.extend({
-  products: async ({ request }, use) => {
+  catalog: async ({ request }, use) => {
     const response = await request.get('http://localhost:3000/api/products');
     expect(response.ok(), 'Fixture: real product API must be available').toBeTruthy();
     const products = (await response.json()).filter(p => Number.isSafeInteger(Number(p.price)) && Number(p.price) > 0);
-    expect(products.length, 'Fixture: at least two products with valid prices').toBeGreaterThanOrEqual(2);
-    await use(products.slice(0, 2));
+    expect(products.length, 'Fixture: at least three products with valid prices').toBeGreaterThanOrEqual(3);
+    await use(products.slice(0, 3));
+  },
+  products: async ({ catalog }, use) => {
+    await use(catalog.slice(0, 2));
   },
 });
 
@@ -58,6 +61,19 @@ async function populate(page, products) {
   for (const product of products) await addFromHome(page, product);
   await openCart(page);
   await expect(rows(page)).toHaveCount(products.length);
+}
+
+async function openProduct(page, product) {
+  await expect(main(page).getByRole('heading', { name: 'Danh sách sản phẩm', exact: true })).toBeVisible();
+  await main(page).locator(`a[href="/product/${product.id}"]`).click();
+  await expect(main(page).getByRole('heading', { name: product.name, exact: true })).toBeVisible();
+}
+
+async function expectAddFeedback(page) {
+  const toast = page.locator('[role="status"], [role="alert"], .Toastify__toast, [data-sonner-toast]')
+    .filter({ hasText: /đã thêm|thành công|added/i });
+  await expect.poll(async () => /\b1\b/.test(await cartLink(page).innerText()) || await toast.first().isVisible(),
+    { message: 'FR-06 / FR-24: adding must show a toast or update the cart badge' }).toBe(true);
 }
 
 // Support both native confirm and an accessible custom confirmation dialog.
@@ -241,5 +257,99 @@ test.describe('Giỏ hàng', () => {
     await expect(rowFor(page, products[0])).toHaveCount(1);
     await expectQuantity(rowFor(page, products[0]), 3);
     await expectMoney(totalAmount(page), Number(products[0].price) * 3);
+  });
+  test('quantity-cannot-decrease-below-one', async ({ page, products }) => {
+    // GH-18: minimum quantity 1 (FR-06), applied to FR-07 controls.
+    await populate(page, [products[0]]);
+    const row = rowFor(page, products[0]);
+    const decrease = row.getByRole('button', { name: /^(-|−|Giảm|Giảm số lượng)$/i });
+    await expect(decrease).toBeVisible();
+    if (await decrease.isEnabled()) await decrease.click();
+    await expect(row).toHaveCount(1);
+    await expectQuantity(row, 1);
+    await expectMoney(totalAmount(page), Number(products[0].price));
+  });
+
+  for (const [index, label, value] of [
+    [19, 'zero', '0'], [20, 'negative', '-1'], [21, 'fractional', '1.5'], [22, 'empty', ''],
+  ]) {
+    test(`reject-${label}-product-quantity`, async ({ page, products }) => {
+      // GH-19–22: FR-06 only allows positive integers. Attempt twice so the
+      // known first-click no-op cannot falsely make invalid input look blocked.
+      test.info().annotations.push({ type: 'SRS', description: `GH-${index}: FR-06; two explicit submission attempts` });
+      await page.goto(`/product/${products[0].id}`);
+      await expect(main(page).getByRole('heading', { name: products[0].name, exact: true })).toBeVisible();
+      await main(page).getByRole('spinbutton').fill(value);
+      const add = main(page).getByRole('button', { name: /^(Thêm vào giỏ hàng|Đã thêm)$/ });
+      for (let attempt = 0; attempt < 2; attempt++) {
+        if (await add.isEnabled()) await add.click();
+      }
+      await openCart(page);
+      await expect(rows(page), `FR-06: invalid quantity ${JSON.stringify(value)} must not add a row`).toHaveCount(0);
+      await expect(emptyMessage(page)).toBeVisible();
+    });
+  }
+
+  test('home-add-shows-feedback', async ({ page, products }) => {
+    // GH-23: feedback is checked before navigating away from the source page.
+    await home(page);
+    await addFromHome(page, products[0]);
+    await expectAddFeedback(page);
+  });
+
+  test('product-detail-add-shows-feedback', async ({ page, products }) => {
+    // GH-24: the first click must produce the FR-06 toast or badge feedback.
+    await page.goto(`/product/${products[0].id}`);
+    await expect(main(page).getByRole('heading', { name: products[0].name, exact: true })).toBeVisible();
+    await main(page).getByRole('button', { name: 'Thêm vào giỏ hàng', exact: true }).click();
+    await expectAddFeedback(page);
+  });
+
+  test('cart-breadcrumb-navigation', async ({ page, products }) => {
+    // GH-25: FR-23 breadcrumb identifies Cart and links back to Home.
+    await populate(page, [products[0]]);
+    const breadcrumb = page.getByRole('navigation', { name: /breadcrumb|đường dẫn/i });
+    await expect(breadcrumb).toBeVisible();
+    await expect(breadcrumb).toContainText(/Giỏ hàng/i);
+    const homeLink = breadcrumb.getByRole('link', { name: /Trang chủ|Home/i });
+    await homeLink.click();
+    await expect(page).toHaveURL('http://localhost:5180/');
+    await openCart(page);
+    await expectQuantity(rowFor(page, products[0]), 1);
+  });
+
+  test('merge-different-requested-quantities', async ({ page, products }) => {
+    // GH-26: UI setup checkpoints deliberately expose any GH-17 blocker.
+    // Never retry a successful add: that could hide double-add regressions.
+    await home(page);
+    await openProduct(page, products[0]);
+    await main(page).getByRole('spinbutton').fill('2');
+    await main(page).getByRole('button', { name: 'Thêm vào giỏ hàng', exact: true }).click();
+    await openCart(page);
+    await expect(rowFor(page, products[0]), 'Setup: first addition must create a row before checking merge').toHaveCount(1);
+    await expectQuantity(rowFor(page, products[0]), 2);
+    await main(page).getByRole('link', { name: /Mua tiếp|Tiếp tục mua sắm/ }).click();
+    await openProduct(page, products[0]);
+    await main(page).getByRole('spinbutton').fill('3');
+    await main(page).getByRole('button', { name: 'Thêm vào giỏ hàng', exact: true }).click();
+    await openCart(page);
+    await expect(rows(page)).toHaveCount(1);
+    await expectQuantity(rowFor(page, products[0]), 5);
+    await expectMoney(rowFor(page, products[0]).getByRole('cell').nth(3), Number(products[0].price) * 5);
+    await expectMoney(totalAmount(page), Number(products[0].price) * 5);
+  });
+
+  test('remove-middle-product-keeps-other-rows', async ({ page, catalog }) => {
+    // GH-27: independently verify row identity/index handling and arithmetic.
+    await populate(page, catalog);
+    await remove(page, catalog[1], true, false);
+    await expect(rows(page)).toHaveCount(2);
+    await expect(rowFor(page, catalog[1])).toHaveCount(0);
+    for (const product of [catalog[0], catalog[2]]) {
+      await expect(rowFor(page, product)).toHaveCount(1);
+      await expectQuantity(rowFor(page, product), 1);
+      await expectMoney(rowFor(page, product).getByRole('cell').nth(3), Number(product.price));
+    }
+    await expectMoney(totalAmount(page), Number(catalog[0].price) + Number(catalog[2].price));
   });
 });

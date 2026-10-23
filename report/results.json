@@ -85,7 +85,7 @@
         {
           "title": "Giỏ hàng",
           "file": "cart.spec.mjs",
-          "line": 82,
+          "line": 98,
           "column": 6,
           "specs": [
             {
@@ -104,12 +104,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 648,
+                      "duration": 565,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:12:55.553Z",
+                      "startTime": "2026-10-23T13:41:16.681Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -119,7 +119,7 @@
               ],
               "id": "a04caecb971887a91a24-69f5fc9afe1706a47533",
               "file": "cart.spec.mjs",
-              "line": 83,
+              "line": 99,
               "column": 3
             },
             {
@@ -138,31 +138,31 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4457,
+                      "duration": 4485,
                       "error": {
                         "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()\n",
-                        "stack": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()\n\n    at ./tests\\cart.spec.mjs:95:134",
+                        "stack": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()\n\n    at ./tests\\cart.spec.mjs:111:134",
                         "location": {
                           "file": "./tests\\cart.spec.mjs",
                           "column": 134,
-                          "line": 95
+                          "line": 111
                         },
-                        "snippet": "  93 |     await page.goto('/cart');\n  94 |     await expect(emptyMessage(page)).toBeVisible();\n> 95 |     await expect(main(page).locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()).toBeVisible();\n     |                                                                                                                                      ^\n  96 |   });\n  97 |\n  98 |   test('empty-cart-continue-shopping', async ({ page }) => {"
+                        "snippet": "  109 |     await page.goto('/cart');\n  110 |     await expect(emptyMessage(page)).toBeVisible();\n> 111 |     await expect(main(page).locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()).toBeVisible();\n      |                                                                                                                                      ^\n  112 |   });\n  113 |\n  114 |   test('empty-cart-continue-shopping', async ({ page }) => {"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "./tests\\cart.spec.mjs",
                             "column": 134,
-                            "line": 95
+                            "line": 111
                           },
-                          "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()\n\n\n  93 |     await page.goto('/cart');\n  94 |     await expect(emptyMessage(page)).toBeVisible();\n> 95 |     await expect(main(page).locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()).toBeVisible();\n     |                                                                                                                                      ^\n  96 |   });\n  97 |\n  98 |   test('empty-cart-continue-shopping', async ({ page }) => {\n    at ./tests\\cart.spec.mjs:95:134"
+                          "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()\n\n\n  109 |     await page.goto('/cart');\n  110 |     await expect(emptyMessage(page)).toBeVisible();\n> 111 |     await expect(main(page).locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()).toBeVisible();\n      |                                                                                                                                      ^\n  112 |   });\n  113 |\n  114 |   test('empty-cart-continue-shopping', async ({ page }) => {\n    at ./tests\\cart.spec.mjs:111:134"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:12:56.463Z",
+                      "startTime": "2026-10-23T13:41:17.495Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -184,7 +184,7 @@
                       "errorLocation": {
                         "file": "./tests\\cart.spec.mjs",
                         "column": 134,
-                        "line": 95
+                        "line": 111
                       }
                     }
                   ],
@@ -193,7 +193,7 @@
               ],
               "id": "a04caecb971887a91a24-e2d9eddcd0e82973e74b",
               "file": "cart.spec.mjs",
-              "line": 91,
+              "line": 107,
               "column": 3
             },
             {
@@ -212,12 +212,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 736,
+                      "duration": 739,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:01.768Z",
+                      "startTime": "2026-10-23T13:41:22.782Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -227,7 +227,7 @@
               ],
               "id": "a04caecb971887a91a24-817c5044340df444e195",
               "file": "cart.spec.mjs",
-              "line": 98,
+              "line": 114,
               "column": 3
             },
             {
@@ -246,12 +246,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 631,
+                      "duration": 593,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:02.782Z",
+                      "startTime": "2026-10-23T13:41:23.771Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -261,7 +261,7 @@
               ],
               "id": "a04caecb971887a91a24-1e6860d979576ff4fd8b",
               "file": "cart.spec.mjs",
-              "line": 106,
+              "line": 122,
               "column": 3
             },
             {
@@ -280,31 +280,31 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4627,
+                      "duration": 4666,
                       "error": {
                         "message": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: getByRole('main').getByRole('columnheader')\nTimeout: 4000ms\n- Expected  - 1\n+ Received  + 1\n\n  Array [\n    \"Sản phẩm\",\n-   \"Đơn giá\",\n+   \"Giá\",\n    \"Số lượng\",\n    \"Thành tiền\",\n    \"Thao tác\",\n  ]\n\nCall log:\n  - Expect \"toHaveText\" with timeout 4000ms\n  - waiting for getByRole('main').getByRole('columnheader')\n    12 × locator resolved to 5 elements\n",
-                        "stack": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: getByRole('main').getByRole('columnheader')\nTimeout: 4000ms\n- Expected  - 1\n+ Received  + 1\n\n  Array [\n    \"Sản phẩm\",\n-   \"Đơn giá\",\n+   \"Giá\",\n    \"Số lượng\",\n    \"Thành tiền\",\n    \"Thao tác\",\n  ]\n\nCall log:\n  - Expect \"toHaveText\" with timeout 4000ms\n  - waiting for getByRole('main').getByRole('columnheader')\n    12 × locator resolved to 5 elements\n\n    at ./tests\\cart.spec.mjs:119:56",
+                        "stack": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: getByRole('main').getByRole('columnheader')\nTimeout: 4000ms\n- Expected  - 1\n+ Received  + 1\n\n  Array [\n    \"Sản phẩm\",\n-   \"Đơn giá\",\n+   \"Giá\",\n    \"Số lượng\",\n    \"Thành tiền\",\n    \"Thao tác\",\n  ]\n\nCall log:\n  - Expect \"toHaveText\" with timeout 4000ms\n  - waiting for getByRole('main').getByRole('columnheader')\n    12 × locator resolved to 5 elements\n\n    at ./tests\\cart.spec.mjs:135:56",
                         "location": {
                           "file": "./tests\\cart.spec.mjs",
                           "column": 56,
-                          "line": 119
+                          "line": 135
                         },
-                        "snippet": "  117 |     // GH-05: exact FR-07 column labels.\n  118 |     await populate(page, [products[0]]);\n> 119 |     await expect(main(page).getByRole('columnheader')).toHaveText(['Sản phẩm', 'Đơn giá', 'Số lượng', 'Thành tiền', 'Thao tác']);\n      |                                                        ^\n  120 |   });\n  121 |\n  122 |   test('merge-duplicate-product', async ({ page, products }) => {"
+                        "snippet": "  133 |     // GH-05: exact FR-07 column labels.\n  134 |     await populate(page, [products[0]]);\n> 135 |     await expect(main(page).getByRole('columnheader')).toHaveText(['Sản phẩm', 'Đơn giá', 'Số lượng', 'Thành tiền', 'Thao tác']);\n      |                                                        ^\n  136 |   });\n  137 |\n  138 |   test('merge-duplicate-product', async ({ page, products }) => {"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "./tests\\cart.spec.mjs",
                             "column": 56,
-                            "line": 119
+                            "line": 135
                           },
-                          "message": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: getByRole('main').getByRole('columnheader')\nTimeout: 4000ms\n- Expected  - 1\n+ Received  + 1\n\n  Array [\n    \"Sản phẩm\",\n-   \"Đơn giá\",\n+   \"Giá\",\n    \"Số lượng\",\n    \"Thành tiền\",\n    \"Thao tác\",\n  ]\n\nCall log:\n  - Expect \"toHaveText\" with timeout 4000ms\n  - waiting for getByRole('main').getByRole('columnheader')\n    12 × locator resolved to 5 elements\n\n\n  117 |     // GH-05: exact FR-07 column labels.\n  118 |     await populate(page, [products[0]]);\n> 119 |     await expect(main(page).getByRole('columnheader')).toHaveText(['Sản phẩm', 'Đơn giá', 'Số lượng', 'Thành tiền', 'Thao tác']);\n      |                                                        ^\n  120 |   });\n  121 |\n  122 |   test('merge-duplicate-product', async ({ page, products }) => {\n    at ./tests\\cart.spec.mjs:119:56"
+                          "message": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: getByRole('main').getByRole('columnheader')\nTimeout: 4000ms\n- Expected  - 1\n+ Received  + 1\n\n  Array [\n    \"Sản phẩm\",\n-   \"Đơn giá\",\n+   \"Giá\",\n    \"Số lượng\",\n    \"Thành tiền\",\n    \"Thao tác\",\n  ]\n\nCall log:\n  - Expect \"toHaveText\" with timeout 4000ms\n  - waiting for getByRole('main').getByRole('columnheader')\n    12 × locator resolved to 5 elements\n\n\n  133 |     // GH-05: exact FR-07 column labels.\n  134 |     await populate(page, [products[0]]);\n> 135 |     await expect(main(page).getByRole('columnheader')).toHaveText(['Sản phẩm', 'Đơn giá', 'Số lượng', 'Thành tiền', 'Thao tác']);\n      |                                                        ^\n  136 |   });\n  137 |\n  138 |   test('merge-duplicate-product', async ({ page, products }) => {\n    at ./tests\\cart.spec.mjs:135:56"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:03.426Z",
+                      "startTime": "2026-10-23T13:41:24.378Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -326,7 +326,7 @@
                       "errorLocation": {
                         "file": "./tests\\cart.spec.mjs",
                         "column": 56,
-                        "line": 119
+                        "line": 135
                       }
                     }
                   ],
@@ -335,7 +335,7 @@
               ],
               "id": "a04caecb971887a91a24-18ed3a3ddfc239e2bd31",
               "file": "cart.spec.mjs",
-              "line": 116,
+              "line": 132,
               "column": 3
             },
             {
@@ -354,31 +354,31 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4771,
+                      "duration": 4830,
                       "error": {
                         "message": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 1\nReceived: 2\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveCount\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 2 elements\n       - unexpected value \"2\"\n",
-                        "stack": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 1\nReceived: 2\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveCount\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 2 elements\n       - unexpected value \"2\"\n\n    at ./tests\\cart.spec.mjs:128:30",
+                        "stack": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 1\nReceived: 2\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveCount\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 2 elements\n       - unexpected value \"2\"\n\n    at ./tests\\cart.spec.mjs:144:30",
                         "location": {
                           "file": "./tests\\cart.spec.mjs",
                           "column": 30,
-                          "line": 128
+                          "line": 144
                         },
-                        "snippet": "  126 |     await addFromHome(page, products[0]);\n  127 |     await openCart(page);\n> 128 |     await expect(rows(page)).toHaveCount(1);\n      |                              ^\n  129 |     const cells = rowFor(page, products[0]).getByRole('cell');\n  130 |     await expectQuantity(rowFor(page, products[0]), 2);\n  131 |     await expectMoney(cells.nth(3), Number(products[0].price) * 2);"
+                        "snippet": "  142 |     await addFromHome(page, products[0]);\n  143 |     await openCart(page);\n> 144 |     await expect(rows(page)).toHaveCount(1);\n      |                              ^\n  145 |     const cells = rowFor(page, products[0]).getByRole('cell');\n  146 |     await expectQuantity(rowFor(page, products[0]), 2);\n  147 |     await expectMoney(cells.nth(3), Number(products[0].price) * 2);"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "./tests\\cart.spec.mjs",
                             "column": 30,
-                            "line": 128
+                            "line": 144
                           },
-                          "message": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 1\nReceived: 2\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveCount\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 2 elements\n       - unexpected value \"2\"\n\n\n  126 |     await addFromHome(page, products[0]);\n  127 |     await openCart(page);\n> 128 |     await expect(rows(page)).toHaveCount(1);\n      |                              ^\n  129 |     const cells = rowFor(page, products[0]).getByRole('cell');\n  130 |     await expectQuantity(rowFor(page, products[0]), 2);\n  131 |     await expectMoney(cells.nth(3), Number(products[0].price) * 2);\n    at ./tests\\cart.spec.mjs:128:30"
+                          "message": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 1\nReceived: 2\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveCount\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 2 elements\n       - unexpected value \"2\"\n\n\n  142 |     await addFromHome(page, products[0]);\n  143 |     await openCart(page);\n> 144 |     await expect(rows(page)).toHaveCount(1);\n      |                              ^\n  145 |     const cells = rowFor(page, products[0]).getByRole('cell');\n  146 |     await expectQuantity(rowFor(page, products[0]), 2);\n  147 |     await expectMoney(cells.nth(3), Number(products[0].price) * 2);\n    at ./tests\\cart.spec.mjs:144:30"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:08.888Z",
+                      "startTime": "2026-10-23T13:41:29.858Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -400,7 +400,7 @@
                       "errorLocation": {
                         "file": "./tests\\cart.spec.mjs",
                         "column": 30,
-                        "line": 128
+                        "line": 144
                       }
                     }
                   ],
@@ -409,7 +409,7 @@
               ],
               "id": "a04caecb971887a91a24-36d1bbbe10c45181af35",
               "file": "cart.spec.mjs",
-              "line": 122,
+              "line": 138,
               "column": 3
             },
             {
@@ -428,12 +428,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 754,
+                      "duration": 808,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:14.680Z",
+                      "startTime": "2026-10-23T13:41:35.767Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -443,7 +443,7 @@
               ],
               "id": "a04caecb971887a91a24-7c5922b13634351ca837",
               "file": "cart.spec.mjs",
-              "line": 135,
+              "line": 151,
               "column": 3
             },
             {
@@ -462,31 +462,31 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4634,
+                      "duration": 4636,
                       "error": {
                         "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').getByText(/^Tổng cộng:/)\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').getByText(/^Tổng cộng:/)\n",
-                        "stack": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').getByText(/^Tổng cộng:/)\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').getByText(/^Tổng cộng:/)\n\n    at ./tests\\cart.spec.mjs:147:55",
+                        "stack": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').getByText(/^Tổng cộng:/)\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').getByText(/^Tổng cộng:/)\n\n    at ./tests\\cart.spec.mjs:163:55",
                         "location": {
                           "file": "./tests\\cart.spec.mjs",
                           "column": 55,
-                          "line": 147
+                          "line": 163
                         },
-                        "snippet": "  145 |     // GH-08: exact label specified by FR-07.\n  146 |     await populate(page, [products[0]]);\n> 147 |     await expect(main(page).getByText(/^Tổng cộng:/)).toBeVisible();\n      |                                                       ^\n  148 |     await expect(main(page).getByText(/^Tổng tạm tính:/)).toHaveCount(0);\n  149 |   });\n  150 |"
+                        "snippet": "  161 |     // GH-08: exact label specified by FR-07.\n  162 |     await populate(page, [products[0]]);\n> 163 |     await expect(main(page).getByText(/^Tổng cộng:/)).toBeVisible();\n      |                                                       ^\n  164 |     await expect(main(page).getByText(/^Tổng tạm tính:/)).toHaveCount(0);\n  165 |   });\n  166 |"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "./tests\\cart.spec.mjs",
                             "column": 55,
-                            "line": 147
+                            "line": 163
                           },
-                          "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').getByText(/^Tổng cộng:/)\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').getByText(/^Tổng cộng:/)\n\n\n  145 |     // GH-08: exact label specified by FR-07.\n  146 |     await populate(page, [products[0]]);\n> 147 |     await expect(main(page).getByText(/^Tổng cộng:/)).toBeVisible();\n      |                                                       ^\n  148 |     await expect(main(page).getByText(/^Tổng tạm tính:/)).toHaveCount(0);\n  149 |   });\n  150 |\n    at ./tests\\cart.spec.mjs:147:55"
+                          "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').getByText(/^Tổng cộng:/)\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').getByText(/^Tổng cộng:/)\n\n\n  161 |     // GH-08: exact label specified by FR-07.\n  162 |     await populate(page, [products[0]]);\n> 163 |     await expect(main(page).getByText(/^Tổng cộng:/)).toBeVisible();\n      |                                                       ^\n  164 |     await expect(main(page).getByText(/^Tổng tạm tính:/)).toHaveCount(0);\n  165 |   });\n  166 |\n    at ./tests\\cart.spec.mjs:163:55"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:15.684Z",
+                      "startTime": "2026-10-23T13:41:36.815Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -508,7 +508,7 @@
                       "errorLocation": {
                         "file": "./tests\\cart.spec.mjs",
                         "column": 55,
-                        "line": 147
+                        "line": 163
                       }
                     }
                   ],
@@ -517,7 +517,7 @@
               ],
               "id": "a04caecb971887a91a24-fb4b77a0c812a978ac63",
               "file": "cart.spec.mjs",
-              "line": 144,
+              "line": 160,
               "column": 3
             },
             {
@@ -536,31 +536,31 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4766,
+                      "duration": 4759,
                       "error": {
                         "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\n",
-                        "stack": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\n\n    at ./tests\\cart.spec.mjs:156:28",
+                        "stack": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\n\n    at ./tests\\cart.spec.mjs:172:28",
                         "location": {
                           "file": "./tests\\cart.spec.mjs",
                           "column": 28,
-                          "line": 156
+                          "line": 172
                         },
-                        "snippet": "  154 |     const row = rowFor(page, products[0]);\n  155 |     const increase = row.getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i });\n> 156 |     await expect(increase).toBeVisible();\n      |                            ^\n  157 |     await increase.click();\n  158 |     await expectQuantity(row, 2);\n  159 |     await expectMoney(row.getByRole('cell').nth(3), Number(products[0].price) * 2);"
+                        "snippet": "  170 |     const row = rowFor(page, products[0]);\n  171 |     const increase = row.getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i });\n> 172 |     await expect(increase).toBeVisible();\n      |                            ^\n  173 |     await increase.click();\n  174 |     await expectQuantity(row, 2);\n  175 |     await expectMoney(row.getByRole('cell').nth(3), Number(products[0].price) * 2);"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "./tests\\cart.spec.mjs",
                             "column": 28,
-                            "line": 156
+                            "line": 172
                           },
-                          "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\n\n\n  154 |     const row = rowFor(page, products[0]);\n  155 |     const increase = row.getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i });\n> 156 |     await expect(increase).toBeVisible();\n      |                            ^\n  157 |     await increase.click();\n  158 |     await expectQuantity(row, 2);\n  159 |     await expectMoney(row.getByRole('cell').nth(3), Number(products[0].price) * 2);\n    at ./tests\\cart.spec.mjs:156:28"
+                          "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\n\n\n  170 |     const row = rowFor(page, products[0]);\n  171 |     const increase = row.getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i });\n> 172 |     await expect(increase).toBeVisible();\n      |                            ^\n  173 |     await increase.click();\n  174 |     await expectQuantity(row, 2);\n  175 |     await expectMoney(row.getByRole('cell').nth(3), Number(products[0].price) * 2);\n    at ./tests\\cart.spec.mjs:172:28"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:21.167Z",
+                      "startTime": "2026-10-23T13:41:42.360Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -582,7 +582,7 @@
                       "errorLocation": {
                         "file": "./tests\\cart.spec.mjs",
                         "column": 28,
-                        "line": 156
+                        "line": 172
                       }
                     }
                   ],
@@ -591,7 +591,7 @@
               ],
               "id": "a04caecb971887a91a24-9dfe5119a06080d37fd1",
               "file": "cart.spec.mjs",
-              "line": 151,
+              "line": 167,
               "column": 3
             },
             {
@@ -610,31 +610,31 @@
                       "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4714,
+                      "duration": 4821,
                       "error": {
                         "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\n",
-                        "stack": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\n\n    at ./tests\\cart.spec.mjs:168:28",
+                        "stack": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\n\n    at ./tests\\cart.spec.mjs:184:28",
                         "location": {
                           "file": "./tests\\cart.spec.mjs",
                           "column": 28,
-                          "line": 168
+                          "line": 184
                         },
-                        "snippet": "  166 |     const row = rowFor(page, products[0]);\n  167 |     const increase = row.getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i });\n> 168 |     await expect(increase).toBeVisible();\n      |                            ^\n  169 |     await increase.click();\n  170 |     await increase.click();\n  171 |     await row.getByRole('button', { name: /^(-|−|Giảm|Giảm số lượng)$/i }).click();"
+                        "snippet": "  182 |     const row = rowFor(page, products[0]);\n  183 |     const increase = row.getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i });\n> 184 |     await expect(increase).toBeVisible();\n      |                            ^\n  185 |     await increase.click();\n  186 |     await increase.click();\n  187 |     await row.getByRole('button', { name: /^(-|−|Giảm|Giảm số lượng)$/i }).click();"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "./tests\\cart.spec.mjs",
                             "column": 28,
-                            "line": 168
+                            "line": 184
                           },
-                          "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\n\n\n  166 |     const row = rowFor(page, products[0]);\n  167 |     const increase = row.getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i });\n> 168 |     await expect(increase).toBeVisible();\n      |                            ^\n  169 |     await increase.click();\n  170 |     await increase.click();\n  171 |     await row.getByRole('button', { name: /^(-|−|Giảm|Giảm số lượng)$/i }).click();\n    at ./tests\\cart.spec.mjs:168:28"
+                          "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\n\n\n  182 |     const row = rowFor(page, products[0]);\n  183 |     const increase = row.getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i });\n> 184 |     await expect(increase).toBeVisible();\n      |                            ^\n  185 |     await increase.click();\n  186 |     await increase.click();\n  187 |     await row.getByRole('button', { name: /^(-|−|Giảm|Giảm số lượng)$/i }).click();\n    at ./tests\\cart.spec.mjs:184:28"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:26.978Z",
+                      "startTime": "2026-10-23T13:41:48.253Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -656,7 +656,7 @@
                       "errorLocation": {
                         "file": "./tests\\cart.spec.mjs",
                         "column": 28,
-                        "line": 168
+                        "line": 184
                       }
                     }
                   ],
@@ -665,7 +665,7 @@
               ],
               "id": "a04caecb971887a91a24-61e210da3c84f7b48b11",
               "file": "cart.spec.mjs",
-              "line": 163,
+              "line": 179,
               "column": 3
             },
             {
@@ -684,31 +684,31 @@
                       "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4806,
+                      "duration": 4795,
                       "error": {
                         "message": "Error: FR-07 / FR-24: deleting requires a confirmation dialog\n\nFR-07 / FR-24: deleting requires a confirmation dialog\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate",
-                        "stack": "Error: FR-07 / FR-24: deleting requires a confirmation dialog\n\nFR-07 / FR-24: deleting requires a confirmation dialog\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate\n    at remove (./tests\\cart.spec.mjs:75:78)\n    at ./tests\\cart.spec.mjs:180:5",
+                        "stack": "Error: FR-07 / FR-24: deleting requires a confirmation dialog\n\nFR-07 / FR-24: deleting requires a confirmation dialog\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate\n    at remove (./tests\\cart.spec.mjs:91:78)\n    at ./tests\\cart.spec.mjs:196:5",
                         "location": {
                           "file": "./tests\\cart.spec.mjs",
                           "column": 78,
-                          "line": 75
+                          "line": 91
                         },
-                        "snippet": "  73 |   if (requireConfirmation) {\n  74 |     await expect.poll(async () => nativeType === 'confirm' || await dialog.isVisible(),\n> 75 |       { message: 'FR-07 / FR-24: deleting requires a confirmation dialog' }).toBe(true);\n     |                                                                              ^\n  76 |   }\n  77 |   if (await dialog.isVisible()) {\n  78 |     await dialog.getByRole('button', { name: accept ? /^(Xóa|Xác nhận|Đồng ý|OK)$/i : /^(Hủy|Cancel)$/i }).click();"
+                        "snippet": "  89 |   if (requireConfirmation) {\n  90 |     await expect.poll(async () => nativeType === 'confirm' || await dialog.isVisible(),\n> 91 |       { message: 'FR-07 / FR-24: deleting requires a confirmation dialog' }).toBe(true);\n     |                                                                              ^\n  92 |   }\n  93 |   if (await dialog.isVisible()) {\n  94 |     await dialog.getByRole('button', { name: accept ? /^(Xóa|Xác nhận|Đồng ý|OK)$/i : /^(Hủy|Cancel)$/i }).click();"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "./tests\\cart.spec.mjs",
                             "column": 78,
-                            "line": 75
+                            "line": 91
                           },
-                          "message": "Error: FR-07 / FR-24: deleting requires a confirmation dialog\n\nFR-07 / FR-24: deleting requires a confirmation dialog\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate\n\n  73 |   if (requireConfirmation) {\n  74 |     await expect.poll(async () => nativeType === 'confirm' || await dialog.isVisible(),\n> 75 |       { message: 'FR-07 / FR-24: deleting requires a confirmation dialog' }).toBe(true);\n     |                                                                              ^\n  76 |   }\n  77 |   if (await dialog.isVisible()) {\n  78 |     await dialog.getByRole('button', { name: accept ? /^(Xóa|Xác nhận|Đồng ý|OK)$/i : /^(Hủy|Cancel)$/i }).click();\n    at remove (./tests\\cart.spec.mjs:75:78)\n    at ./tests\\cart.spec.mjs:180:5"
+                          "message": "Error: FR-07 / FR-24: deleting requires a confirmation dialog\n\nFR-07 / FR-24: deleting requires a confirmation dialog\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate\n\n  89 |   if (requireConfirmation) {\n  90 |     await expect.poll(async () => nativeType === 'confirm' || await dialog.isVisible(),\n> 91 |       { message: 'FR-07 / FR-24: deleting requires a confirmation dialog' }).toBe(true);\n     |                                                                              ^\n  92 |   }\n  93 |   if (await dialog.isVisible()) {\n  94 |     await dialog.getByRole('button', { name: accept ? /^(Xóa|Xác nhận|Đồng ý|OK)$/i : /^(Hủy|Cancel)$/i }).click();\n    at remove (./tests\\cart.spec.mjs:91:78)\n    at ./tests\\cart.spec.mjs:196:5"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:32.720Z",
+                      "startTime": "2026-10-23T13:41:54.127Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -730,7 +730,7 @@
                       "errorLocation": {
                         "file": "./tests\\cart.spec.mjs",
                         "column": 78,
-                        "line": 75
+                        "line": 91
                       }
                     }
                   ],
@@ -739,7 +739,7 @@
               ],
               "id": "a04caecb971887a91a24-2fa1c936a48e61a4108f",
               "file": "cart.spec.mjs",
-              "line": 177,
+              "line": 193,
               "column": 3
             },
             {
@@ -758,31 +758,31 @@
                       "workerIndex": 7,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4837,
+                      "duration": 4994,
                       "error": {
                         "message": "Error: FR-07 / FR-24: deleting requires a confirmation dialog\n\nFR-07 / FR-24: deleting requires a confirmation dialog\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate",
-                        "stack": "Error: FR-07 / FR-24: deleting requires a confirmation dialog\n\nFR-07 / FR-24: deleting requires a confirmation dialog\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate\n    at remove (./tests\\cart.spec.mjs:75:78)\n    at ./tests\\cart.spec.mjs:188:5",
+                        "stack": "Error: FR-07 / FR-24: deleting requires a confirmation dialog\n\nFR-07 / FR-24: deleting requires a confirmation dialog\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate\n    at remove (./tests\\cart.spec.mjs:91:78)\n    at ./tests\\cart.spec.mjs:204:5",
                         "location": {
                           "file": "./tests\\cart.spec.mjs",
                           "column": 78,
-                          "line": 75
+                          "line": 91
                         },
-                        "snippet": "  73 |   if (requireConfirmation) {\n  74 |     await expect.poll(async () => nativeType === 'confirm' || await dialog.isVisible(),\n> 75 |       { message: 'FR-07 / FR-24: deleting requires a confirmation dialog' }).toBe(true);\n     |                                                                              ^\n  76 |   }\n  77 |   if (await dialog.isVisible()) {\n  78 |     await dialog.getByRole('button', { name: accept ? /^(Xóa|Xác nhận|Đồng ý|OK)$/i : /^(Hủy|Cancel)$/i }).click();"
+                        "snippet": "  89 |   if (requireConfirmation) {\n  90 |     await expect.poll(async () => nativeType === 'confirm' || await dialog.isVisible(),\n> 91 |       { message: 'FR-07 / FR-24: deleting requires a confirmation dialog' }).toBe(true);\n     |                                                                              ^\n  92 |   }\n  93 |   if (await dialog.isVisible()) {\n  94 |     await dialog.getByRole('button', { name: accept ? /^(Xóa|Xác nhận|Đồng ý|OK)$/i : /^(Hủy|Cancel)$/i }).click();"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "./tests\\cart.spec.mjs",
                             "column": 78,
-                            "line": 75
+                            "line": 91
                           },
-                          "message": "Error: FR-07 / FR-24: deleting requires a confirmation dialog\n\nFR-07 / FR-24: deleting requires a confirmation dialog\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate\n\n  73 |   if (requireConfirmation) {\n  74 |     await expect.poll(async () => nativeType === 'confirm' || await dialog.isVisible(),\n> 75 |       { message: 'FR-07 / FR-24: deleting requires a confirmation dialog' }).toBe(true);\n     |                                                                              ^\n  76 |   }\n  77 |   if (await dialog.isVisible()) {\n  78 |     await dialog.getByRole('button', { name: accept ? /^(Xóa|Xác nhận|Đồng ý|OK)$/i : /^(Hủy|Cancel)$/i }).click();\n    at remove (./tests\\cart.spec.mjs:75:78)\n    at ./tests\\cart.spec.mjs:188:5"
+                          "message": "Error: FR-07 / FR-24: deleting requires a confirmation dialog\n\nFR-07 / FR-24: deleting requires a confirmation dialog\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate\n\n  89 |   if (requireConfirmation) {\n  90 |     await expect.poll(async () => nativeType === 'confirm' || await dialog.isVisible(),\n> 91 |       { message: 'FR-07 / FR-24: deleting requires a confirmation dialog' }).toBe(true);\n     |                                                                              ^\n  92 |   }\n  93 |   if (await dialog.isVisible()) {\n  94 |     await dialog.getByRole('button', { name: accept ? /^(Xóa|Xác nhận|Đồng ý|OK)$/i : /^(Hủy|Cancel)$/i }).click();\n    at remove (./tests\\cart.spec.mjs:91:78)\n    at ./tests\\cart.spec.mjs:204:5"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:38.629Z",
+                      "startTime": "2026-10-23T13:42:00.023Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -804,7 +804,7 @@
                       "errorLocation": {
                         "file": "./tests\\cart.spec.mjs",
                         "column": 78,
-                        "line": 75
+                        "line": 91
                       }
                     }
                   ],
@@ -813,7 +813,7 @@
               ],
               "id": "a04caecb971887a91a24-2b1a7c995be2babf63ba",
               "file": "cart.spec.mjs",
-              "line": 185,
+              "line": 201,
               "column": 3
             },
             {
@@ -832,12 +832,12 @@
                       "workerIndex": 8,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 822,
+                      "duration": 799,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:44.530Z",
+                      "startTime": "2026-10-23T13:42:06.099Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -847,7 +847,7 @@
               ],
               "id": "a04caecb971887a91a24-106229cfb16ed464808a",
               "file": "cart.spec.mjs",
-              "line": 194,
+              "line": 210,
               "column": 3
             },
             {
@@ -866,12 +866,12 @@
                       "workerIndex": 8,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 615,
+                      "duration": 713,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:45.598Z",
+                      "startTime": "2026-10-23T13:42:07.145Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -881,7 +881,7 @@
               ],
               "id": "a04caecb971887a91a24-aba5a351d61e433fba47",
               "file": "cart.spec.mjs",
-              "line": 203,
+              "line": 219,
               "column": 3
             },
             {
@@ -900,12 +900,12 @@
                       "workerIndex": 8,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 771,
+                      "duration": 786,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:46.226Z",
+                      "startTime": "2026-10-23T13:42:07.873Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -915,7 +915,7 @@
               ],
               "id": "a04caecb971887a91a24-59024a603318892d647b",
               "file": "cart.spec.mjs",
-              "line": 211,
+              "line": 227,
               "column": 3
             },
             {
@@ -934,31 +934,31 @@
                       "workerIndex": 8,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4590,
+                      "duration": 4544,
                       "error": {
                         "message": "Error: expect(locator).toContainText(expected) failed\n\nLocator: locator('header a[href=\"/cart\"]')\nExpected pattern: /\\b1\\b/\nReceived string:  \"Giỏ hàng\"\nTimeout: 4000ms\n\nCall log:\n  - Expect \"toContainText\" with timeout 4000ms\n  - waiting for locator('header a[href=\"/cart\"]')\n    12 × locator resolved to <a href=\"/cart\" data-discover=\"true\" class=\"hover:underline\">Giỏ hàng</a>\n       - unexpected value \"Giỏ hàng\"\n",
-                        "stack": "Error: expect(locator).toContainText(expected) failed\n\nLocator: locator('header a[href=\"/cart\"]')\nExpected pattern: /\\b1\\b/\nReceived string:  \"Giỏ hàng\"\nTimeout: 4000ms\n\nCall log:\n  - Expect \"toContainText\" with timeout 4000ms\n  - waiting for locator('header a[href=\"/cart\"]')\n    12 × locator resolved to <a href=\"/cart\" data-discover=\"true\" class=\"hover:underline\">Giỏ hàng</a>\n       - unexpected value \"Giỏ hàng\"\n\n    at ./tests\\cart.spec.mjs:226:34",
+                        "stack": "Error: expect(locator).toContainText(expected) failed\n\nLocator: locator('header a[href=\"/cart\"]')\nExpected pattern: /\\b1\\b/\nReceived string:  \"Giỏ hàng\"\nTimeout: 4000ms\n\nCall log:\n  - Expect \"toContainText\" with timeout 4000ms\n  - waiting for locator('header a[href=\"/cart\"]')\n    12 × locator resolved to <a href=\"/cart\" data-discover=\"true\" class=\"hover:underline\">Giỏ hàng</a>\n       - unexpected value \"Giỏ hàng\"\n\n    at ./tests\\cart.spec.mjs:242:34",
                         "location": {
                           "file": "./tests\\cart.spec.mjs",
                           "column": 34,
-                          "line": 226
+                          "line": 242
                         },
-                        "snippet": "  224 |     await home(page);\n  225 |     await addFromHome(page, products[0]);\n> 226 |     await expect(cartLink(page)).toContainText(/\\b1\\b/);\n      |                                  ^\n  227 |     await addFromHome(page, products[1]);\n  228 |     await expect(cartLink(page)).toContainText(/\\b2\\b/);\n  229 |     await openCart(page);"
+                        "snippet": "  240 |     await home(page);\n  241 |     await addFromHome(page, products[0]);\n> 242 |     await expect(cartLink(page)).toContainText(/\\b1\\b/);\n      |                                  ^\n  243 |     await addFromHome(page, products[1]);\n  244 |     await expect(cartLink(page)).toContainText(/\\b2\\b/);\n  245 |     await openCart(page);"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "./tests\\cart.spec.mjs",
                             "column": 34,
-                            "line": 226
+                            "line": 242
                           },
-                          "message": "Error: expect(locator).toContainText(expected) failed\n\nLocator: locator('header a[href=\"/cart\"]')\nExpected pattern: /\\b1\\b/\nReceived string:  \"Giỏ hàng\"\nTimeout: 4000ms\n\nCall log:\n  - Expect \"toContainText\" with timeout 4000ms\n  - waiting for locator('header a[href=\"/cart\"]')\n    12 × locator resolved to <a href=\"/cart\" data-discover=\"true\" class=\"hover:underline\">Giỏ hàng</a>\n       - unexpected value \"Giỏ hàng\"\n\n\n  224 |     await home(page);\n  225 |     await addFromHome(page, products[0]);\n> 226 |     await expect(cartLink(page)).toContainText(/\\b1\\b/);\n      |                                  ^\n  227 |     await addFromHome(page, products[1]);\n  228 |     await expect(cartLink(page)).toContainText(/\\b2\\b/);\n  229 |     await openCart(page);\n    at ./tests\\cart.spec.mjs:226:34"
+                          "message": "Error: expect(locator).toContainText(expected) failed\n\nLocator: locator('header a[href=\"/cart\"]')\nExpected pattern: /\\b1\\b/\nReceived string:  \"Giỏ hàng\"\nTimeout: 4000ms\n\nCall log:\n  - Expect \"toContainText\" with timeout 4000ms\n  - waiting for locator('header a[href=\"/cart\"]')\n    12 × locator resolved to <a href=\"/cart\" data-discover=\"true\" class=\"hover:underline\">Giỏ hàng</a>\n       - unexpected value \"Giỏ hàng\"\n\n\n  240 |     await home(page);\n  241 |     await addFromHome(page, products[0]);\n> 242 |     await expect(cartLink(page)).toContainText(/\\b1\\b/);\n      |                                  ^\n  243 |     await addFromHome(page, products[1]);\n  244 |     await expect(cartLink(page)).toContainText(/\\b2\\b/);\n  245 |     await openCart(page);\n    at ./tests\\cart.spec.mjs:242:34"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:47.011Z",
+                      "startTime": "2026-10-23T13:42:08.677Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -980,7 +980,7 @@
                       "errorLocation": {
                         "file": "./tests\\cart.spec.mjs",
                         "column": 34,
-                        "line": 226
+                        "line": 242
                       }
                     }
                   ],
@@ -989,7 +989,7 @@
               ],
               "id": "a04caecb971887a91a24-ff51420109595ebe5a22",
               "file": "cart.spec.mjs",
-              "line": 222,
+              "line": 238,
               "column": 3
             },
             {
@@ -1008,31 +1008,31 @@
                       "workerIndex": 9,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4753,
+                      "duration": 4754,
                       "error": {
                         "message": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })\nExpected: 1\nReceived: 0\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveCount\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })\n    12 × locator resolved to 0 elements\n       - unexpected value \"0\"\n",
-                        "stack": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })\nExpected: 1\nReceived: 0\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveCount\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })\n    12 × locator resolved to 0 elements\n       - unexpected value \"0\"\n\n    at ./tests\\cart.spec.mjs:241:45",
+                        "stack": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })\nExpected: 1\nReceived: 0\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveCount\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })\n    12 × locator resolved to 0 elements\n       - unexpected value \"0\"\n\n    at ./tests\\cart.spec.mjs:257:45",
                         "location": {
                           "file": "./tests\\cart.spec.mjs",
                           "column": 45,
-                          "line": 241
+                          "line": 257
                         },
-                        "snippet": "  239 |     await main(page).getByRole('button', { name: 'Thêm vào giỏ hàng', exact: true }).click();\n  240 |     await openCart(page);\n> 241 |     await expect(rowFor(page, products[0])).toHaveCount(1);\n      |                                             ^\n  242 |     await expectQuantity(rowFor(page, products[0]), 3);\n  243 |     await expectMoney(totalAmount(page), Number(products[0].price) * 3);\n  244 |   });"
+                        "snippet": "  255 |     await main(page).getByRole('button', { name: 'Thêm vào giỏ hàng', exact: true }).click();\n  256 |     await openCart(page);\n> 257 |     await expect(rowFor(page, products[0])).toHaveCount(1);\n      |                                             ^\n  258 |     await expectQuantity(rowFor(page, products[0]), 3);\n  259 |     await expectMoney(totalAmount(page), Number(products[0].price) * 3);\n  260 |   });"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "./tests\\cart.spec.mjs",
                             "column": 45,
-                            "line": 241
+                            "line": 257
                           },
-                          "message": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })\nExpected: 1\nReceived: 0\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveCount\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })\n    12 × locator resolved to 0 elements\n       - unexpected value \"0\"\n\n\n  239 |     await main(page).getByRole('button', { name: 'Thêm vào giỏ hàng', exact: true }).click();\n  240 |     await openCart(page);\n> 241 |     await expect(rowFor(page, products[0])).toHaveCount(1);\n      |                                             ^\n  242 |     await expectQuantity(rowFor(page, products[0]), 3);\n  243 |     await expectMoney(totalAmount(page), Number(products[0].price) * 3);\n  244 |   });\n    at ./tests\\cart.spec.mjs:241:45"
+                          "message": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })\nExpected: 1\nReceived: 0\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveCount\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })\n    12 × locator resolved to 0 elements\n       - unexpected value \"0\"\n\n\n  255 |     await main(page).getByRole('button', { name: 'Thêm vào giỏ hàng', exact: true }).click();\n  256 |     await openCart(page);\n> 257 |     await expect(rowFor(page, products[0])).toHaveCount(1);\n      |                                             ^\n  258 |     await expectQuantity(rowFor(page, products[0]), 3);\n  259 |     await expectMoney(totalAmount(page), Number(products[0].price) * 3);\n  260 |   });\n    at ./tests\\cart.spec.mjs:257:45"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:52.449Z",
+                      "startTime": "2026-10-23T13:42:14.151Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1054,7 +1054,7 @@
                       "errorLocation": {
                         "file": "./tests\\cart.spec.mjs",
                         "column": 45,
-                        "line": 241
+                        "line": 257
                       }
                     }
                   ],
@@ -1063,7 +1063,747 @@
               ],
               "id": "a04caecb971887a91a24-fae25f67578c5deac076",
               "file": "cart.spec.mjs",
-              "line": 234,
+              "line": 250,
+              "column": 3
+            },
+            {
+              "title": "quantity-cannot-decrease-below-one",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4752,
+                      "error": {
+                        "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(-|−|Giảm|Giảm số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(-|−|Giảm|Giảm số lượng)$/i })\n",
+                        "stack": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(-|−|Giảm|Giảm số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(-|−|Giảm|Giảm số lượng)$/i })\n\n    at ./tests\\cart.spec.mjs:266:28",
+                        "location": {
+                          "file": "./tests\\cart.spec.mjs",
+                          "column": 28,
+                          "line": 266
+                        },
+                        "snippet": "  264 |     const row = rowFor(page, products[0]);\n  265 |     const decrease = row.getByRole('button', { name: /^(-|−|Giảm|Giảm số lượng)$/i });\n> 266 |     await expect(decrease).toBeVisible();\n      |                            ^\n  267 |     if (await decrease.isEnabled()) await decrease.click();\n  268 |     await expect(row).toHaveCount(1);\n  269 |     await expectQuantity(row, 1);"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\cart.spec.mjs",
+                            "column": 28,
+                            "line": 266
+                          },
+                          "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(-|−|Giảm|Giảm số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(-|−|Giảm|Giảm số lượng)$/i })\n\n\n  264 |     const row = rowFor(page, products[0]);\n  265 |     const decrease = row.getByRole('button', { name: /^(-|−|Giảm|Giảm số lượng)$/i });\n> 266 |     await expect(decrease).toBeVisible();\n      |                            ^\n  267 |     if (await decrease.isEnabled()) await decrease.click();\n  268 |     await expect(row).toHaveCount(1);\n  269 |     await expectQuantity(row, 1);\n    at ./tests\\cart.spec.mjs:266:28"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T13:42:20.003Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-quantity-cannot-decrease-below-one\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-quantity-cannot-decrease-below-one\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-quantity-cannot-decrease-below-one\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\cart.spec.mjs",
+                        "column": 28,
+                        "line": 266
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a04caecb971887a91a24-f9925c6225512548f6c1",
+              "file": "cart.spec.mjs",
+              "line": 261,
+              "column": 3
+            },
+            {
+              "title": "reject-zero-product-quantity",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [
+                    {
+                      "type": "SRS",
+                      "description": "GH-19: FR-06; two explicit submission attempts"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4985,
+                      "error": {
+                        "message": "Error: FR-06: invalid quantity \"0\" must not add a row\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 0\nReceived: 1\nTimeout:  4000ms\n\nCall log:\n  - FR-06: invalid quantity \"0\" must not add a row with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 1 element\n       - unexpected value \"1\"\n",
+                        "stack": "Error: FR-06: invalid quantity \"0\" must not add a row\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 0\nReceived: 1\nTimeout:  4000ms\n\nCall log:\n  - FR-06: invalid quantity \"0\" must not add a row with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 1 element\n       - unexpected value \"1\"\n\n    at ./tests\\cart.spec.mjs:288:103",
+                        "location": {
+                          "file": "./tests\\cart.spec.mjs",
+                          "column": 103,
+                          "line": 288
+                        },
+                        "snippet": "  286 |       }\n  287 |       await openCart(page);\n> 288 |       await expect(rows(page), `FR-06: invalid quantity ${JSON.stringify(value)} must not add a row`).toHaveCount(0);\n      |                                                                                                       ^\n  289 |       await expect(emptyMessage(page)).toBeVisible();\n  290 |     });\n  291 |   }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\cart.spec.mjs",
+                            "column": 103,
+                            "line": 288
+                          },
+                          "message": "Error: FR-06: invalid quantity \"0\" must not add a row\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 0\nReceived: 1\nTimeout:  4000ms\n\nCall log:\n  - FR-06: invalid quantity \"0\" must not add a row with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 1 element\n       - unexpected value \"1\"\n\n\n  286 |       }\n  287 |       await openCart(page);\n> 288 |       await expect(rows(page), `FR-06: invalid quantity ${JSON.stringify(value)} must not add a row`).toHaveCount(0);\n      |                                                                                                       ^\n  289 |       await expect(emptyMessage(page)).toBeVisible();\n  290 |     });\n  291 |   }\n    at ./tests\\cart.spec.mjs:288:103"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T13:42:25.850Z",
+                      "annotations": [
+                        {
+                          "type": "SRS",
+                          "description": "GH-19: FR-06; two explicit submission attempts"
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-reject-zero-product-quantity\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-reject-zero-product-quantity\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-reject-zero-product-quantity\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\cart.spec.mjs",
+                        "column": 103,
+                        "line": 288
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a04caecb971887a91a24-0c34866926608ba5e0ab",
+              "file": "cart.spec.mjs",
+              "line": 276,
+              "column": 5
+            },
+            {
+              "title": "reject-negative-product-quantity",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [
+                    {
+                      "type": "SRS",
+                      "description": "GH-20: FR-06; two explicit submission attempts"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4888,
+                      "error": {
+                        "message": "Error: FR-06: invalid quantity \"-1\" must not add a row\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 0\nReceived: 1\nTimeout:  4000ms\n\nCall log:\n  - FR-06: invalid quantity \"-1\" must not add a row with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 1 element\n       - unexpected value \"1\"\n",
+                        "stack": "Error: FR-06: invalid quantity \"-1\" must not add a row\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 0\nReceived: 1\nTimeout:  4000ms\n\nCall log:\n  - FR-06: invalid quantity \"-1\" must not add a row with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 1 element\n       - unexpected value \"1\"\n\n    at ./tests\\cart.spec.mjs:288:103",
+                        "location": {
+                          "file": "./tests\\cart.spec.mjs",
+                          "column": 103,
+                          "line": 288
+                        },
+                        "snippet": "  286 |       }\n  287 |       await openCart(page);\n> 288 |       await expect(rows(page), `FR-06: invalid quantity ${JSON.stringify(value)} must not add a row`).toHaveCount(0);\n      |                                                                                                       ^\n  289 |       await expect(emptyMessage(page)).toBeVisible();\n  290 |     });\n  291 |   }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\cart.spec.mjs",
+                            "column": 103,
+                            "line": 288
+                          },
+                          "message": "Error: FR-06: invalid quantity \"-1\" must not add a row\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 0\nReceived: 1\nTimeout:  4000ms\n\nCall log:\n  - FR-06: invalid quantity \"-1\" must not add a row with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 1 element\n       - unexpected value \"1\"\n\n\n  286 |       }\n  287 |       await openCart(page);\n> 288 |       await expect(rows(page), `FR-06: invalid quantity ${JSON.stringify(value)} must not add a row`).toHaveCount(0);\n      |                                                                                                       ^\n  289 |       await expect(emptyMessage(page)).toBeVisible();\n  290 |     });\n  291 |   }\n    at ./tests\\cart.spec.mjs:288:103"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T13:42:31.904Z",
+                      "annotations": [
+                        {
+                          "type": "SRS",
+                          "description": "GH-20: FR-06; two explicit submission attempts"
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-reject-negative-product-quantity\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-reject-negative-product-quantity\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-reject-negative-product-quantity\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\cart.spec.mjs",
+                        "column": 103,
+                        "line": 288
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a04caecb971887a91a24-f6c9ea7a1f1bf1f64c06",
+              "file": "cart.spec.mjs",
+              "line": 276,
+              "column": 5
+            },
+            {
+              "title": "reject-fractional-product-quantity",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [
+                    {
+                      "type": "SRS",
+                      "description": "GH-21: FR-06; two explicit submission attempts"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4780,
+                      "error": {
+                        "message": "Error: FR-06: invalid quantity \"1.5\" must not add a row\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 0\nReceived: 1\nTimeout:  4000ms\n\nCall log:\n  - FR-06: invalid quantity \"1.5\" must not add a row with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 1 element\n       - unexpected value \"1\"\n",
+                        "stack": "Error: FR-06: invalid quantity \"1.5\" must not add a row\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 0\nReceived: 1\nTimeout:  4000ms\n\nCall log:\n  - FR-06: invalid quantity \"1.5\" must not add a row with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 1 element\n       - unexpected value \"1\"\n\n    at ./tests\\cart.spec.mjs:288:103",
+                        "location": {
+                          "file": "./tests\\cart.spec.mjs",
+                          "column": 103,
+                          "line": 288
+                        },
+                        "snippet": "  286 |       }\n  287 |       await openCart(page);\n> 288 |       await expect(rows(page), `FR-06: invalid quantity ${JSON.stringify(value)} must not add a row`).toHaveCount(0);\n      |                                                                                                       ^\n  289 |       await expect(emptyMessage(page)).toBeVisible();\n  290 |     });\n  291 |   }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\cart.spec.mjs",
+                            "column": 103,
+                            "line": 288
+                          },
+                          "message": "Error: FR-06: invalid quantity \"1.5\" must not add a row\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 0\nReceived: 1\nTimeout:  4000ms\n\nCall log:\n  - FR-06: invalid quantity \"1.5\" must not add a row with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 1 element\n       - unexpected value \"1\"\n\n\n  286 |       }\n  287 |       await openCart(page);\n> 288 |       await expect(rows(page), `FR-06: invalid quantity ${JSON.stringify(value)} must not add a row`).toHaveCount(0);\n      |                                                                                                       ^\n  289 |       await expect(emptyMessage(page)).toBeVisible();\n  290 |     });\n  291 |   }\n    at ./tests\\cart.spec.mjs:288:103"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T13:42:37.868Z",
+                      "annotations": [
+                        {
+                          "type": "SRS",
+                          "description": "GH-21: FR-06; two explicit submission attempts"
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-reject-fractional-product-quantity\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-reject-fractional-product-quantity\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-reject-fractional-product-quantity\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\cart.spec.mjs",
+                        "column": 103,
+                        "line": 288
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a04caecb971887a91a24-dd4d4f9150b5b0338a77",
+              "file": "cart.spec.mjs",
+              "line": 276,
+              "column": 5
+            },
+            {
+              "title": "reject-empty-product-quantity",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [
+                    {
+                      "type": "SRS",
+                      "description": "GH-22: FR-06; two explicit submission attempts"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4783,
+                      "error": {
+                        "message": "Error: FR-06: invalid quantity \"\" must not add a row\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 0\nReceived: 1\nTimeout:  4000ms\n\nCall log:\n  - FR-06: invalid quantity \"\" must not add a row with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 1 element\n       - unexpected value \"1\"\n",
+                        "stack": "Error: FR-06: invalid quantity \"\" must not add a row\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 0\nReceived: 1\nTimeout:  4000ms\n\nCall log:\n  - FR-06: invalid quantity \"\" must not add a row with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 1 element\n       - unexpected value \"1\"\n\n    at ./tests\\cart.spec.mjs:288:103",
+                        "location": {
+                          "file": "./tests\\cart.spec.mjs",
+                          "column": 103,
+                          "line": 288
+                        },
+                        "snippet": "  286 |       }\n  287 |       await openCart(page);\n> 288 |       await expect(rows(page), `FR-06: invalid quantity ${JSON.stringify(value)} must not add a row`).toHaveCount(0);\n      |                                                                                                       ^\n  289 |       await expect(emptyMessage(page)).toBeVisible();\n  290 |     });\n  291 |   }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\cart.spec.mjs",
+                            "column": 103,
+                            "line": 288
+                          },
+                          "message": "Error: FR-06: invalid quantity \"\" must not add a row\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 0\nReceived: 1\nTimeout:  4000ms\n\nCall log:\n  - FR-06: invalid quantity \"\" must not add a row with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 1 element\n       - unexpected value \"1\"\n\n\n  286 |       }\n  287 |       await openCart(page);\n> 288 |       await expect(rows(page), `FR-06: invalid quantity ${JSON.stringify(value)} must not add a row`).toHaveCount(0);\n      |                                                                                                       ^\n  289 |       await expect(emptyMessage(page)).toBeVisible();\n  290 |     });\n  291 |   }\n    at ./tests\\cart.spec.mjs:288:103"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T13:42:43.673Z",
+                      "annotations": [
+                        {
+                          "type": "SRS",
+                          "description": "GH-22: FR-06; two explicit submission attempts"
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-reject-empty-product-quantity\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-reject-empty-product-quantity\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-reject-empty-product-quantity\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\cart.spec.mjs",
+                        "column": 103,
+                        "line": 288
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a04caecb971887a91a24-41d4a1244b524d3db74e",
+              "file": "cart.spec.mjs",
+              "line": 276,
+              "column": 5
+            },
+            {
+              "title": "home-add-shows-feedback",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4650,
+                      "error": {
+                        "message": "Error: FR-06 / FR-24: adding must show a toast or update the cart badge\n\nFR-06 / FR-24: adding must show a toast or update the cart badge\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate",
+                        "stack": "Error: FR-06 / FR-24: adding must show a toast or update the cart badge\n\nFR-06 / FR-24: adding must show a toast or update the cart badge\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate\n    at expectAddFeedback (./tests\\cart.spec.mjs:76:86)\n    at ./tests\\cart.spec.mjs:297:11",
+                        "location": {
+                          "file": "./tests\\cart.spec.mjs",
+                          "column": 86,
+                          "line": 76
+                        },
+                        "snippet": "  74 |     .filter({ hasText: /đã thêm|thành công|added/i });\n  75 |   await expect.poll(async () => /\\b1\\b/.test(await cartLink(page).innerText()) || await toast.first().isVisible(),\n> 76 |     { message: 'FR-06 / FR-24: adding must show a toast or update the cart badge' }).toBe(true);\n     |                                                                                      ^\n  77 | }\n  78 |\n  79 | // Support both native confirm and an accessible custom confirmation dialog."
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\cart.spec.mjs",
+                            "column": 86,
+                            "line": 76
+                          },
+                          "message": "Error: FR-06 / FR-24: adding must show a toast or update the cart badge\n\nFR-06 / FR-24: adding must show a toast or update the cart badge\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate\n\n  74 |     .filter({ hasText: /đã thêm|thành công|added/i });\n  75 |   await expect.poll(async () => /\\b1\\b/.test(await cartLink(page).innerText()) || await toast.first().isVisible(),\n> 76 |     { message: 'FR-06 / FR-24: adding must show a toast or update the cart badge' }).toBe(true);\n     |                                                                                      ^\n  77 | }\n  78 |\n  79 | // Support both native confirm and an accessible custom confirmation dialog.\n    at expectAddFeedback (./tests\\cart.spec.mjs:76:86)\n    at ./tests\\cart.spec.mjs:297:11"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T13:42:49.487Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-home-add-shows-feedback\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-home-add-shows-feedback\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-home-add-shows-feedback\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\cart.spec.mjs",
+                        "column": 86,
+                        "line": 76
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a04caecb971887a91a24-e98f42c396b6d9208e5b",
+              "file": "cart.spec.mjs",
+              "line": 293,
+              "column": 3
+            },
+            {
+              "title": "product-detail-add-shows-feedback",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4643,
+                      "error": {
+                        "message": "Error: FR-06 / FR-24: adding must show a toast or update the cart badge\n\nFR-06 / FR-24: adding must show a toast or update the cart badge\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate",
+                        "stack": "Error: FR-06 / FR-24: adding must show a toast or update the cart badge\n\nFR-06 / FR-24: adding must show a toast or update the cart badge\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate\n    at expectAddFeedback (./tests\\cart.spec.mjs:76:86)\n    at ./tests\\cart.spec.mjs:305:11",
+                        "location": {
+                          "file": "./tests\\cart.spec.mjs",
+                          "column": 86,
+                          "line": 76
+                        },
+                        "snippet": "  74 |     .filter({ hasText: /đã thêm|thành công|added/i });\n  75 |   await expect.poll(async () => /\\b1\\b/.test(await cartLink(page).innerText()) || await toast.first().isVisible(),\n> 76 |     { message: 'FR-06 / FR-24: adding must show a toast or update the cart badge' }).toBe(true);\n     |                                                                                      ^\n  77 | }\n  78 |\n  79 | // Support both native confirm and an accessible custom confirmation dialog."
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\cart.spec.mjs",
+                            "column": 86,
+                            "line": 76
+                          },
+                          "message": "Error: FR-06 / FR-24: adding must show a toast or update the cart badge\n\nFR-06 / FR-24: adding must show a toast or update the cart badge\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate\n\n  74 |     .filter({ hasText: /đã thêm|thành công|added/i });\n  75 |   await expect.poll(async () => /\\b1\\b/.test(await cartLink(page).innerText()) || await toast.first().isVisible(),\n> 76 |     { message: 'FR-06 / FR-24: adding must show a toast or update the cart badge' }).toBe(true);\n     |                                                                                      ^\n  77 | }\n  78 |\n  79 | // Support both native confirm and an accessible custom confirmation dialog.\n    at expectAddFeedback (./tests\\cart.spec.mjs:76:86)\n    at ./tests\\cart.spec.mjs:305:11"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T13:42:55.204Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-product-detail-add-shows-feedback\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-product-detail-add-shows-feedback\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-product-detail-add-shows-feedback\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\cart.spec.mjs",
+                        "column": 86,
+                        "line": 76
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a04caecb971887a91a24-7c3027844a2620c0285b",
+              "file": "cart.spec.mjs",
+              "line": 300,
+              "column": 3
+            },
+            {
+              "title": "cart-breadcrumb-navigation",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4755,
+                      "error": {
+                        "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('navigation', { name: /breadcrumb|đường dẫn/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('navigation', { name: /breadcrumb|đường dẫn/i })\n",
+                        "stack": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('navigation', { name: /breadcrumb|đường dẫn/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('navigation', { name: /breadcrumb|đường dẫn/i })\n\n    at ./tests\\cart.spec.mjs:312:30",
+                        "location": {
+                          "file": "./tests\\cart.spec.mjs",
+                          "column": 30,
+                          "line": 312
+                        },
+                        "snippet": "  310 |     await populate(page, [products[0]]);\n  311 |     const breadcrumb = page.getByRole('navigation', { name: /breadcrumb|đường dẫn/i });\n> 312 |     await expect(breadcrumb).toBeVisible();\n      |                              ^\n  313 |     await expect(breadcrumb).toContainText(/Giỏ hàng/i);\n  314 |     const homeLink = breadcrumb.getByRole('link', { name: /Trang chủ|Home/i });\n  315 |     await homeLink.click();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\cart.spec.mjs",
+                            "column": 30,
+                            "line": 312
+                          },
+                          "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('navigation', { name: /breadcrumb|đường dẫn/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('navigation', { name: /breadcrumb|đường dẫn/i })\n\n\n  310 |     await populate(page, [products[0]]);\n  311 |     const breadcrumb = page.getByRole('navigation', { name: /breadcrumb|đường dẫn/i });\n> 312 |     await expect(breadcrumb).toBeVisible();\n      |                              ^\n  313 |     await expect(breadcrumb).toContainText(/Giỏ hàng/i);\n  314 |     const homeLink = breadcrumb.getByRole('link', { name: /Trang chủ|Home/i });\n  315 |     await homeLink.click();\n    at ./tests\\cart.spec.mjs:312:30"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T13:43:00.870Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-cart-breadcrumb-navigation\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-cart-breadcrumb-navigation\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-cart-breadcrumb-navigation\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\cart.spec.mjs",
+                        "column": 30,
+                        "line": 312
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a04caecb971887a91a24-842f52a5ba8e3c694ffe",
+              "file": "cart.spec.mjs",
+              "line": 308,
+              "column": 3
+            },
+            {
+              "title": "merge-different-requested-quantities",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4832,
+                      "error": {
+                        "message": "Error: Setup: first addition must create a row before checking merge\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })\nExpected: 1\nReceived: 0\nTimeout:  4000ms\n\nCall log:\n  - Setup: first addition must create a row before checking merge with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })\n    12 × locator resolved to 0 elements\n       - unexpected value \"0\"\n",
+                        "stack": "Error: Setup: first addition must create a row before checking merge\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })\nExpected: 1\nReceived: 0\nTimeout:  4000ms\n\nCall log:\n  - Setup: first addition must create a row before checking merge with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })\n    12 × locator resolved to 0 elements\n       - unexpected value \"0\"\n\n    at ./tests\\cart.spec.mjs:329:110",
+                        "location": {
+                          "file": "./tests\\cart.spec.mjs",
+                          "column": 110,
+                          "line": 329
+                        },
+                        "snippet": "  327 |     await main(page).getByRole('button', { name: 'Thêm vào giỏ hàng', exact: true }).click();\n  328 |     await openCart(page);\n> 329 |     await expect(rowFor(page, products[0]), 'Setup: first addition must create a row before checking merge').toHaveCount(1);\n      |                                                                                                              ^\n  330 |     await expectQuantity(rowFor(page, products[0]), 2);\n  331 |     await main(page).getByRole('link', { name: /Mua tiếp|Tiếp tục mua sắm/ }).click();\n  332 |     await openProduct(page, products[0]);"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\cart.spec.mjs",
+                            "column": 110,
+                            "line": 329
+                          },
+                          "message": "Error: Setup: first addition must create a row before checking merge\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })\nExpected: 1\nReceived: 0\nTimeout:  4000ms\n\nCall log:\n  - Setup: first addition must create a row before checking merge with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })\n    12 × locator resolved to 0 elements\n       - unexpected value \"0\"\n\n\n  327 |     await main(page).getByRole('button', { name: 'Thêm vào giỏ hàng', exact: true }).click();\n  328 |     await openCart(page);\n> 329 |     await expect(rowFor(page, products[0]), 'Setup: first addition must create a row before checking merge').toHaveCount(1);\n      |                                                                                                              ^\n  330 |     await expectQuantity(rowFor(page, products[0]), 2);\n  331 |     await main(page).getByRole('link', { name: /Mua tiếp|Tiếp tục mua sắm/ }).click();\n  332 |     await openProduct(page, products[0]);\n    at ./tests\\cart.spec.mjs:329:110"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T13:43:06.672Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-merge-different-requested-quantities\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-merge-different-requested-quantities\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\cart-Giỏ-hàng-merge-different-requested-quantities\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\cart.spec.mjs",
+                        "column": 110,
+                        "line": 329
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a04caecb971887a91a24-cf5a6ecf246e1f0553d3",
+              "file": "cart.spec.mjs",
+              "line": 321,
+              "column": 3
+            },
+            {
+              "title": "remove-middle-product-keeps-other-rows",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 924,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T13:43:12.581Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a04caecb971887a91a24-cf85e885f996db9c51ad",
+              "file": "cart.spec.mjs",
+              "line": 342,
               "column": 3
             }
           ]
@@ -1096,15 +1836,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 10,
+                      "workerIndex": 19,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 806,
+                      "duration": 580,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:58.247Z",
+                      "startTime": "2026-10-23T13:43:13.768Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1130,15 +1870,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 10,
+                      "workerIndex": 19,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 528,
+                      "duration": 537,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:59.303Z",
+                      "startTime": "2026-10-23T13:43:14.364Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1164,15 +1904,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 10,
+                      "workerIndex": 19,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 575,
+                      "duration": 630,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:13:59.845Z",
+                      "startTime": "2026-10-23T13:43:14.913Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1198,15 +1938,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 10,
+                      "workerIndex": 19,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 598,
+                      "duration": 565,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:14:00.432Z",
+                      "startTime": "2026-10-23T13:43:15.558Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1232,15 +1972,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 10,
+                      "workerIndex": 19,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 549,
+                      "duration": 731,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:14:01.043Z",
+                      "startTime": "2026-10-23T13:43:16.149Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1266,10 +2006,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 10,
+                      "workerIndex": 19,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4493,
+                      "duration": 4414,
                       "error": {
                         "message": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('form input').first()\nExpected: \"email\"\nReceived: \"text\"\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" with timeout 4000ms\n  - waiting for locator('form input').first()\n    12 × locator resolved to <input value=\"\" required=\"\" type=\"text\" class=\"w-full border p-2 rounded\"/>\n       - unexpected value \"text\"\n",
                         "stack": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('form input').first()\nExpected: \"email\"\nReceived: \"text\"\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" with timeout 4000ms\n  - waiting for locator('form input').first()\n    12 × locator resolved to <input value=\"\" required=\"\" type=\"text\" class=\"w-full border p-2 rounded\"/>\n       - unexpected value \"text\"\n\n    at ./tests\\login.spec.mjs:98:36",
@@ -1293,7 +2033,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:14:01.608Z",
+                      "startTime": "2026-10-23T13:43:16.894Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1340,10 +2080,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 11,
+                      "workerIndex": 20,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 719,
+                      "duration": 692,
                       "error": {
                         "message": "Error: FR-02 requires HTML5 email-format validation\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false",
                         "stack": "Error: FR-02 requires HTML5 email-format validation\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n    at ./tests\\login.spec.mjs:105:131",
@@ -1367,7 +2107,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:14:06.907Z",
+                      "startTime": "2026-10-23T13:43:22.141Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1414,10 +2154,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 12,
+                      "workerIndex": 21,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4489,
+                      "duration": 4515,
                       "error": {
                         "message": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('form input').nth(1)\nExpected: \"password\"\nReceived: \"text\"\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" with timeout 4000ms\n  - waiting for locator('form input').nth(1)\n    12 × locator resolved to <input value=\"\" required=\"\" type=\"text\" class=\"w-full border p-2 rounded\"/>\n       - unexpected value \"text\"\n",
                         "stack": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('form input').nth(1)\nExpected: \"password\"\nReceived: \"text\"\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" with timeout 4000ms\n  - waiting for locator('form input').nth(1)\n    12 × locator resolved to <input value=\"\" required=\"\" type=\"text\" class=\"w-full border p-2 rounded\"/>\n       - unexpected value \"text\"\n\n    at ./tests\\login.spec.mjs:111:39",
@@ -1441,7 +2181,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:14:08.623Z",
+                      "startTime": "2026-10-23T13:43:23.874Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1488,10 +2228,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 13,
+                      "workerIndex": 22,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 1134,
+                      "duration": 1156,
                       "error": {
                         "message": "Error: FR-02: two failures must not lock the account\n\nexpect(received).toBeTruthy()\n\nReceived: false",
                         "stack": "Error: FR-02: two failures must not lock the account\n\nexpect(received).toBeTruthy()\n\nReceived: false\n    at ./tests\\login.spec.mjs:119:96",
@@ -1515,7 +2255,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:14:14.117Z",
+                      "startTime": "2026-10-23T13:43:29.399Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1562,15 +2302,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 14,
+                      "workerIndex": 23,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1522,
+                      "duration": 1281,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:14:16.343Z",
+                      "startTime": "2026-10-23T13:43:31.652Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1596,10 +2336,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 14,
+                      "workerIndex": 23,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 32253,
+                      "duration": 32220,
                       "error": {
                         "message": "Error: FR-02: lock must expire after 30 seconds\n\nexpect(received).toBeTruthy()\n\nReceived: false",
                         "stack": "Error: FR-02: lock must expire after 30 seconds\n\nexpect(received).toBeTruthy()\n\nReceived: false\n    at ./tests\\login.spec.mjs:137:91",
@@ -1623,7 +2363,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:14:18.107Z",
+                      "startTime": "2026-10-23T13:43:33.207Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1670,15 +2410,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 15,
+                      "workerIndex": 24,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2232,
+                      "duration": 2096,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:14:51.176Z",
+                      "startTime": "2026-10-23T13:44:06.316Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1704,10 +2444,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 15,
+                      "workerIndex": 24,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 496,
+                      "duration": 539,
                       "error": {
                         "message": "Error: FR-22: required labels missing *\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"Username\",\n+   \"Mật khẩu\",\n+ ]",
                         "stack": "Error: FR-22: required labels missing *\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"Username\",\n+   \"Mật khẩu\",\n+ ]\n    at ./tests\\login.spec.mjs:158:94",
@@ -1731,7 +2471,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:14:53.651Z",
+                      "startTime": "2026-10-23T13:44:08.653Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1778,10 +2518,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 16,
+                      "workerIndex": 25,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 719,
+                      "duration": 845,
                       "error": {
                         "message": "Error: FR-22: error must appear above the submit button\n\nexpect(received).toBeLessThanOrEqual(expected)\n\nExpected: <= 425\nReceived:    565",
                         "stack": "Error: FR-22: error must appear above the submit button\n\nexpect(received).toBeLessThanOrEqual(expected)\n\nExpected: <= 425\nReceived:    565\n    at ./tests\\login.spec.mjs:168:94",
@@ -1805,7 +2545,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-23T13:14:54.969Z",
+                      "startTime": "2026-10-23T13:44:10.057Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1846,11 +2586,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-23T13:12:52.742Z",
-    "duration": 123669.95,
-    "expected": 14,
+    "startTime": "2026-10-23T13:41:13.848Z",
+    "duration": 177749.666,
+    "expected": 15,
     "skipped": 0,
-    "unexpected": 17,
+    "unexpected": 26,
     "flaky": 0
   }
 }

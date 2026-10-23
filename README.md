@@ -4,7 +4,7 @@ Phạm vi hiện tại: **đăng nhập FR-02, form login FR-22, giỏ hàng FR-
 
 - [`skills/playwright-cli/SKILL.md`](skills/playwright-cli/SKILL.md): skill Microsoft dùng để khảo sát và hỗ trợ AI sinh test.
 - [`tests/login.spec.mjs`](tests/login.spec.mjs): toàn bộ fixture, helper và test đăng nhập trong một file.
-- [`tests/cart.spec.mjs`](tests/cart.spec.mjs): fixture, helper và 17 test giỏ hàng, mỗi ca dùng context mới.
+- [`tests/cart.spec.mjs`](tests/cart.spec.mjs): fixture, helper và 27 test giỏ hàng, mỗi ca dùng context mới.
 - [`report/REPORT.md`](report/REPORT.md): kết quả lần chạy gần nhất, được đưa lên GitHub khi commit/push.
 - [`report/results.json`](report/results.json): kết quả máy đọc được của cùng lượt chạy.
 
@@ -93,7 +93,7 @@ HTTP status cụ thể, text lỗi, `localStorage.token` và selector fallback c
 
 ## 5. Kế hoạch test giỏ hàng
 
-Khảo sát giao diện thật bằng `skills/playwright-cli/SKILL.md`. Mỗi ca có context trình duyệt riêng; fixture chỉ đọc API sản phẩm thật và chọn hai sản phẩm có giá nguyên dương. Thêm/xóa/điều hướng đều qua UI, không mock API hoặc gán trạng thái giỏ hàng. Không yêu cầu đăng nhập để kiểm thử FR-07.
+Khảo sát giao diện thật bằng `skills/playwright-cli/SKILL.md`. Mỗi ca có context trình duyệt riêng; fixture chỉ đọc API sản phẩm thật và chọn ba sản phẩm có giá nguyên dương. Các ca thông thường dùng hai sản phẩm đầu; ca xóa dòng giữa dùng cả ba. Thêm/xóa/điều hướng đều qua UI, không mock API hoặc gán trạng thái giỏ hàng. Không yêu cầu đăng nhập để kiểm thử FR-07.
 
 | ID | Test | Expected chính | Nguồn |
 |---|---|---|---|
@@ -114,10 +114,24 @@ Khảo sát giao diện thật bằng `skills/playwright-cli/SKILL.md`. Mỗi ca
 | GH-15 | `continue-shopping-retains-cart` | Mua tiếp về Home, thêm hàng khác và giữ sản phẩm cũ. | FR-07 |
 | GH-16 | `cart-badge-updates` | Badge lần lượt 1, 2, 1 khi thêm hai sản phẩm khác nhau rồi xóa một. | FR-23 |
 | GH-17 | `product-detail-add-on-first-click` | Chi tiết sản phẩm: nhập 3, bấm thêm một lần thì giỏ có số lượng 3. | FR-06/FR-07 |
+| GH-18 | `quantity-cannot-decrease-below-one` | Nút - ở mức 1 bị vô hiệu hóa hoặc không giảm số lượng; tổng tiền giữ nguyên. | Áp dụng giới hạn FR-06 cho nút FR-07 |
+| GH-19 | `reject-zero-product-quantity` | Nhập 0 rồi thử thêm hai lần: không có dòng hàng. | FR-06 |
+| GH-20 | `reject-negative-product-quantity` | Nhập -1 rồi thử thêm hai lần: không có dòng hàng. | FR-06 |
+| GH-21 | `reject-fractional-product-quantity` | Nhập 1.5 rồi thử thêm hai lần: không tự cắt thành 1 để thêm hàng. | FR-06 |
+| GH-22 | `reject-empty-product-quantity` | Để trống số lượng rồi thử thêm hai lần: không thêm dòng hàng/NaN. | FR-06 |
+| GH-23 | `home-add-shows-feedback` | Thêm ở Home có toast thành công hoặc badge chuyển thành 1. | FR-24 |
+| GH-24 | `product-detail-add-shows-feedback` | Bấm thêm lần đầu ở chi tiết có toast thành công hoặc badge chuyển thành 1. | FR-06/FR-24 |
+| GH-25 | `cart-breadcrumb-navigation` | Breadcrumb nhận diện Giỏ hàng, có link về Home; quay lại vẫn giữ hàng. | FR-23 |
+| GH-26 | `merge-different-requested-quantities` | Thêm 2 rồi thêm 3 cùng sản phẩm: một dòng số lượng 5, tiền đúng. | FR-06/FR-07 |
+| GH-27 | `remove-middle-product-keeps-other-rows` | Xóa dòng giữa trong ba sản phẩm: giữ đúng hai dòng còn lại, số lượng và tổng tiền đúng. | FR-07 |
 
 GH-04–16 dùng nút thêm tại Home để kiểm tra giỏ hàng độc lập với lỗi lần bấm đầu ở trang chi tiết (GH-17). GH-13/14 chấp nhận xóa trực tiếp để kiểm tra kết quả xóa; yêu cầu dialog được kiểm tra riêng ở GH-11/12. Helper xác nhận hỗ trợ native confirm hoặc dialog có role và nút tiếng Việt/OK/Cancel. Selector, cấu trúc bảng và định dạng tiền là hợp đồng UI khảo sát; không đổi expected nghiệp vụ để làm xanh.
 
-Phạm vi này chưa bao phủ thanh toán FR-08, lưu giỏ sau reload, mọi biến thể số lượng đầu vào, breadcrumb hay mọi hình thức feedback. SRS không quy định lưu giỏ qua reload; test dùng điều hướng nội bộ để giữ giỏ trong phiên. Một ca fail ở checkpoint đầu chưa kiểm chứng các assertion phía sau.
+GH-19–22 thử thêm hai lần để lỗi bỏ qua lần bấm đầu không tạo kết quả pass giả cho dữ liệu không hợp lệ. Nếu nút thêm bị disabled thì không ép click. GH-26 kiểm tra điều kiện thiết lập số lượng 2 trước khi thử gộp; lỗi thêm lần đầu GH-17 có thể chặn ca này trước checkpoint gộp. GH-27 chấp nhận xóa trực tiếp như GH-13/14 để kiểm tra đúng dòng độc lập với dialog. GH-18 diễn giải giới hạn tối thiểu 1 ở FR-06 cho giỏ hàng; FR-07 không mô tả riêng hành vi nút - tại mức 1.
+
+Feedback được nhận diện qua badge trong link giỏ hàng hoặc toast có role status/alert hay thư viện Toastify/Sonner và nội dung thành công. Breadcrumb dùng navigation có accessible name Breadcrumb/Đường dẫn. Đây là hợp đồng selector của bộ test; cần cập nhật selector nếu UI dùng một cấu trúc tương đương khác.
+
+Phạm vi này chưa bao phủ thanh toán FR-08, lưu giỏ sau reload hoặc mọi biến thể số lượng đầu vào. SRS không quy định lưu giỏ qua reload; test dùng điều hướng nội bộ để giữ giỏ trong phiên. Một ca fail ở checkpoint đầu chưa kiểm chứng các assertion phía sau.
 
 ## 6. Xem report
 

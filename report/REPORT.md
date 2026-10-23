@@ -1,7 +1,7 @@
 # Kết quả chạy test EShop
 
-- Bắt đầu: 2026-10-23 20:12:52 (UTC+07:00).
-- Thời gian: 123.67 giây.
+- Bắt đầu: 2026-10-23 20:41:13 (UTC+07:00).
+- Thời gian: 177.75 giây.
 - Trạng thái runner: **failed**.
 - Trình duyệt cấu hình: chrome.
 - SUT: [ttbhanh/eshop-sut](https://github.com/ttbhanh/eshop-sut).
@@ -11,48 +11,58 @@
 
 | Số ca được chọn | Pass | Fail | Timeout | Skip | Interrupted | Chưa chạy | Số lần thực thi |
 |---:|---:|---:|---:|---:|---:|---:|---:|
-| 31 | 14 | 17 | 0 | 0 | 0 | 0 | 31 |
+| 41 | 15 | 26 | 0 | 0 | 0 | 0 | 41 |
 
 | Chức năng | Ca | Pass | Fail/Timeout | Skip/Interrupted/Chưa chạy |
 |---|---:|---:|---:|---:|
-| Giỏ hàng | 17 | 7 | 10 | 0 |
+| Giỏ hàng | 27 | 8 | 19 | 0 |
 | Đăng nhập | 14 | 7 | 7 | 0 |
 
 ## Từng test case
 
 | # | Chức năng | Test case | Kết quả | Giây | Vị trí source |
 |---:|---|---|---|---:|---|
-| 1 | Giỏ hàng | empty-cart-message | PASS | 0.65 | tests/cart.spec.mjs:83 |
-| 2 | Giỏ hàng | empty-cart-illustration | FAIL | 4.46 | tests/cart.spec.mjs:91 |
-| 3 | Giỏ hàng | empty-cart-continue-shopping | PASS | 0.74 | tests/cart.spec.mjs:98 |
-| 4 | Giỏ hàng | add-product-from-home | PASS | 0.63 | tests/cart.spec.mjs:106 |
-| 5 | Giỏ hàng | cart-column-headings | FAIL | 4.63 | tests/cart.spec.mjs:116 |
-| 6 | Giỏ hàng | merge-duplicate-product | FAIL | 4.77 | tests/cart.spec.mjs:122 |
-| 7 | Giỏ hàng | sum-distinct-products | PASS | 0.75 | tests/cart.spec.mjs:135 |
-| 8 | Giỏ hàng | total-label | FAIL | 4.63 | tests/cart.spec.mjs:144 |
-| 9 | Giỏ hàng | increase-quantity | FAIL | 4.77 | tests/cart.spec.mjs:151 |
-| 10 | Giỏ hàng | decrease-quantity | FAIL | 4.71 | tests/cart.spec.mjs:163 |
-| 11 | Giỏ hàng | cancel-product-removal | FAIL | 4.81 | tests/cart.spec.mjs:177 |
-| 12 | Giỏ hàng | confirm-product-removal | FAIL | 4.84 | tests/cart.spec.mjs:185 |
-| 13 | Giỏ hàng | remove-row-recalculates-total | PASS | 0.82 | tests/cart.spec.mjs:194 |
-| 14 | Giỏ hàng | remove-last-product-shows-empty-state | PASS | 0.61 | tests/cart.spec.mjs:203 |
-| 15 | Giỏ hàng | continue-shopping-retains-cart | PASS | 0.77 | tests/cart.spec.mjs:211 |
-| 16 | Giỏ hàng | cart-badge-updates | FAIL | 4.59 | tests/cart.spec.mjs:222 |
-| 17 | Giỏ hàng | product-detail-add-on-first-click | FAIL | 4.75 | tests/cart.spec.mjs:234 |
-| 18 | Đăng nhập | valid-login | PASS | 0.81 | tests/login.spec.mjs:47 |
-| 19 | Đăng nhập | reject-wrong-password | PASS | 0.53 | tests/login.spec.mjs:57 |
-| 20 | Đăng nhập | reject-unknown-email | PASS | 0.57 | tests/login.spec.mjs:62 |
-| 21 | Đăng nhập | empty-email-blocked | PASS | 0.60 | tests/login.spec.mjs:67 |
-| 22 | Đăng nhập | empty-password-blocked | PASS | 0.55 | tests/login.spec.mjs:81 |
-| 23 | Đăng nhập | email-input-type | FAIL | 4.49 | tests/login.spec.mjs:95 |
-| 24 | Đăng nhập | malformed-email-validation | FAIL | 0.72 | tests/login.spec.mjs:101 |
-| 25 | Đăng nhập | password-masking | FAIL | 4.49 | tests/login.spec.mjs:108 |
-| 26 | Đăng nhập | not-locked-after-two-failures | FAIL | 1.13 | tests/login.spec.mjs:114 |
-| 27 | Đăng nhập | locked-after-three-failures | PASS | 1.52 | tests/login.spec.mjs:123 |
-| 28 | Đăng nhập | lock-expires-after-thirty-seconds | FAIL | 32.25 | tests/login.spec.mjs:131 |
-| 29 | Đăng nhập | success-breaks-failure-streak | PASS | 2.23 | tests/login.spec.mjs:141 |
-| 30 | Đăng nhập | required-fields-have-markers | FAIL | 0.50 | tests/login.spec.mjs:153 |
-| 31 | Đăng nhập | error-above-submit | FAIL | 0.72 | tests/login.spec.mjs:161 |
+| 1 | Giỏ hàng | empty-cart-message | PASS | 0.56 | tests/cart.spec.mjs:99 |
+| 2 | Giỏ hàng | empty-cart-illustration | FAIL | 4.49 | tests/cart.spec.mjs:107 |
+| 3 | Giỏ hàng | empty-cart-continue-shopping | PASS | 0.74 | tests/cart.spec.mjs:114 |
+| 4 | Giỏ hàng | add-product-from-home | PASS | 0.59 | tests/cart.spec.mjs:122 |
+| 5 | Giỏ hàng | cart-column-headings | FAIL | 4.67 | tests/cart.spec.mjs:132 |
+| 6 | Giỏ hàng | merge-duplicate-product | FAIL | 4.83 | tests/cart.spec.mjs:138 |
+| 7 | Giỏ hàng | sum-distinct-products | PASS | 0.81 | tests/cart.spec.mjs:151 |
+| 8 | Giỏ hàng | total-label | FAIL | 4.64 | tests/cart.spec.mjs:160 |
+| 9 | Giỏ hàng | increase-quantity | FAIL | 4.76 | tests/cart.spec.mjs:167 |
+| 10 | Giỏ hàng | decrease-quantity | FAIL | 4.82 | tests/cart.spec.mjs:179 |
+| 11 | Giỏ hàng | cancel-product-removal | FAIL | 4.79 | tests/cart.spec.mjs:193 |
+| 12 | Giỏ hàng | confirm-product-removal | FAIL | 4.99 | tests/cart.spec.mjs:201 |
+| 13 | Giỏ hàng | remove-row-recalculates-total | PASS | 0.80 | tests/cart.spec.mjs:210 |
+| 14 | Giỏ hàng | remove-last-product-shows-empty-state | PASS | 0.71 | tests/cart.spec.mjs:219 |
+| 15 | Giỏ hàng | continue-shopping-retains-cart | PASS | 0.79 | tests/cart.spec.mjs:227 |
+| 16 | Giỏ hàng | cart-badge-updates | FAIL | 4.54 | tests/cart.spec.mjs:238 |
+| 17 | Giỏ hàng | product-detail-add-on-first-click | FAIL | 4.75 | tests/cart.spec.mjs:250 |
+| 18 | Giỏ hàng | quantity-cannot-decrease-below-one | FAIL | 4.75 | tests/cart.spec.mjs:261 |
+| 19 | Giỏ hàng | reject-zero-product-quantity | FAIL | 4.99 | tests/cart.spec.mjs:276 |
+| 20 | Giỏ hàng | reject-negative-product-quantity | FAIL | 4.89 | tests/cart.spec.mjs:276 |
+| 21 | Giỏ hàng | reject-fractional-product-quantity | FAIL | 4.78 | tests/cart.spec.mjs:276 |
+| 22 | Giỏ hàng | reject-empty-product-quantity | FAIL | 4.78 | tests/cart.spec.mjs:276 |
+| 23 | Giỏ hàng | home-add-shows-feedback | FAIL | 4.65 | tests/cart.spec.mjs:293 |
+| 24 | Giỏ hàng | product-detail-add-shows-feedback | FAIL | 4.64 | tests/cart.spec.mjs:300 |
+| 25 | Giỏ hàng | cart-breadcrumb-navigation | FAIL | 4.75 | tests/cart.spec.mjs:308 |
+| 26 | Giỏ hàng | merge-different-requested-quantities | FAIL | 4.83 | tests/cart.spec.mjs:321 |
+| 27 | Giỏ hàng | remove-middle-product-keeps-other-rows | PASS | 0.92 | tests/cart.spec.mjs:342 |
+| 28 | Đăng nhập | valid-login | PASS | 0.58 | tests/login.spec.mjs:47 |
+| 29 | Đăng nhập | reject-wrong-password | PASS | 0.54 | tests/login.spec.mjs:57 |
+| 30 | Đăng nhập | reject-unknown-email | PASS | 0.63 | tests/login.spec.mjs:62 |
+| 31 | Đăng nhập | empty-email-blocked | PASS | 0.56 | tests/login.spec.mjs:67 |
+| 32 | Đăng nhập | empty-password-blocked | PASS | 0.73 | tests/login.spec.mjs:81 |
+| 33 | Đăng nhập | email-input-type | FAIL | 4.41 | tests/login.spec.mjs:95 |
+| 34 | Đăng nhập | malformed-email-validation | FAIL | 0.69 | tests/login.spec.mjs:101 |
+| 35 | Đăng nhập | password-masking | FAIL | 4.51 | tests/login.spec.mjs:108 |
+| 36 | Đăng nhập | not-locked-after-two-failures | FAIL | 1.16 | tests/login.spec.mjs:114 |
+| 37 | Đăng nhập | locked-after-three-failures | PASS | 1.28 | tests/login.spec.mjs:123 |
+| 38 | Đăng nhập | lock-expires-after-thirty-seconds | FAIL | 32.22 | tests/login.spec.mjs:131 |
+| 39 | Đăng nhập | success-breaks-failure-streak | PASS | 2.10 | tests/login.spec.mjs:141 |
+| 40 | Đăng nhập | required-fields-have-markers | FAIL | 0.54 | tests/login.spec.mjs:153 |
+| 41 | Đăng nhập | error-above-submit | FAIL | 0.84 | tests/login.spec.mjs:161 |
 
 ## Chi tiết lỗi
 
@@ -291,6 +301,224 @@ Call log:
 - screenshot (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-product-detail-add-on-first-click/test-failed-1.png`
 - error-context (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-product-detail-add-on-first-click/error-context.md`
 - trace (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-product-detail-add-on-first-click/trace.zip`
+
+### quantity-cannot-decrease-below-one
+
+Nhóm: Giỏ hàng. Trạng thái: **FAIL**.
+
+```text
+Error: expect(locator).toBeVisible() failed
+
+Locator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(-|−|Giảm|Giảm số lượng)$/i })
+Expected: visible
+Timeout: 4000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" with timeout 4000ms
+  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(-|−|Giảm|Giảm số lượng)$/i })
+
+```
+
+- screenshot (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-quantity-cannot-decrease-below-one/test-failed-1.png`
+- error-context (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-quantity-cannot-decrease-below-one/error-context.md`
+- trace (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-quantity-cannot-decrease-below-one/trace.zip`
+
+### reject-zero-product-quantity
+
+Nhóm: Giỏ hàng. Trạng thái: **FAIL**.
+
+```text
+Error: FR-06: invalid quantity "0" must not add a row
+
+expect(locator).toHaveCount(expected) failed
+
+Locator:  getByRole('main').locator('tbody tr')
+Expected: 0
+Received: 1
+Timeout:  4000ms
+
+Call log:
+  - FR-06: invalid quantity "0" must not add a row with timeout 4000ms
+  - waiting for getByRole('main').locator('tbody tr')
+    12 × locator resolved to 1 element
+       - unexpected value "1"
+
+```
+
+- screenshot (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-reject-zero-product-quantity/test-failed-1.png`
+- error-context (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-reject-zero-product-quantity/error-context.md`
+- trace (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-reject-zero-product-quantity/trace.zip`
+
+### reject-negative-product-quantity
+
+Nhóm: Giỏ hàng. Trạng thái: **FAIL**.
+
+```text
+Error: FR-06: invalid quantity "-1" must not add a row
+
+expect(locator).toHaveCount(expected) failed
+
+Locator:  getByRole('main').locator('tbody tr')
+Expected: 0
+Received: 1
+Timeout:  4000ms
+
+Call log:
+  - FR-06: invalid quantity "-1" must not add a row with timeout 4000ms
+  - waiting for getByRole('main').locator('tbody tr')
+    12 × locator resolved to 1 element
+       - unexpected value "1"
+
+```
+
+- screenshot (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-reject-negative-product-quantity/test-failed-1.png`
+- error-context (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-reject-negative-product-quantity/error-context.md`
+- trace (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-reject-negative-product-quantity/trace.zip`
+
+### reject-fractional-product-quantity
+
+Nhóm: Giỏ hàng. Trạng thái: **FAIL**.
+
+```text
+Error: FR-06: invalid quantity "1.5" must not add a row
+
+expect(locator).toHaveCount(expected) failed
+
+Locator:  getByRole('main').locator('tbody tr')
+Expected: 0
+Received: 1
+Timeout:  4000ms
+
+Call log:
+  - FR-06: invalid quantity "1.5" must not add a row with timeout 4000ms
+  - waiting for getByRole('main').locator('tbody tr')
+    12 × locator resolved to 1 element
+       - unexpected value "1"
+
+```
+
+- screenshot (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-reject-fractional-product-quantity/test-failed-1.png`
+- error-context (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-reject-fractional-product-quantity/error-context.md`
+- trace (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-reject-fractional-product-quantity/trace.zip`
+
+### reject-empty-product-quantity
+
+Nhóm: Giỏ hàng. Trạng thái: **FAIL**.
+
+```text
+Error: FR-06: invalid quantity "" must not add a row
+
+expect(locator).toHaveCount(expected) failed
+
+Locator:  getByRole('main').locator('tbody tr')
+Expected: 0
+Received: 1
+Timeout:  4000ms
+
+Call log:
+  - FR-06: invalid quantity "" must not add a row with timeout 4000ms
+  - waiting for getByRole('main').locator('tbody tr')
+    12 × locator resolved to 1 element
+       - unexpected value "1"
+
+```
+
+- screenshot (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-reject-empty-product-quantity/test-failed-1.png`
+- error-context (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-reject-empty-product-quantity/error-context.md`
+- trace (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-reject-empty-product-quantity/trace.zip`
+
+### home-add-shows-feedback
+
+Nhóm: Giỏ hàng. Trạng thái: **FAIL**.
+
+```text
+Error: FR-06 / FR-24: adding must show a toast or update the cart badge
+
+FR-06 / FR-24: adding must show a toast or update the cart badge
+
+expect(received).toBe(expected) // Object.is equality
+
+Expected: true
+Received: false
+
+Call Log:
+- Timeout 4000ms exceeded while waiting on the predicate
+```
+
+- screenshot (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-home-add-shows-feedback/test-failed-1.png`
+- error-context (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-home-add-shows-feedback/error-context.md`
+- trace (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-home-add-shows-feedback/trace.zip`
+
+### product-detail-add-shows-feedback
+
+Nhóm: Giỏ hàng. Trạng thái: **FAIL**.
+
+```text
+Error: FR-06 / FR-24: adding must show a toast or update the cart badge
+
+FR-06 / FR-24: adding must show a toast or update the cart badge
+
+expect(received).toBe(expected) // Object.is equality
+
+Expected: true
+Received: false
+
+Call Log:
+- Timeout 4000ms exceeded while waiting on the predicate
+```
+
+- screenshot (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-product-detail-add-shows-feedback/test-failed-1.png`
+- error-context (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-product-detail-add-shows-feedback/error-context.md`
+- trace (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-product-detail-add-shows-feedback/trace.zip`
+
+### cart-breadcrumb-navigation
+
+Nhóm: Giỏ hàng. Trạng thái: **FAIL**.
+
+```text
+Error: expect(locator).toBeVisible() failed
+
+Locator: getByRole('navigation', { name: /breadcrumb|đường dẫn/i })
+Expected: visible
+Timeout: 4000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" with timeout 4000ms
+  - waiting for getByRole('navigation', { name: /breadcrumb|đường dẫn/i })
+
+```
+
+- screenshot (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-cart-breadcrumb-navigation/test-failed-1.png`
+- error-context (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-cart-breadcrumb-navigation/error-context.md`
+- trace (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-cart-breadcrumb-navigation/trace.zip`
+
+### merge-different-requested-quantities
+
+Nhóm: Giỏ hàng. Trạng thái: **FAIL**.
+
+```text
+Error: Setup: first addition must create a row before checking merge
+
+expect(locator).toHaveCount(expected) failed
+
+Locator:  getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })
+Expected: 1
+Received: 0
+Timeout:  4000ms
+
+Call log:
+  - Setup: first addition must create a row before checking merge with timeout 4000ms
+  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) })
+    12 × locator resolved to 0 elements
+       - unexpected value "0"
+
+```
+
+- screenshot (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-merge-different-requested-quantities/test-failed-1.png`
+- error-context (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-merge-different-requested-quantities/error-context.md`
+- trace (chỉ có trên máy chạy): `../test-results/artifacts/cart-Giỏ-hàng-merge-different-requested-quantities/trace.zip`
 
 ### email-input-type
 
