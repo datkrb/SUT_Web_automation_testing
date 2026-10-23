@@ -18,13 +18,14 @@ npm.cmd ci
 npx.cmd playwright install chromium
 ```
 
-Dùng SUT có sẵn trong `D:\KI7\testing\eshop-sut`; config tự tìm qua `../../eshop-sut`. Khi đặt repo ở nơi khác, chỉ định vị trí SUT:
+Nguồn ứng dụng: [https://github.com/ttbhanh/eshop-sut](https://github.com/ttbhanh/eshop-sut). Nếu đã có bản checkout, dùng lại và đặt biến `SUT_ROOT` tới thư mục đó. Nếu chưa có, ví dụ clone bên cạnh repo test:
 
 ```powershell
-$env:SUT_ROOT = 'D:\KI7\testing\eshop-sut'
+git clone https://github.com/ttbhanh/eshop-sut.git ../eshop-sut
+$env:SUT_ROOT = (Resolve-Path '../eshop-sut').Path
 ```
 
-Nếu chưa có source SUT, clone [repo EShop](https://github.com/ttbhanh/eshop-sut) vào vị trí muốn dùng và gán `SUT_ROOT` tới thư mục đó. Nếu SUT chưa có dependency:
+Nếu SUT chưa có dependency:
 
 ```powershell
 npm.cmd install --prefix "$env:SUT_ROOT/backend"
@@ -41,19 +42,20 @@ Mở repo test trong Codex và gửi:
 
 ```text
 Đọc và làm theo skills/playwright-cli/SKILL.md.
-Dùng SUT có sẵn ở D:\KI7\testing\eshop-sut và SRS README.md của SUT.
+SUT: https://github.com/ttbhanh/eshop-sut
+Đọc SRS trong README.md của repo SUT.
 Sinh/cập nhật bộ test cho đăng nhập FR-02, giỏ hàng FR-07, thanh toán FR-08
 và kiểm tra che mật khẩu FR-22 theo kế hoạch trong README của repo test.
 Khảo sát giao diện thật bằng Playwright CLI. Lưu toàn bộ fixture, helper
 và 20 test trong tests/eshop.spec.mjs, giữ ba nhóm Đăng nhập/Giỏ hàng/Thanh toán.
-Giữ expected theo SRS, ghi rõ bug, không sửa hoặc sao chép SUT.
+Giữ expected theo SRS, ghi rõ bug; không sửa logic SUT hay đưa source SUT vào repo test.
 Kiểm chứng test và cập nhật kết quả thật; không commit/push trong lần sinh này.
 ```
 
 Hoặc giao cùng công việc qua PowerShell với Codex CLI đã đăng nhập:
 
 ```powershell
-codex exec --sandbox workspace-write 'Đọc skills/playwright-cli/SKILL.md và README.md. Dùng SUT_ROOT hoặc SUT mặc định có sẵn; khảo sát bằng Playwright CLI rồi sinh/cập nhật đúng 20 test của kế hoạch trong một file tests/eshop.spec.mjs, kèm fixture/helper bên trong. Kiểm chứng và ghi kết quả thật, không sửa hoặc sao chép SUT, không commit/push.'
+codex exec --sandbox workspace-write 'Đọc skills/playwright-cli/SKILL.md và README.md. SUT: https://github.com/ttbhanh/eshop-sut; đọc SRS README.md của repo SUT. Khảo sát bằng Playwright CLI rồi sinh/cập nhật đúng 20 test của kế hoạch trong một file tests/eshop.spec.mjs, kèm fixture/helper bên trong. Kiểm chứng và ghi kết quả thật; không sửa logic SUT hay đưa source SUT vào repo test, không commit/push.'
 ```
 
 Các bước AI thực hiện: đọc yêu cầu/kế hoạch → khảo sát qua seed test và CLI → viết test cùng assertions → rà soát và chạy kiểm chứng → phân loại fail và cập nhật README. Có thể xem lệnh CLI bằng `npx.cmd playwright cli --help`.
