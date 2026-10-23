@@ -1,0 +1,17 @@
+{
+  "name": "sut-web-automation-testing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.12.0" },
+  "scripts": {
+    "prepare:sut": "node scripts/prepare-sut.mjs",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:login": "playwright test tests/login",
+    "test:cart": "playwright test tests/cart",
+    "test:checkout": "playwright test tests/checkout",
+    "report": "playwright show-report"
+  },
+  "devDependencies": { "playwright": "1.62.1" }
+}
