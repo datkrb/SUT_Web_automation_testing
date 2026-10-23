@@ -1,5 +1,4 @@
 node_modules/
-.runtime/
 .generation/
 .playwright-cli/
 test-results/

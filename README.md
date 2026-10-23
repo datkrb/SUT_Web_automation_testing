@@ -13,18 +13,17 @@ npm.cmd ci
 npx.cmd playwright install chromium
 ```
 
-Trong workspace hiện tại `D:\KI7\testing\Seminar\SUT_Web_automation_testing`, script tự tìm SUT ở `D:\KI7\testing\eshop-sut`. Khi clone sang nơi khác, chỉ định đường dẫn tới thư mục chứa `backend` và `frontend-web`:
+Dùng trực tiếp SUT có sẵn tại `D:\KI7\testing\eshop-sut` (tự tìm qua `../../eshop-sut`). Không sao chép SUT vào repo test. Khi clone sang nơi khác, chỉ định đường dẫn tới thư mục chứa `backend` và `frontend-web`:
 
 ```powershell
 $env:SUT_ROOT = 'D:\duong-dan\eshop-sut'
-npm.cmd run prepare:sut
 ```
 
-Script tạo bản sao riêng trong `.runtime`, bỏ qua database và chuyển duy nhất cổng backend của bản sao từ 3000 sang 3010. Nếu SUT đã có `node_modules`, script sao chép dependency vào bản chạy. Nếu chưa có dependency, cài sau khi prepare:
+Nếu SUT chưa có dependency, cài ngay trong SUT có sẵn:
 
 ```powershell
-npm.cmd install --prefix .runtime/backend
-npm.cmd install --prefix .runtime/frontend-web
+npm.cmd install --prefix "$env:SUT_ROOT/backend"
+npm.cmd install --prefix "$env:SUT_ROOT/frontend-web"
 ```
 
 Chạy bộ test hoặc riêng chức năng:
@@ -44,15 +43,15 @@ npm.cmd run report
 npx.cmd playwright test tests/login/valid-login.spec.mjs --headed
 ```
 
-Playwright tự bật/tắt API `http://localhost:3010` và Web `http://localhost:5180`; hai cổng phải trống. Không cần tự mở server. Mặc định dùng Chromium đã cài; có thể dùng Chrome sẵn trên máy bằng `$env:BROWSER_CHANNEL = 'chrome'` và bỏ biến bằng `Remove-Item Env:BROWSER_CHANNEL`.
+Playwright dùng API `http://localhost:3000` và Web `http://localhost:5180`. Nếu server đã chạy trên các cổng này, Playwright dùng lại; nếu chưa, tự khởi động từ SUT có sẵn và tắt khi test xong. Không cần tự mở server. Mặc định dùng Chromium đã cài; có thể dùng Chrome sẵn trên máy bằng `$env:BROWSER_CHANNEL = 'chrome'` và bỏ biến bằng `Remove-Item Env:BROWSER_CHANNEL`.
 
-Mỗi test có browser context mới; test cần user tạo tài khoản UUID qua API thật, không dùng tài khoản cá nhân. Giỏ hàng dùng bộ nhớ React nên test đi bằng liên kết trong SPA. Các request từ UI tới API 3000 được chuyển sang 3010, không mock response. Database `.runtime` được chính SUT reset mỗi lần backend khởi động; chỉ chạy trên bản sao này.
+Mỗi test có browser context mới; test cần user tạo tài khoản UUID qua API thật, không dùng tài khoản cá nhân. Giỏ hàng dùng bộ nhớ React nên test đi bằng liên kết trong SPA. UI gọi API thật trên cổng 3000, không mock response và không có port adapter. Lưu ý cụ thể của SUT học tập: `backend/database.js` reset và seed database mỗi lần backend khởi động; khi test đăng ký/thanh toán cũng tạo dữ liệu thử nghiệm.
 
 ## Kế hoạch test và nguồn expected result
 
 Nguồn nghiệp vụ: [EShop SRS](https://github.com/ttbhanh/eshop-sut/blob/main/README.md), bản local `eshop-sut/README.md`, các mục FR-02, FR-07, FR-08 và FR-22 cho che mật khẩu. Bước thao tác/locator được khảo sát trên giao diện thật bằng CLI; expected result lấy từ SRS, không thay đổi để chấp nhận lỗi hiện có.
 
-Seed chung: browser context mới và trang `/login`; fixture port adapter như `tests/helpers/fixtures.mjs`. Ca đăng nhập có dữ liệu user mới cho mỗi test, trừ kiểm tra thuộc tính form. Mỗi ca nằm trong một file độc lập; bước đánh số trong source tương ứng kế hoạch dưới đây.
+Seed khảo sát qua CLI: browser context mới và trang `/login`. Khi chạy tự động, mỗi test có context mới và tự mở trang theo kế hoạch bên dưới. Fixture tạo user mới như `tests/helpers/fixtures.mjs`; các ca chỉ xem thuộc tính form hoặc giỏ hàng không cần user. Mỗi ca nằm trong một file độc lập; bước đánh số trong source tương ứng kế hoạch dưới đây.
 
 ### Đăng nhập
 
@@ -67,23 +66,39 @@ Seed chung: browser context mới và trang `/login`; fixture port adapter như 
 | `locked-after-three-failures.spec.mjs` | Sai 3 lần rồi nhập đúng ngay → vẫn bị khóa, không token. |
 | `lock-expires-after-thirty-seconds.spec.mjs` | Sai 3 lần, đợi 31 giây thực rồi nhập đúng → đăng nhập thành công. Đây là kiểm tra thời gian khóa, không dùng sleep để chờ UI. |
 
-HTTP 2xx/4xx, chuỗi lỗi giao diện và vị trí lưu JWT trong `localStorage.token` là hợp đồng của bản SUT được khảo sát; SRS quy định kết quả nghiệp vụ, không ấn định các chi tiết này. Bộ test không tuyên bố bao phủ toàn bộ SRS.
+### Giỏ hàng
+
+Seed: context mới, giỏ trống. Sản phẩm seed là `iPhone 15 Pro Max`, ID 1; giá kỳ vọng đọc từ API sản phẩm thật.
+
+| File trong `tests/cart/` | Bước và kết quả cần kiểm tra |
+|---|---|
+| `empty-cart.spec.mjs` | Mở giỏ mới → thông báo trống và link tiếp tục mua sắm. |
+| `add-single-product.spec.mjs` | Từ Home thêm một sản phẩm, mở giỏ bằng link → đúng một dòng, số lượng 1 và thành tiền đúng. |
+| `merge-duplicate-product.spec.mjs` | Thêm cùng sản phẩm hai lần, mở giỏ → một dòng, số lượng 2. |
+| `adjust-quantity.spec.mjs` | Có một sản phẩm → bấm + rồi - → số lượng 2 rồi 1, thành tiền tương ứng. |
+| `confirm-before-removing.spec.mjs` | Có một sản phẩm → bấm Xóa → có xác nhận; hủy thì dòng vẫn còn; xác nhận xóa thì giỏ trống. |
+| `correct-total-label.spec.mjs` | Có một sản phẩm → hiển thị nhãn chính xác `Tổng cộng` và số tiền đúng. |
+
+HTTP 2xx/4xx, chuỗi lỗi giao diện và vị trí lưu JWT trong `localStorage.token` là hợp đồng của bản SUT được khảo sát; SRS quy định kết quả nghiệp vụ, không ấn định các chi tiết này. Bộ test không tuyên bố bao phủ toàn bộ SRS. Controls +/- thiếu trong SUT được giữ thành lỗi yêu cầu; chưa có giao diện để xác minh locator sau khi SUT bổ sung controls đó.
 
 ## Kết quả kiểm chứng local (2026-10-23)
 
-Chạy bằng Chrome, Playwright 1.62.1 trên bản SUT cô lập:
+Đã kiểm chứng bằng Chrome, Playwright 1.62.1 với SUT có sẵn tại `testing/eshop-sut`:
 
 | Chức năng | Số ca | Pass | Fail |
 |---|---:|---:|---:|
 | Đăng nhập | 8 | 4 | 4 |
+| Giỏ hàng | 6 | 2 | 4 |
 
 Bốn lỗi đăng nhập quan sát được: email và mật khẩu đều có `type=text`; tài khoản bị khóa sau mới 2 lần sai; sau 31 giây vẫn chưa mở khóa. Đây là khác biệt so với FR-02/FR-22. Những ca kiểm tra sai mật khẩu, email không tồn tại, đăng nhập đúng và trạng thái khóa sau 3 lần sai đều pass. Ca khóa sau 3 lần pass không chứng minh ngưỡng khóa đúng; ca 2 lần kiểm tra riêng ngưỡng dưới.
+
+Bốn lỗi giỏ hàng: thiếu controls +/−; xóa ngay không xác nhận; nhãn `Tổng tạm tính` thay vì `Tổng cộng`; thêm trùng tạo 2 dòng thay vì gộp. Empty state và thêm một sản phẩm có số lượng/thành tiền đúng đều pass.
 
 ## Đọc kết quả
 
 HTML report ở `playwright-report/index.html`; JSON ở `test-results/results.json`; trace và screenshot lỗi ở `test-results/artifacts/`. Lệnh có exit code 1 khi có test thất bại. Phân biệt lỗi SUT vi phạm SRS với lỗi môi trường hoặc locator. Không bỏ qua test, không đổi expected theo bug và không sửa SUT để đạt pass. Assertion sau checkpoint thất bại chưa được thực thi.
 
-Các thư mục runtime, dependency, snapshot sinh mã và report đều được Git bỏ qua. Chỉ source test, cấu hình chạy và README được đưa lên repo.
+Dependency, snapshot sinh mã và report đều được Git bỏ qua. Chỉ source test, cấu hình chạy và README được đưa lên repo.
 
 ## Skill và công cụ
 

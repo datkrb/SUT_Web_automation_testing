@@ -1,4 +1,9 @@
 import { defineConfig } from 'playwright/test';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const root = fileURLToPath(new URL('./', import.meta.url));
+const sut = path.resolve(process.env.SUT_ROOT || path.join(root, '../../eshop-sut'));
 
 export default defineConfig({
   testDir: './tests',
@@ -20,16 +25,17 @@ export default defineConfig({
   },
   webServer: [
     {
-      command: 'node .runtime/backend/server.js',
-      url: 'http://localhost:3010/api/products',
-      reuseExistingServer: false,
+      command: 'node server.js',
+      cwd: path.join(sut, 'backend'),
+      url: 'http://localhost:3000/api/products',
+      reuseExistingServer: true,
       timeout: 30000,
     },
     {
       command: 'node node_modules/vite/bin/vite.js --host localhost --port 5180 --strictPort',
-      cwd: '.runtime/frontend-web',
+      cwd: path.join(sut, 'frontend-web'),
       url: 'http://localhost:5180',
-      reuseExistingServer: false,
+      reuseExistingServer: true,
       timeout: 30000,
     },
   ],

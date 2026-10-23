@@ -1,16 +1,9 @@
 import { test as base, expect } from 'playwright/test';
 import { randomUUID } from 'node:crypto';
 
-export const API = 'http://localhost:3010/api';
+export const API = 'http://localhost:3000/api';
 export const PRODUCT = 'iPhone 15 Pro Max';
 export const test = base.extend({
-  page: async ({ page }, use) => {
-    // Forward real requests: this changes the port only, not API responses or business logic.
-    await page.route('http://localhost:3000/**', route => route.continue({
-      url: route.request().url().replace('http://localhost:3000', 'http://localhost:3010'),
-    }));
-    await use(page);
-  },
   account: async ({ request }, use) => {
     const account = { name: 'Playwright fixture', email: `pw-${randomUUID()}@example.test`, password: 'Playwright123!' };
     const response = await request.post(`${API}/register`, { data: account });
