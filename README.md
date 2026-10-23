@@ -126,7 +126,7 @@ Sản phẩm seed: `iPhone 15 Pro Max`, ID 1; giá chuẩn đọc từ API thậ
 
 ## 5. Kết quả và cách đọc report
 
-Kết quả kiểm chứng **trước khi gộp file**, ngày 2026-10-23, Chrome/Playwright 1.62.1, SUT có sẵn:
+Kết quả chạy **đủ 20 ca sau khi gộp file và thêm Markdown reporter**, ngày 2026-10-23, Chrome/Playwright 1.62.1, SUT có sẵn:
 
 | Chức năng | Ca | Pass | Fail |
 |---|---:|---:|---:|
@@ -137,10 +137,10 @@ Kết quả kiểm chứng **trước khi gộp file**, ngày 2026-10-23, Chrome
 
 Các lỗi quan sát: email/mật khẩu dùng `type=text`; khóa sau mới 2 lần sai và sau 31 giây vẫn khóa; giỏ thiếu +/−, xóa không xác nhận, sai nhãn tổng, thêm trùng thành 2 dòng; tổng checkout vẫn editable, backend lưu tổng giả `1`, thanh toán thành công chưa xóa giỏ. Không đổi expected hay skip test để làm xanh.
 
-Các số trên tổng hợp hai lượt chạy độc lập 14 ca và 6 ca, không tính lượt đầu dùng bản sao SUT. Việc gộp giữ nguyên nội dung 20 ca; kết quả kiểm chứng sau gộp được ghi bên dưới.
+Các số trên là kết quả một lượt `npm.cmd test` thực tế: bắt đầu 14:06:56 (UTC+07:00), thời gian 99,75 giây, không retry, 20 lần thực thi. Markdown reporter đã xuất đủ 20 dòng kết quả và 11 phần lỗi; số liệu khớp JSON, các link bằng chứng đều tồn tại. Các lần chạy sau tự tạo lại report theo kết quả mới.
 
-Sau khi gộp: đã đối chiếu nguyên vẹn nội dung 20 ca; Playwright nhận **20 test trong 1 file**, các npm scripts lọc đúng **8/6/6** ca. Chạy smoke `valid-login`, `add-single-product`, `order-summary`: **3/3 pass**. Không chạy lại toàn bộ 20 ca trong lần chỉ gộp file này; số 9 pass/11 fail ở bảng là kết quả trước gộp.
+Mỗi lần chạy test sẽ tự sinh **`test-results/REPORT.md`**: thời điểm/thời gian chạy, tổng pass/fail/timeout/skip, kết quả từng ca, assertion lỗi và link trace/screenshot. Đây là report kết quả thực thi, không phải báo cáo seminar. File vẫn được tạo khi test fail; không cần lệnh xuất riêng.
 
-HTML: `playwright-report/index.html`; JSON: `test-results/results.json`; trace/screenshot lỗi: `test-results/artifacts/`. Report hiển thị lượt chạy gần nhất; chạy `npm.cmd test` để tạo report chung cho 20 ca. Exit code 1 nghĩa là có test fail; đọc lỗi để phân biệt vi phạm SRS với lỗi môi trường/locator.
+HTML: `playwright-report/index.html`; JSON: `test-results/results.json`; trace/screenshot lỗi: `test-results/artifacts/`. Mỗi report phản ánh lượt chạy gần nhất; chạy `npm.cmd test` để tạo report chung cho 20 ca hoặc `npm.cmd run test:login` để chỉ report nhóm đăng nhập. Exit code 1 nghĩa là có test fail; đọc lỗi để phân biệt vi phạm SRS với lỗi môi trường/locator.
 
-Repo chỉ lưu **một file test, một file skill, README và cấu hình npm/Playwright cần chạy**. SUT, dependency, AI log và report không được commit. Nguồn công cụ: [Microsoft playwright-cli](https://github.com/microsoft/playwright-cli), [Playwright Test](https://playwright.dev/docs/writing-tests).
+Repo lưu **một file test, một file skill, README, cấu hình npm/Playwright và `markdown-reporter.mjs` để xuất kết quả**. SUT, dependency, AI log và report sinh ra không được commit. Nguồn công cụ: [Microsoft playwright-cli](https://github.com/microsoft/playwright-cli), [Playwright Test](https://playwright.dev/docs/writing-tests).

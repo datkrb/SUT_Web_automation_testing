@@ -13,7 +13,12 @@ export default defineConfig({
   retries: 0,
   timeout: 45000,
   expect: { timeout: 4000 },
-  reporter: [['list'], ['html', { open: 'never' }], ['json', { outputFile: 'test-results/results.json' }]],
+  reporter: [
+    ['list'],
+    ['html', { open: 'never' }],
+    ['json', { outputFile: 'test-results/results.json' }],
+    ['./markdown-reporter.mjs'],
+  ],
   outputDir: 'test-results/artifacts',
   use: {
     baseURL: 'http://localhost:5180',
