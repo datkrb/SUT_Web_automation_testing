@@ -1,10 +1,11 @@
-# Playwright — kiểm thử đăng nhập EShop
+# Playwright — kiểm thử đăng nhập và giỏ hàng EShop
 
-Phạm vi hiện tại: **chỉ đăng nhập FR-02 và các yêu cầu form login FR-22** của [EShop SUT](https://github.com/ttbhanh/eshop-sut). Expected result lấy từ [SRS README của SUT](https://github.com/ttbhanh/eshop-sut/blob/main/README.md).
+Phạm vi hiện tại: **đăng nhập FR-02, form login FR-22, giỏ hàng FR-07 và các yêu cầu liên quan FR-06/FR-23/FR-24** của [EShop SUT](https://github.com/ttbhanh/eshop-sut). Expected result lấy từ SRS README của bản checkout SUT đang kiểm thử.
 
 - [`skills/playwright-cli/SKILL.md`](skills/playwright-cli/SKILL.md): skill Microsoft dùng để khảo sát và hỗ trợ AI sinh test.
 - [`tests/login.spec.mjs`](tests/login.spec.mjs): toàn bộ fixture, helper và test đăng nhập trong một file.
-- [`report/REPORT.md`](report/REPORT.md): kết quả chạy login gần nhất, được đưa lên GitHub.
+- [`tests/cart.spec.mjs`](tests/cart.spec.mjs): fixture, helper và 17 test giỏ hàng, mỗi ca dùng context mới.
+- [`report/REPORT.md`](report/REPORT.md): kết quả lần chạy gần nhất, được đưa lên GitHub khi commit/push.
 - [`report/results.json`](report/results.json): kết quả máy đọc được của cùng lượt chạy.
 
 ## 1. Dùng skill để sinh test login
@@ -42,12 +43,14 @@ npm.cmd install --prefix "$env:SUT_ROOT/backend"
 npm.cmd install --prefix "$env:SUT_ROOT/frontend-web"
 ```
 
-Nếu đã có SUT/dependency thì không cần clone/cài lại; đặt `SUT_ROOT` tới thư mục SUT khi nó nằm ngoài vị trí mặc định `../../eshop-sut`. Playwright dùng trực tiếp SUT và tự khởi động API cổng **3000**, Web cổng **5180**, hoặc dùng lại server đang chạy ở các cổng đó. Không sao chép SUT vào repo này. Backend học tập reset/seed database khi khởi động; test tạo tài khoản thử nghiệm riêng.
+Nếu đã có SUT/dependency thì không cần clone/cài lại; đặt `SUT_ROOT` tới thư mục SUT khi nó nằm ngoài vị trí mặc định `../eshop-sut` (hai repo nằm cạnh nhau). Playwright dùng trực tiếp SUT và tự khởi động API cổng **3000**, Web cổng **5180**, hoặc dùng lại server đang chạy ở các cổng đó. Không sao chép SUT vào repo này. Backend học tập reset/seed database khi khởi động; test đăng nhập tạo tài khoản thử nghiệm riêng.
 
-## 3. Chạy test login
+## 3. Chạy test
 
 ```powershell
 npm.cmd run test:login
+npm.cmd run test:cart
+npm.cmd test
 ```
 
 Xem trình duyệt chạy từng bước:
@@ -63,7 +66,7 @@ npx.cmd playwright test --grep 'valid-login' --headed
 npx.cmd playwright test --list --reporter=list
 ```
 
-`npm.cmd test` cũng chỉ chạy login. Mặc định dùng Chromium đã cài; muốn dùng Chrome có sẵn thì đặt `$env:BROWSER_CHANNEL = 'chrome'` trước khi chạy. Bỏ lựa chọn này bằng `Remove-Item Env:BROWSER_CHANNEL`.
+`npm.cmd test` chạy cả login và giỏ hàng. Mặc định dùng Chromium đã cài; muốn dùng Chrome có sẵn thì đặt `$env:BROWSER_CHANNEL = 'chrome'` trước khi chạy. Bỏ lựa chọn này bằng `Remove-Item Env:BROWSER_CHANNEL`.
 
 ## 4. Kế hoạch test login
 
@@ -88,7 +91,35 @@ Seed khảo sát CLI: context mới, mở `/login`, pause qua seed test. Khi ch�
 
 HTTP status cụ thể, text lỗi, `localStorage.token` và selector fallback cho label không liên kết input là hợp đồng của bản UI/API khảo sát; SRS quyết định expected nghiệp vụ. Ca khóa chờ 31 giây thực vì kiểm tra backend, không dùng sleep để chờ UI. Không đổi expected, skip ca hay sửa SUT để làm xanh. Bộ test không tuyên bố bao phủ mọi biến thể đăng nhập; assertion sau checkpoint fail chưa được thực thi.
 
-## 5. Xem report
+## 5. Kế hoạch test giỏ hàng
+
+Khảo sát giao diện thật bằng `skills/playwright-cli/SKILL.md`. Mỗi ca có context trình duyệt riêng; fixture chỉ đọc API sản phẩm thật và chọn hai sản phẩm có giá nguyên dương. Thêm/xóa/điều hướng đều qua UI, không mock API hoặc gán trạng thái giỏ hàng. Không yêu cầu đăng nhập để kiểm thử FR-07.
+
+| ID | Test | Expected chính | Nguồn |
+|---|---|---|---|
+| GH-01 | `empty-cart-message` | Context mới có thông báo giỏ trống, không có dòng hàng/nút thanh toán. | FR-07; UI khảo sát |
+| GH-02 | `empty-cart-illustration` | Giỏ trống có icon/hình minh họa. | FR-07/FR-24 |
+| GH-03 | `empty-cart-continue-shopping` | Link tiếp tục mua sắm về danh sách sản phẩm. | FR-07 |
+| GH-04 | `add-product-from-home` | Thêm một sản phẩm: đúng tên, giá, số lượng 1 và thành tiền. | FR-07 |
+| GH-05 | `cart-column-headings` | Đủ 5 cột, nhãn đơn giá là “Đơn giá”. | FR-07 |
+| GH-06 | `merge-duplicate-product` | Thêm trùng: chỉ một dòng, số lượng và tiền cộng dồn. | FR-07 |
+| GH-07 | `sum-distinct-products` | Thành tiền từng dòng và tổng bằng giá từ API thực. | FR-07 |
+| GH-08 | `total-label` | Nhãn “Tổng cộng”, không dùng “Tổng tạm tính”. | FR-07 |
+| GH-09 | `increase-quantity` | Nút + tăng số lượng, thành tiền và tổng tiền. | FR-07 |
+| GH-10 | `decrease-quantity` | Tăng lên 3 rồi nút - giảm về 2, tiền cập nhật. | FR-07 |
+| GH-11 | `cancel-product-removal` | Có xác nhận; hủy giữ nguyên hàng và tổng tiền. | FR-07/FR-24 |
+| GH-12 | `confirm-product-removal` | Có xác nhận; đồng ý chỉ xóa dòng được chọn và tính lại tiền. | FR-07/FR-24 |
+| GH-13 | `remove-row-recalculates-total` | Xóa một trong hai sản phẩm, giữ dòng còn lại và tổng đúng. | FR-07 |
+| GH-14 | `remove-last-product-shows-empty-state` | Xóa dòng cuối chuyển về trạng thái trống. | FR-07 |
+| GH-15 | `continue-shopping-retains-cart` | Mua tiếp về Home, thêm hàng khác và giữ sản phẩm cũ. | FR-07 |
+| GH-16 | `cart-badge-updates` | Badge lần lượt 1, 2, 1 khi thêm hai sản phẩm khác nhau rồi xóa một. | FR-23 |
+| GH-17 | `product-detail-add-on-first-click` | Chi tiết sản phẩm: nhập 3, bấm thêm một lần thì giỏ có số lượng 3. | FR-06/FR-07 |
+
+GH-04–16 dùng nút thêm tại Home để kiểm tra giỏ hàng độc lập với lỗi lần bấm đầu ở trang chi tiết (GH-17). GH-13/14 chấp nhận xóa trực tiếp để kiểm tra kết quả xóa; yêu cầu dialog được kiểm tra riêng ở GH-11/12. Helper xác nhận hỗ trợ native confirm hoặc dialog có role và nút tiếng Việt/OK/Cancel. Selector, cấu trúc bảng và định dạng tiền là hợp đồng UI khảo sát; không đổi expected nghiệp vụ để làm xanh.
+
+Phạm vi này chưa bao phủ thanh toán FR-08, lưu giỏ sau reload, mọi biến thể số lượng đầu vào, breadcrumb hay mọi hình thức feedback. SRS không quy định lưu giỏ qua reload; test dùng điều hướng nội bộ để giữ giỏ trong phiên. Một ca fail ở checkpoint đầu chưa kiểm chứng các assertion phía sau.
+
+## 6. Xem report
 
 Sau mỗi lượt chạy, tự cập nhật:
 
@@ -99,6 +130,6 @@ Sau mỗi lượt chạy, tự cập nhật:
 
 Markdown và JSON trong `report/` được commit để xem trên GitHub. Screenshot/trace là bằng chứng cục bộ, đường dẫn được ghi rõ trong Markdown; chúng không phải file đã publish lên GitHub. Nếu chỉ chạy một ca, report sẽ chỉ phản ánh ca đó và ghi đè kết quả trước. Liệt kê bằng `--reporter=list` không ghi đè report.
 
-Kết quả kiểm chứng ngày 2026-10-23 bằng Chrome/Playwright 1.62.1: **14 ca, 7 pass, 7 fail**, không retry. Bảy ca fail phản ánh: type email sai; HTML5 không bắt sai định dạng; mật khẩu không che; khóa sau mới 2 lần sai; sau 31 giây vẫn khóa; nhãn bắt buộc thiếu dấu *; lỗi hiển thị dưới nút submit. Xem chi tiết và từng ca trong [report/REPORT.md](report/REPORT.md). Hai kiểm tra email cùng phát hiện một vấn đề nền tảng; 7 ca fail không có nghĩa là 7 bug độc lập.
+Kết quả thực thi và assertion lỗi của lần chạy gần nhất nằm trong [report/REPORT.md](report/REPORT.md). Không retry, không đánh dấu expected-fail hoặc skip các ca phát hiện lỗi SUT. Số ca fail không tương đương số bug độc lập; nhiều ca có thể cùng bị chặn bởi một vấn đề.
 
 JSON report dùng đường dẫn tương đối của repo thay cho đường dẫn máy cá nhân; thông tin này được ghi trong metadata. File kết quả trên GitHub là snapshot của lần kiểm chứng, chỉ thay đổi trên GitHub khi bạn commit/push kết quả chạy mới.

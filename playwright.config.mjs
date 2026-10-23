@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('./', import.meta.url));
-const sut = path.resolve(process.env.SUT_ROOT || path.join(root, '../../eshop-sut'));
+const sut = path.resolve(process.env.SUT_ROOT || path.join(root, '../eshop-sut'));
 
 export default defineConfig({
   testDir: './tests',
