@@ -9,9 +9,7 @@
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",
-    "test:login": "playwright test --grep \"Đăng nhập\"",
-    "test:cart": "playwright test --grep \"Giỏ hàng\"",
-    "test:checkout": "playwright test --grep \"Thanh toán\"",
+    "test:login": "playwright test tests/login.spec.mjs",
     "report": "playwright show-report"
   },
   "devDependencies": {

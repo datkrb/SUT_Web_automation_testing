@@ -35,8 +35,21 @@ export default class MarkdownReporter {
     this.errors.push(error);
   }
 
+  async onExit() {
+    // JSON is written by Playwright's built-in reporter in onEnd. Make project
+    // paths portable before this result is published with the Markdown report.
+    const output = path.join(root, 'report/results.json');
+    let content;
+    try { content = await fs.readFile(output, 'utf8'); }
+    catch (error) { if (error.code === 'ENOENT') return; throw error; }
+    const result = JSON.parse(JSON.stringify(JSON.parse(content), (_key, value) => typeof value === 'string' ? clean(value) : value));
+    if (result.config?.argv) result.config.argv = result.config.argv.map((value, index) => index < 2 ? path.basename(value) : value);
+    if (result.config) result.config.metadata = { ...result.config.metadata, reportPathFormat: 'Project-relative paths; CLI executable filenames only.' };
+    await fs.writeFile(output, JSON.stringify(result, null, 2) + '\n', 'utf8');
+  }
+
   async onEnd(run) {
-    const output = path.join(root, 'test-results/REPORT.md');
+    const output = path.join(root, 'report/REPORT.md');
     const rows = this.tests.map(test => ({
       test,
       result: test.results.at(-1),
@@ -85,7 +98,8 @@ export default class MarkdownReporter {
         for (const attachment of row.result?.attachments || []) {
           if (!attachment.path) continue;
           const relative = path.relative(path.dirname(output), attachment.path).replaceAll('\\', '/');
-          lines.push(`- [${cell(attachment.name)}](<${relative}>)`);
+          // Runtime artifacts stay local; publish a path, not a broken GitHub link.
+          lines.push(`- ${cell(attachment.name)} (chỉ có trên máy chạy): \`${relative}\``);
         }
       }
     }
@@ -95,7 +109,7 @@ export default class MarkdownReporter {
     }
     lines.push('', '## Giới hạn kết quả', '',
       'Report chỉ phản ánh các ca được chọn trong lần chạy này, không gộp lịch sử. Một ca fail không chứng minh tất cả checkpoints của ca đều đã được chạy. Đọc assertion và trace để phân biệt lỗi SUT với lỗi test hoặc môi trường; reporter không tự kết luận nguyên nhân.',
-      '', 'Report được ghi lại sau mỗi lần chạy, kể cả khi có test fail. JSON: [results.json](results.json). HTML: [playwright-report](../playwright-report/index.html).', '');
+      '', 'Report được ghi lại sau mỗi lần chạy, kể cả khi có test fail. JSON: [results.json](results.json). HTML cục bộ: `../playwright-report/index.html`.', '');
     await fs.mkdir(path.dirname(output), { recursive: true });
     await fs.writeFile(output, lines.join('\n'), 'utf8');
   }

@@ -16,7 +16,7 @@ export default defineConfig({
   reporter: [
     ['list'],
     ['html', { open: 'never' }],
-    ['json', { outputFile: 'test-results/results.json' }],
+    ['json', { outputFile: 'report/results.json' }],
     ['./markdown-reporter.mjs'],
   ],
   outputDir: 'test-results/artifacts',

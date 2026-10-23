@@ -1,146 +1,104 @@
-# SUT Web Automation Testing
+# Playwright — kiểm thử đăng nhập EShop
 
-Bộ test cho **đăng nhập (FR-02), giỏ hàng (FR-07), thanh toán (FR-08)** trên [EShop SUT — repo ứng dụng được kiểm thử](https://github.com/ttbhanh/eshop-sut). [SRS của SUT](https://github.com/ttbhanh/eshop-sut/blob/main/README.md) là nguồn expected result; FR-22 bổ sung yêu cầu che mật khẩu.
+Phạm vi hiện tại: **chỉ đăng nhập FR-02 và các yêu cầu form login FR-22** của [EShop SUT](https://github.com/ttbhanh/eshop-sut). Expected result lấy từ [SRS README của SUT](https://github.com/ttbhanh/eshop-sut/blob/main/README.md).
 
-Hai file chính:
+- [`skills/playwright-cli/SKILL.md`](skills/playwright-cli/SKILL.md): skill Microsoft dùng để khảo sát và hỗ trợ AI sinh test.
+- [`tests/login.spec.mjs`](tests/login.spec.mjs): toàn bộ fixture, helper và test đăng nhập trong một file.
+- [`report/REPORT.md`](report/REPORT.md): kết quả chạy login gần nhất, được đưa lên GitHub.
+- [`report/results.json`](report/results.json): kết quả máy đọc được của cùng lượt chạy.
 
-- [`skills/playwright-cli/SKILL.md`](skills/playwright-cli/SKILL.md): skill `playwright-cli` của Microsoft đã dùng để khảo sát và hỗ trợ sinh test.
-- [`tests/eshop.spec.mjs`](tests/eshop.spec.mjs): toàn bộ **20 test**, fixture và helper trong **một file**.
+## 1. Dùng skill để sinh test login
 
-## 1. Chuẩn bị môi trường
+Skill cần AI agent như Codex để đọc yêu cầu, thao tác qua Playwright CLI và bổ sung assertions. Có thể giao việc bằng prompt:
 
-Cần Node.js **22.12 trở lên**, npm, Git. Bước sinh test cần thêm AI agent có khả năng đọc file/chạy terminal, ví dụ Codex. Chạy test đã lưu chỉ cần Playwright.
+```text
+Đọc và dùng skills/playwright-cli/SKILL.md.
+SUT: https://github.com/ttbhanh/eshop-sut
+Đọc SRS README.md của SUT, mục FR-02 và FR-22 áp dụng cho form login.
+Chỉ sinh test đăng nhập theo kế hoạch trong README repo test; khảo sát giao diện
+thật bằng Playwright CLI. Lưu fixture, helper và test vào tests/login.spec.mjs.
+Giữ expected theo SRS, phân biệt lỗi test/môi trường với bug SUT.
+Không sửa logic SUT và không đưa source SUT vào repo test.
+Kiểm chứng, xuất kết quả Markdown và JSON vào report/; không commit/push tự động.
+```
+
+CLI sinh mã thao tác; AI thiết kế ca và assertions. Chạy test đã lưu không cần gọi AI. Nếu sinh lại test, đọc diff và đối chiếu SRS trước khi sử dụng. Phần review của sinh viên chưa được tự coi là hoàn tất.
+
+## 2. Cài đặt
+
+Cần Node.js **22.12 trở lên**, npm và Git. Tại thư mục repo test:
 
 ```powershell
-git clone https://github.com/datkrb/SUT_Web_automation_testing.git
-cd SUT_Web_automation_testing
 npm.cmd ci
 npx.cmd playwright install chromium
 ```
 
-Nguồn ứng dụng: [https://github.com/ttbhanh/eshop-sut](https://github.com/ttbhanh/eshop-sut). Nếu đã có bản checkout, dùng lại và đặt biến `SUT_ROOT` tới thư mục đó. Nếu chưa có, ví dụ clone bên cạnh repo test:
+Dùng bản checkout [SUT](https://github.com/ttbhanh/eshop-sut) có sẵn. Nếu chưa có, ví dụ clone bên cạnh repo test:
 
 ```powershell
 git clone https://github.com/ttbhanh/eshop-sut.git ../eshop-sut
 $env:SUT_ROOT = (Resolve-Path '../eshop-sut').Path
-```
-
-Nếu SUT chưa có dependency:
-
-```powershell
 npm.cmd install --prefix "$env:SUT_ROOT/backend"
 npm.cmd install --prefix "$env:SUT_ROOT/frontend-web"
 ```
 
-Config dùng trực tiếp source SUT, API `http://localhost:3000` và Web `http://localhost:5180`. Server trên các cổng này được dùng lại nếu đã chạy; nếu chưa, Playwright tự bật/tắt server. SUT học tập reset và seed database mỗi lần backend khởi động; các test đăng ký/thanh toán tạo dữ liệu thử nghiệm.
+Nếu đã có SUT/dependency thì không cần clone/cài lại; đặt `SUT_ROOT` tới thư mục SUT khi nó nằm ngoài vị trí mặc định `../../eshop-sut`. Playwright dùng trực tiếp SUT và tự khởi động API cổng **3000**, Web cổng **5180**, hoặc dùng lại server đang chạy ở các cổng đó. Không sao chép SUT vào repo này. Backend học tập reset/seed database khi khởi động; test tạo tài khoản thử nghiệm riêng.
 
-## 2. Dùng AI và skill để sinh bộ test
-
-Skill là hướng dẫn cho AI agent. Gõ lệnh CLI đơn lẻ không tự thiết kế đầy đủ test; AI đọc SRS, khảo sát trang bằng CLI, thu mã thao tác và bổ sung assertions. Repo kèm skill `playwright-cli` của Microsoft; chỉ đổi link tài liệu tham khảo sang GitHub để không phải chép thêm nhiều file. Có thể yêu cầu AI đọc trực tiếp đường dẫn skill, không cần cài global.
-
-Mở repo test trong Codex và gửi:
-
-```text
-Đọc và làm theo skills/playwright-cli/SKILL.md.
-SUT: https://github.com/ttbhanh/eshop-sut
-Đọc SRS trong README.md của repo SUT.
-Sinh/cập nhật bộ test cho đăng nhập FR-02, giỏ hàng FR-07, thanh toán FR-08
-và kiểm tra che mật khẩu FR-22 theo kế hoạch trong README của repo test.
-Khảo sát giao diện thật bằng Playwright CLI. Lưu toàn bộ fixture, helper
-và 20 test trong tests/eshop.spec.mjs, giữ ba nhóm Đăng nhập/Giỏ hàng/Thanh toán.
-Giữ expected theo SRS, ghi rõ bug; không sửa logic SUT hay đưa source SUT vào repo test.
-Kiểm chứng test và cập nhật kết quả thật; không commit/push trong lần sinh này.
-```
-
-Hoặc giao cùng công việc qua PowerShell với Codex CLI đã đăng nhập:
-
-```powershell
-codex exec --sandbox workspace-write 'Đọc skills/playwright-cli/SKILL.md và README.md. SUT: https://github.com/ttbhanh/eshop-sut; đọc SRS README.md của repo SUT. Khảo sát bằng Playwright CLI rồi sinh/cập nhật đúng 20 test của kế hoạch trong một file tests/eshop.spec.mjs, kèm fixture/helper bên trong. Kiểm chứng và ghi kết quả thật; không sửa logic SUT hay đưa source SUT vào repo test, không commit/push.'
-```
-
-Các bước AI thực hiện: đọc yêu cầu/kế hoạch → khảo sát qua seed test và CLI → viết test cùng assertions → rà soát và chạy kiểm chứng → phân loại fail và cập nhật README. Có thể xem lệnh CLI bằng `npx.cmd playwright cli --help`.
-
-**Sau khi sinh:** đọc diff của `tests/eshop.spec.mjs`, đối chiếu expected với SRS rồi chạy bộ test theo phần 3. Đây là [skill Microsoft playwright-cli](https://github.com/microsoft/playwright-cli/tree/main/skills/playwright-cli) đã dùng cho bộ test ban đầu. Yêu cầu gộp toàn bộ ca/helper vào một file ở prompt này được ưu tiên hơn quy ước một test mỗi file trong tài liệu tham khảo của skill. Review của AI không thay cho review của sinh viên.
-
-## 3. Chạy bộ test đã sinh
-
-```powershell
-npm.cmd test
-npm.cmd run test:headed
-```
-
-Chạy riêng từng tính năng trong cùng file:
+## 3. Chạy test login
 
 ```powershell
 npm.cmd run test:login
-npm.cmd run test:cart
-npm.cmd run test:checkout
 ```
 
-Chạy đúng một ca và mở report:
+Xem trình duyệt chạy từng bước:
+
+```powershell
+npm.cmd run test:headed
+```
+
+Chạy đúng một ca hoặc liệt kê ca:
 
 ```powershell
 npx.cmd playwright test --grep 'valid-login' --headed
-npm.cmd run report
+npx.cmd playwright test --list --reporter=list
 ```
 
-Mặc định dùng Chromium đã cài. Để dùng Chrome có sẵn:
+`npm.cmd test` cũng chỉ chạy login. Mặc định dùng Chromium đã cài; muốn dùng Chrome có sẵn thì đặt `$env:BROWSER_CHANNEL = 'chrome'` trước khi chạy. Bỏ lựa chọn này bằng `Remove-Item Env:BROWSER_CHANNEL`.
 
-```powershell
-$env:BROWSER_CHANNEL = 'chrome'
-npm.cmd test
-```
+## 4. Kế hoạch test login
 
-Bỏ lựa chọn Chrome bằng `Remove-Item Env:BROWSER_CHANNEL`. Chạy `npm test` chỉ thực thi source đã lưu, không gọi AI hay sinh test mới.
+Seed khảo sát CLI: context mới, mở `/login`, pause qua seed test. Khi chạy tự động, mỗi test có context mới; các ca cần user tạo tài khoản UUID qua API register thật để tránh dùng chung trạng thái khóa. Đây là fixture, không phải kiểm thử đăng ký.
 
-Mỗi test có context mới; tài khoản UUID được tạo qua API thật khi cần. Giỏ dùng bộ nhớ React nên điều hướng bằng link SPA sau khi thêm sản phẩm. Không mock response. Ca kiểm tra hết khóa đợi **31 giây thực** theo yêu cầu khóa 30 giây của backend; không dùng sleep để chờ UI.
+| ID | Test | Expected chính | Nguồn |
+|---|---|---|---|
+| LG-01 | `valid-login` | Đúng thông tin → Home, greeting, JWT lưu client, request có Bearer token. | FR-02 |
+| LG-02 | `reject-wrong-password` | Sai mật khẩu → từ chối, lỗi chung, không token. | FR-02 |
+| LG-03 | `reject-unknown-email` | Email chưa đăng ký → từ chối, cùng lỗi chung, không token. | FR-02 |
+| LG-04 | `empty-email-blocked` | Email rỗng → HTML required ngăn gửi form. | Điều kiện nhập Email FR-02; cơ chế required của UI khảo sát |
+| LG-05 | `empty-password-blocked` | Mật khẩu rỗng → HTML required ngăn gửi form. | Điều kiện nhập Mật khẩu FR-02; cơ chế required của UI khảo sát |
+| LG-06 | `email-input-type` | Email dùng type=email. | FR-02/FR-22 |
+| LG-07 | `malformed-email-validation` | Email sai định dạng bị HTML5 đánh dấu typeMismatch. | FR-02 |
+| LG-08 | `password-masking` | Mật khẩu dùng type=password. | FR-22 |
+| LG-09 | `not-locked-after-two-failures` | Sai 2 lần rồi nhập đúng → đăng nhập được. | FR-02 |
+| LG-10 | `locked-after-three-failures` | Sai 3 lần rồi nhập đúng ngay → vẫn bị khóa. | FR-02 |
+| LG-11 | `lock-expires-after-thirty-seconds` | Sau 31 giây thực → đăng nhập đúng được. | FR-02 |
+| LG-12 | `success-breaks-failure-streak` | Xen kẽ sai một lần và đăng nhập đúng → không tích lũy thành chuỗi 3 sai liên tiếp. | FR-02: điều kiện liên tiếp |
+| LG-13 | `required-fields-have-markers` | Nhãn trường bắt buộc có dấu *. | FR-22 |
+| LG-14 | `error-above-submit` | Thông báo lỗi nằm trên nút submit. | FR-22 |
 
-## 4. Kế hoạch 20 ca trong một file
+HTTP status cụ thể, text lỗi, `localStorage.token` và selector fallback cho label không liên kết input là hợp đồng của bản UI/API khảo sát; SRS quyết định expected nghiệp vụ. Ca khóa chờ 31 giây thực vì kiểm tra backend, không dùng sleep để chờ UI. Không đổi expected, skip ca hay sửa SUT để làm xanh. Bộ test không tuyên bố bao phủ mọi biến thể đăng nhập; assertion sau checkpoint fail chưa được thực thi.
 
-Mọi tên dưới đây là tên `test(...)` trong `tests/eshop.spec.mjs`, không phải tên file riêng.
+## 5. Xem report
 
-| Nhóm | Tên ca | Expected chính theo SRS |
-|---|---|---|
-| Đăng nhập | `valid-login` | Đúng thông tin → Home, greeting đúng user, có JWT. |
-| Đăng nhập | `reject-wrong-password` | Sai mật khẩu → từ chối, lỗi chung, không token. |
-| Đăng nhập | `reject-unknown-email` | Email chưa đăng ký → từ chối, không lộ nguyên nhân, không token. |
-| Đăng nhập | `email-format-validation` | `type=email`, HTML5 chặn email sai định dạng. |
-| Đăng nhập | `password-masking` | `type=password` theo FR-22. |
-| Đăng nhập | `not-locked-after-two-failures` | Sai 2 lần rồi nhập đúng → vẫn đăng nhập được. |
-| Đăng nhập | `locked-after-three-failures` | Sai 3 lần rồi nhập đúng ngay → vẫn bị khóa. |
-| Đăng nhập | `lock-expires-after-thirty-seconds` | Sai 3 lần, đợi 31 giây rồi nhập đúng → thành công. |
-| Giỏ hàng | `empty-cart` | Giỏ mới → empty state, có link tiếp tục mua. |
-| Giỏ hàng | `add-single-product` | Thêm một sản phẩm → một dòng, quantity 1, thành tiền đúng. |
-| Giỏ hàng | `merge-duplicate-product` | Thêm trùng → một dòng, quantity 2. |
-| Giỏ hàng | `adjust-quantity` | Controls +/− đổi quantity 2 rồi 1, thành tiền cập nhật. |
-| Giỏ hàng | `confirm-before-removing` | Xóa có xác nhận; hủy giữ dòng, xác nhận thì xóa. |
-| Giỏ hàng | `correct-total-label` | Nhãn chính xác `Tổng cộng`, số tiền đúng. |
-| Thanh toán | `guest-checkout-ui-rejected` | Guest bấm thanh toán → yêu cầu đăng nhập. |
-| Thanh toán | `guest-checkout-api-rejected` | Checkout không token → API từ chối (401). |
-| Thanh toán | `order-summary` | Đúng sản phẩm, quantity và thành tiền. |
-| Thanh toán | `read-only-total` | Tổng tự tính, không chỉnh trực tiếp được. |
-| Thanh toán | `successful-checkout-clears-cart` | Thanh toán thành công, đơn lưu đúng và giỏ được xóa. |
-| Thanh toán | `server-recalculates-total` | Tổng/giá giả → từ chối hoặc lưu tổng backend tự tính. |
+Sau mỗi lượt chạy, tự cập nhật:
 
-Sản phẩm seed: `iPhone 15 Pro Max`, ID 1; giá chuẩn đọc từ API thật. Ca giả tổng đọc lại đơn của chính user, không chỉ tin HTTP 200 hay banner thành công. HTTP status cụ thể, chuỗi giao diện và `localStorage.token` là hợp đồng của bản SUT khảo sát; SRS xác định kết quả nghiệp vụ. Các controls +/− đang thiếu: locator cho giao diện sau khi bổ sung chưa được kiểm chứng. Bộ test không bao phủ toàn bộ SRS; checkpoint sau assertion fail chưa chạy đến.
+- `report/REPORT.md`: thời gian, tổng pass/fail, từng ca và lỗi assertion.
+- `report/results.json`: kết quả JSON cùng lượt chạy.
+- `playwright-report/index.html`: HTML, mở bằng `npm.cmd run report`.
+- `test-results/artifacts/`: screenshot/trace cục bộ cho ca lỗi; không đưa lên Git.
 
-## 5. Kết quả và cách đọc report
+Markdown và JSON trong `report/` được commit để xem trên GitHub. Screenshot/trace là bằng chứng cục bộ, đường dẫn được ghi rõ trong Markdown; chúng không phải file đã publish lên GitHub. Nếu chỉ chạy một ca, report sẽ chỉ phản ánh ca đó và ghi đè kết quả trước. Liệt kê bằng `--reporter=list` không ghi đè report.
 
-Kết quả chạy **đủ 20 ca sau khi gộp file và thêm Markdown reporter**, ngày 2026-10-23, Chrome/Playwright 1.62.1, SUT có sẵn:
+Kết quả kiểm chứng ngày 2026-10-23 bằng Chrome/Playwright 1.62.1: **14 ca, 7 pass, 7 fail**, không retry. Bảy ca fail phản ánh: type email sai; HTML5 không bắt sai định dạng; mật khẩu không che; khóa sau mới 2 lần sai; sau 31 giây vẫn khóa; nhãn bắt buộc thiếu dấu *; lỗi hiển thị dưới nút submit. Xem chi tiết và từng ca trong [report/REPORT.md](report/REPORT.md). Hai kiểm tra email cùng phát hiện một vấn đề nền tảng; 7 ca fail không có nghĩa là 7 bug độc lập.
 
-| Chức năng | Ca | Pass | Fail |
-|---|---:|---:|---:|
-| Đăng nhập | 8 | 4 | 4 |
-| Giỏ hàng | 6 | 2 | 4 |
-| Thanh toán | 6 | 3 | 3 |
-| **Tổng** | **20** | **9** | **11** |
-
-Các lỗi quan sát: email/mật khẩu dùng `type=text`; khóa sau mới 2 lần sai và sau 31 giây vẫn khóa; giỏ thiếu +/−, xóa không xác nhận, sai nhãn tổng, thêm trùng thành 2 dòng; tổng checkout vẫn editable, backend lưu tổng giả `1`, thanh toán thành công chưa xóa giỏ. Không đổi expected hay skip test để làm xanh.
-
-Các số trên là kết quả một lượt `npm.cmd test` thực tế: bắt đầu 14:06:56 (UTC+07:00), thời gian 99,75 giây, không retry, 20 lần thực thi. Markdown reporter đã xuất đủ 20 dòng kết quả và 11 phần lỗi; số liệu khớp JSON, các link bằng chứng đều tồn tại. Các lần chạy sau tự tạo lại report theo kết quả mới.
-
-Mỗi lần chạy test sẽ tự sinh **`test-results/REPORT.md`**: thời điểm/thời gian chạy, tổng pass/fail/timeout/skip, kết quả từng ca, assertion lỗi và link trace/screenshot. Đây là report kết quả thực thi, không phải báo cáo seminar. File vẫn được tạo khi test fail; không cần lệnh xuất riêng.
-
-HTML: `playwright-report/index.html`; JSON: `test-results/results.json`; trace/screenshot lỗi: `test-results/artifacts/`. Mỗi report phản ánh lượt chạy gần nhất; chạy `npm.cmd test` để tạo report chung cho 20 ca hoặc `npm.cmd run test:login` để chỉ report nhóm đăng nhập. Exit code 1 nghĩa là có test fail; đọc lỗi để phân biệt vi phạm SRS với lỗi môi trường/locator.
-
-Repo lưu **một file test, một file skill, README, cấu hình npm/Playwright và `markdown-reporter.mjs` để xuất kết quả**. SUT, dependency, AI log và report sinh ra không được commit. Nguồn công cụ: [Microsoft playwright-cli](https://github.com/microsoft/playwright-cli), [Playwright Test](https://playwright.dev/docs/writing-tests).
+JSON report dùng đường dẫn tương đối của repo thay cho đường dẫn máy cá nhân; thông tin này được ghi trong metadata. File kết quả trên GitHub là snapshot của lần kiểm chứng, chỉ thay đổi trên GitHub khi bạn commit/push kết quả chạy mới.

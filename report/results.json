@@ -1,0 +1,862 @@
+{
+  "config": {
+    "argv": [
+      "node.exe",
+      "cli.js",
+      "test",
+      "tests/login.spec.mjs"
+    ],
+    "configFile": "./playwright.config.mjs",
+    "rootDir": "./tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1,
+      "reportPathFormat": "Project-relative paths; CLI executable filenames only."
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "./test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "./tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "report/results.json"
+        }
+      ],
+      [
+        "./markdown-reporter.mjs",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "login.spec.mjs",
+      "file": "login.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Đăng nhập",
+          "file": "login.spec.mjs",
+          "line": 46,
+          "column": 6,
+          "specs": [
+            {
+              "title": "valid-login",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 963,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T07:24:09.565Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-ecbd47cffb6a0dae9ddf",
+              "file": "login.spec.mjs",
+              "line": 47,
+              "column": 3
+            },
+            {
+              "title": "reject-wrong-password",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 626,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T07:24:10.850Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-77e951241eba6e468bf7",
+              "file": "login.spec.mjs",
+              "line": 57,
+              "column": 3
+            },
+            {
+              "title": "reject-unknown-email",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 615,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T07:24:11.494Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-de6cad42c92db48fd64e",
+              "file": "login.spec.mjs",
+              "line": 62,
+              "column": 3
+            },
+            {
+              "title": "empty-email-blocked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 663,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T07:24:12.123Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-649e6bcf07a4d251f535",
+              "file": "login.spec.mjs",
+              "line": 67,
+              "column": 3
+            },
+            {
+              "title": "empty-password-blocked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 623,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T07:24:12.799Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-6cbd84a1396f3d3b3e25",
+              "file": "login.spec.mjs",
+              "line": 81,
+              "column": 3
+            },
+            {
+              "title": "email-input-type",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4486,
+                      "error": {
+                        "message": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('form input').first()\nExpected: \"email\"\nReceived: \"text\"\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" with timeout 4000ms\n  - waiting for locator('form input').first()\n    12 × locator resolved to <input value=\"\" required=\"\" type=\"text\" class=\"w-full border p-2 rounded\"/>\n       - unexpected value \"text\"\n",
+                        "stack": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('form input').first()\nExpected: \"email\"\nReceived: \"text\"\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" with timeout 4000ms\n  - waiting for locator('form input').first()\n    12 × locator resolved to <input value=\"\" required=\"\" type=\"text\" class=\"w-full border p-2 rounded\"/>\n       - unexpected value \"text\"\n\n    at ./tests\\login.spec.mjs:98:36",
+                        "location": {
+                          "file": "./tests\\login.spec.mjs",
+                          "column": 36,
+                          "line": 98
+                        },
+                        "snippet": "   96 |     // LG-06: FR-02 / FR-22 explicitly require type=email.\n   97 |     await page.goto('/login');\n>  98 |     await expect(emailInput(page)).toHaveAttribute('type', 'email');\n      |                                    ^\n   99 |   });\n  100 |\n  101 |   test('malformed-email-validation', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\login.spec.mjs",
+                            "column": 36,
+                            "line": 98
+                          },
+                          "message": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('form input').first()\nExpected: \"email\"\nReceived: \"text\"\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" with timeout 4000ms\n  - waiting for locator('form input').first()\n    12 × locator resolved to <input value=\"\" required=\"\" type=\"text\" class=\"w-full border p-2 rounded\"/>\n       - unexpected value \"text\"\n\n\n   96 |     // LG-06: FR-02 / FR-22 explicitly require type=email.\n   97 |     await page.goto('/login');\n>  98 |     await expect(emailInput(page)).toHaveAttribute('type', 'email');\n      |                                    ^\n   99 |   });\n  100 |\n  101 |   test('malformed-email-validation', async ({ page }) => {\n    at ./tests\\login.spec.mjs:98:36"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T07:24:13.439Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-email-input-type\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-email-input-type\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-email-input-type\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\login.spec.mjs",
+                        "column": 36,
+                        "line": 98
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-81d9bb3e6c529f5f346d",
+              "file": "login.spec.mjs",
+              "line": 95,
+              "column": 3
+            },
+            {
+              "title": "malformed-email-validation",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 666,
+                      "error": {
+                        "message": "Error: FR-02 requires HTML5 email-format validation\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false",
+                        "stack": "Error: FR-02 requires HTML5 email-format validation\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n    at ./tests\\login.spec.mjs:105:131",
+                        "location": {
+                          "file": "./tests\\login.spec.mjs",
+                          "column": 131,
+                          "line": 105
+                        },
+                        "snippet": "  103 |     await page.goto('/login');\n  104 |     await emailInput(page).fill('invalid-email');\n> 105 |     expect(await emailInput(page).evaluate(input => input.validity.typeMismatch), 'FR-02 requires HTML5 email-format validation').toBe(true);\n      |                                                                                                                                   ^\n  106 |   });\n  107 |\n  108 |   test('password-masking', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\login.spec.mjs",
+                            "column": 131,
+                            "line": 105
+                          },
+                          "message": "Error: FR-02 requires HTML5 email-format validation\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\n  103 |     await page.goto('/login');\n  104 |     await emailInput(page).fill('invalid-email');\n> 105 |     expect(await emailInput(page).evaluate(input => input.validity.typeMismatch), 'FR-02 requires HTML5 email-format validation').toBe(true);\n      |                                                                                                                                   ^\n  106 |   });\n  107 |\n  108 |   test('password-masking', async ({ page }) => {\n    at ./tests\\login.spec.mjs:105:131"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T07:24:18.957Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-malformed-email-validation\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-malformed-email-validation\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-malformed-email-validation\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\login.spec.mjs",
+                        "column": 131,
+                        "line": 105
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-474fe4c11b89ebe6f0c2",
+              "file": "login.spec.mjs",
+              "line": 101,
+              "column": 3
+            },
+            {
+              "title": "password-masking",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4605,
+                      "error": {
+                        "message": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('form input').nth(1)\nExpected: \"password\"\nReceived: \"text\"\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" with timeout 4000ms\n  - waiting for locator('form input').nth(1)\n    12 × locator resolved to <input value=\"\" required=\"\" type=\"text\" class=\"w-full border p-2 rounded\"/>\n       - unexpected value \"text\"\n",
+                        "stack": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('form input').nth(1)\nExpected: \"password\"\nReceived: \"text\"\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" with timeout 4000ms\n  - waiting for locator('form input').nth(1)\n    12 × locator resolved to <input value=\"\" required=\"\" type=\"text\" class=\"w-full border p-2 rounded\"/>\n       - unexpected value \"text\"\n\n    at ./tests\\login.spec.mjs:111:39",
+                        "location": {
+                          "file": "./tests\\login.spec.mjs",
+                          "column": 39,
+                          "line": 111
+                        },
+                        "snippet": "  109 |     // LG-08: FR-22 requires masked password characters.\n  110 |     await page.goto('/login');\n> 111 |     await expect(passwordInput(page)).toHaveAttribute('type', 'password');\n      |                                       ^\n  112 |   });\n  113 |\n  114 |   test('not-locked-after-two-failures', async ({ page, account }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\login.spec.mjs",
+                            "column": 39,
+                            "line": 111
+                          },
+                          "message": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('form input').nth(1)\nExpected: \"password\"\nReceived: \"text\"\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" with timeout 4000ms\n  - waiting for locator('form input').nth(1)\n    12 × locator resolved to <input value=\"\" required=\"\" type=\"text\" class=\"w-full border p-2 rounded\"/>\n       - unexpected value \"text\"\n\n\n  109 |     // LG-08: FR-22 requires masked password characters.\n  110 |     await page.goto('/login');\n> 111 |     await expect(passwordInput(page)).toHaveAttribute('type', 'password');\n      |                                       ^\n  112 |   });\n  113 |\n  114 |   test('not-locked-after-two-failures', async ({ page, account }) => {\n    at ./tests\\login.spec.mjs:111:39"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T07:24:20.909Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-password-masking\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-password-masking\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-password-masking\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\login.spec.mjs",
+                        "column": 39,
+                        "line": 111
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-1e4b835d9de8b7a4b2d1",
+              "file": "login.spec.mjs",
+              "line": 108,
+              "column": 3
+            },
+            {
+              "title": "not-locked-after-two-failures",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1391,
+                      "error": {
+                        "message": "Error: FR-02: two failures must not lock the account\n\nexpect(received).toBeTruthy()\n\nReceived: false",
+                        "stack": "Error: FR-02: two failures must not lock the account\n\nexpect(received).toBeTruthy()\n\nReceived: false\n    at ./tests\\login.spec.mjs:119:96",
+                        "location": {
+                          "file": "./tests\\login.spec.mjs",
+                          "column": 96,
+                          "line": 119
+                        },
+                        "snippet": "  117 |       await expectRejected(page, await login(page, { ...account, password: WRONG_PASSWORD }));\n  118 |     }\n> 119 |     expect((await login(page, account)).ok(), 'FR-02: two failures must not lock the account').toBeTruthy();\n      |                                                                                                ^\n  120 |     await expectSignedIn(page, account);\n  121 |   });\n  122 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\login.spec.mjs",
+                            "column": 96,
+                            "line": 119
+                          },
+                          "message": "Error: FR-02: two failures must not lock the account\n\nexpect(received).toBeTruthy()\n\nReceived: false\n\n  117 |       await expectRejected(page, await login(page, { ...account, password: WRONG_PASSWORD }));\n  118 |     }\n> 119 |     expect((await login(page, account)).ok(), 'FR-02: two failures must not lock the account').toBeTruthy();\n      |                                                                                                ^\n  120 |     await expectSignedIn(page, account);\n  121 |   });\n  122 |\n    at ./tests\\login.spec.mjs:119:96"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T07:24:26.792Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-not-locked-after-two-failures\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-not-locked-after-two-failures\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-not-locked-after-two-failures\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\login.spec.mjs",
+                        "column": 96,
+                        "line": 119
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-d5d51e03f2756452cc00",
+              "file": "login.spec.mjs",
+              "line": 114,
+              "column": 3
+            },
+            {
+              "title": "locked-after-three-failures",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1523,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T07:24:29.565Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-dcb7e051d24df4a55071",
+              "file": "login.spec.mjs",
+              "line": 123,
+              "column": 3
+            },
+            {
+              "title": "lock-expires-after-thirty-seconds",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 32506,
+                      "error": {
+                        "message": "Error: FR-02: lock must expire after 30 seconds\n\nexpect(received).toBeTruthy()\n\nReceived: false",
+                        "stack": "Error: FR-02: lock must expire after 30 seconds\n\nexpect(received).toBeTruthy()\n\nReceived: false\n    at ./tests\\login.spec.mjs:137:91",
+                        "location": {
+                          "file": "./tests\\login.spec.mjs",
+                          "column": 91,
+                          "line": 137
+                        },
+                        "snippet": "  135 |     }\n  136 |     await new Promise(resolve => setTimeout(resolve, 31000));\n> 137 |     expect((await login(page, account)).ok(), 'FR-02: lock must expire after 30 seconds').toBeTruthy();\n      |                                                                                           ^\n  138 |     await expectSignedIn(page, account);\n  139 |   });\n  140 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\login.spec.mjs",
+                            "column": 91,
+                            "line": 137
+                          },
+                          "message": "Error: FR-02: lock must expire after 30 seconds\n\nexpect(received).toBeTruthy()\n\nReceived: false\n\n  135 |     }\n  136 |     await new Promise(resolve => setTimeout(resolve, 31000));\n> 137 |     expect((await login(page, account)).ok(), 'FR-02: lock must expire after 30 seconds').toBeTruthy();\n      |                                                                                           ^\n  138 |     await expectSignedIn(page, account);\n  139 |   });\n  140 |\n    at ./tests\\login.spec.mjs:137:91"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T07:24:31.382Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-lock-expires-after-thirty-seconds\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-lock-expires-after-thirty-seconds\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-lock-expires-after-thirty-seconds\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\login.spec.mjs",
+                        "column": 91,
+                        "line": 137
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-5f3559a1651c0b7c220e",
+              "file": "login.spec.mjs",
+              "line": 131,
+              "column": 3
+            },
+            {
+              "title": "success-breaks-failure-streak",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2180,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T07:25:04.942Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-6afa34b0ae5ffb25137d",
+              "file": "login.spec.mjs",
+              "line": 141,
+              "column": 3
+            },
+            {
+              "title": "required-fields-have-markers",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 529,
+                      "error": {
+                        "message": "Error: FR-22: required labels missing *\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"Username\",\n+   \"Mật khẩu\",\n+ ]",
+                        "stack": "Error: FR-22: required labels missing *\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"Username\",\n+   \"Mật khẩu\",\n+ ]\n    at ./tests\\login.spec.mjs:158:94",
+                        "location": {
+                          "file": "./tests\\login.spec.mjs",
+                          "column": 94,
+                          "line": 158
+                        },
+                        "snippet": "  156 |     const labels = await page.locator('form label').allTextContents();\n  157 |     expect(labels).toHaveLength(2);\n> 158 |     expect(labels.filter(label => !label.includes('*')), 'FR-22: required labels missing *').toEqual([]);\n      |                                                                                              ^\n  159 |   });\n  160 |\n  161 |   test('error-above-submit', async ({ page, account }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\login.spec.mjs",
+                            "column": 94,
+                            "line": 158
+                          },
+                          "message": "Error: FR-22: required labels missing *\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"Username\",\n+   \"Mật khẩu\",\n+ ]\n\n  156 |     const labels = await page.locator('form label').allTextContents();\n  157 |     expect(labels).toHaveLength(2);\n> 158 |     expect(labels.filter(label => !label.includes('*')), 'FR-22: required labels missing *').toEqual([]);\n      |                                                                                              ^\n  159 |   });\n  160 |\n  161 |   test('error-above-submit', async ({ page, account }) => {\n    at ./tests\\login.spec.mjs:158:94"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T07:25:07.431Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-required-fields-have-markers\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-required-fields-have-markers\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-required-fields-have-markers\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\login.spec.mjs",
+                        "column": 94,
+                        "line": 158
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-865ea38c7c684f6cff78",
+              "file": "login.spec.mjs",
+              "line": 153,
+              "column": 3
+            },
+            {
+              "title": "error-above-submit",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 935,
+                      "error": {
+                        "message": "Error: FR-22: error must appear above the submit button\n\nexpect(received).toBeLessThanOrEqual(expected)\n\nExpected: <= 425\nReceived:    565",
+                        "stack": "Error: FR-22: error must appear above the submit button\n\nexpect(received).toBeLessThanOrEqual(expected)\n\nExpected: <= 425\nReceived:    565\n    at ./tests\\login.spec.mjs:168:94",
+                        "location": {
+                          "file": "./tests\\login.spec.mjs",
+                          "column": 94,
+                          "line": 168
+                        },
+                        "snippet": "  166 |     expect(errorBox).toBeTruthy();\n  167 |     expect(buttonBox).toBeTruthy();\n> 168 |     expect(errorBox.y + errorBox.height, 'FR-22: error must appear above the submit button').toBeLessThanOrEqual(buttonBox.y);\n      |                                                                                              ^\n  169 |   });\n  170 | });\n  171 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\login.spec.mjs",
+                            "column": 94,
+                            "line": 168
+                          },
+                          "message": "Error: FR-22: error must appear above the submit button\n\nexpect(received).toBeLessThanOrEqual(expected)\n\nExpected: <= 425\nReceived:    565\n\n  166 |     expect(errorBox).toBeTruthy();\n  167 |     expect(buttonBox).toBeTruthy();\n> 168 |     expect(errorBox.y + errorBox.height, 'FR-22: error must appear above the submit button').toBeLessThanOrEqual(buttonBox.y);\n      |                                                                                              ^\n  169 |   });\n  170 | });\n  171 |\n    at ./tests\\login.spec.mjs:168:94"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-23T07:25:08.960Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-error-above-submit\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-error-above-submit\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-error-above-submit\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\login.spec.mjs",
+                        "column": 94,
+                        "line": 168
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-53dc5efc31ab323cf3b4",
+              "file": "login.spec.mjs",
+              "line": 161,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-23T07:24:06.290Z",
+    "duration": 64623.21,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 7,
+    "flaky": 0
+  }
+}
