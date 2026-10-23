@@ -1,10 +1,11 @@
-# Playwright — kiểm thử đăng nhập và giỏ hàng EShop
+# Playwright — kiểm thử EShop
 
-Phạm vi hiện tại: **đăng nhập FR-02, form login FR-22, giỏ hàng FR-07 và các yêu cầu liên quan FR-06/FR-23/FR-24** của [EShop SUT](https://github.com/ttbhanh/eshop-sut). Expected result lấy từ SRS README của bản checkout SUT đang kiểm thử.
+Phạm vi hiện tại: **đăng nhập FR-02, form login FR-22, giỏ hàng FR-07, thanh toán FR-08, coupon FR-09 và các yêu cầu liên quan FR-06/FR-23/FR-24** của [EShop SUT](https://github.com/ttbhanh/eshop-sut). Expected result lấy từ SRS README của bản checkout SUT đang kiểm thử.
 
 - [`skills/playwright-cli/SKILL.md`](skills/playwright-cli/SKILL.md): skill Microsoft dùng để khảo sát và hỗ trợ AI sinh test.
 - [`tests/login.spec.mjs`](tests/login.spec.mjs): toàn bộ fixture, helper và test đăng nhập trong một file.
 - [`tests/cart.spec.mjs`](tests/cart.spec.mjs): fixture, helper và 27 test giỏ hàng, mỗi ca dùng context mới.
+- [`tests/checkout.spec.mjs`](tests/checkout.spec.mjs): đăng nhập bằng tài khoản seed, chuẩn bị giỏ qua UI và test các luồng checkout/coupon không tạo đơn.
 - [`report/REPORT.md`](report/REPORT.md): kết quả lần chạy gần nhất, được đưa lên GitHub khi commit/push.
 - [`report/results.json`](report/results.json): kết quả máy đọc được của cùng lượt chạy.
 
@@ -50,8 +51,11 @@ Nếu đã có SUT/dependency thì không cần clone/cài lại; đặt `SUT_RO
 ```powershell
 npm.cmd run test:login
 npm.cmd run test:cart
+npx.cmd playwright test tests/checkout.spec.mjs
 npm.cmd test
 ```
+
+`npm.cmd test` chạy tất cả file `*.spec.mjs`, bao gồm cả checkout.
 
 Xem trình duyệt chạy từng bước:
 
@@ -66,7 +70,7 @@ npx.cmd playwright test --grep 'valid-login' --headed
 npx.cmd playwright test --list --reporter=list
 ```
 
-`npm.cmd test` chạy cả login và giỏ hàng. Mặc định dùng Chromium đã cài; muốn dùng Chrome có sẵn thì đặt `$env:BROWSER_CHANNEL = 'chrome'` trước khi chạy. Bỏ lựa chọn này bằng `Remove-Item Env:BROWSER_CHANNEL`.
+`npm.cmd test` chạy tất cả test login, giỏ hàng và checkout. Mặc định dùng Chromium đã cài; muốn dùng Chrome có sẵn thì đặt `$env:BROWSER_CHANNEL = 'chrome'` trước khi chạy. Bỏ lựa chọn này bằng `Remove-Item Env:BROWSER_CHANNEL`.
 
 ## 4. Kế hoạch test login
 
@@ -131,9 +135,11 @@ GH-19–22 thử thêm hai lần để lỗi bỏ qua lần bấm đầu không 
 
 Feedback được nhận diện qua badge trong link giỏ hàng hoặc toast có role status/alert hay thư viện Toastify/Sonner và nội dung thành công. Breadcrumb dùng navigation có accessible name Breadcrumb/Đường dẫn. Đây là hợp đồng selector của bộ test; cần cập nhật selector nếu UI dùng một cấu trúc tương đương khác.
 
-Phạm vi này chưa bao phủ thanh toán FR-08, lưu giỏ sau reload hoặc mọi biến thể số lượng đầu vào. SRS không quy định lưu giỏ qua reload; test dùng điều hướng nội bộ để giữ giỏ trong phiên. Một ca fail ở checkpoint đầu chưa kiểm chứng các assertion phía sau.
+`tests/checkout.spec.mjs` kiểm tra chặn khách chưa đăng nhập, nội dung sản phẩm/tổng tiền trên checkout, coupon không tồn tại/hết hạn và coupon phần trăm seed theo công thức FR-09. Ca tổng tiền không cho sửa và kết quả coupon hợp lệ giữ expected theo SRS; source hiện tại có dấu hiệu không đáp ứng hai assertion này nên có thể fail khi chạy. Các ca không bấm xác nhận thanh toán để tránh tạo đơn.
 
-## 6. Xem report
+Chưa kiểm thử thành công/thất bại của API checkout, backend tự tính lại tổng tiền, hoặc xóa giỏ sau thanh toán: các xác nhận này sẽ ghi đơn vào SQLite và cần môi trường/database test có thể reset an toàn. SUT không hiển thị phương thức/cổng thanh toán trong checkout; không có phương thức thanh toán để kiểm thử. Việc giữ giỏ sau reload và mọi biến thể số lượng cũng ngoài phạm vi; SRS không quy định lưu giỏ qua reload nên test giỏ dùng điều hướng nội bộ. Một ca fail ở checkpoint đầu chưa kiểm chứng các assertion phía sau.
+
+## 7. Xem report
 
 Sau mỗi lượt chạy, tự cập nhật:
 
