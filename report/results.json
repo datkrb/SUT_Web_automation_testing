@@ -3,8 +3,7 @@
     "argv": [
       "node.exe",
       "cli.js",
-      "test",
-      "tests/cart.spec.mjs"
+      "test"
     ],
     "configFile": "./playwright.config.mjs",
     "rootDir": "./tests",
@@ -105,7 +104,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4787,
+                      "duration": 4654,
                       "error": {
                         "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()\n",
                         "stack": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('img, svg, [role=\"img\"], .material-icons, .material-symbols-outlined, i[class*=\"fa-\"]').first()\n\n    at ./tests\\cart.spec.mjs:90:134",
@@ -129,7 +128,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T07:37:24.897Z",
+                      "startTime": "2026-10-27T10:37:56.940Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -179,12 +178,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 834,
+                      "duration": 711,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T07:37:31.127Z",
+                      "startTime": "2026-10-27T10:38:02.889Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -213,12 +212,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 756,
+                      "duration": 779,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T07:37:32.359Z",
+                      "startTime": "2026-10-27T10:38:04.010Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -247,7 +246,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4773,
+                      "duration": 4725,
                       "error": {
                         "message": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: getByRole('main').getByRole('columnheader')\nTimeout: 4000ms\n- Expected  - 1\n+ Received  + 1\n\n  Array [\n    \"Sản phẩm\",\n-   \"Đơn giá\",\n+   \"Giá\",\n    \"Số lượng\",\n    \"Thành tiền\",\n    \"Thao tác\",\n  ]\n\nCall log:\n  - Expect \"toHaveText\" with timeout 4000ms\n  - waiting for getByRole('main').getByRole('columnheader')\n    12 × locator resolved to 5 elements\n",
                         "stack": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: getByRole('main').getByRole('columnheader')\nTimeout: 4000ms\n- Expected  - 1\n+ Received  + 1\n\n  Array [\n    \"Sản phẩm\",\n-   \"Đơn giá\",\n+   \"Giá\",\n    \"Số lượng\",\n    \"Thành tiền\",\n    \"Thao tác\",\n  ]\n\nCall log:\n  - Expect \"toHaveText\" with timeout 4000ms\n  - waiting for getByRole('main').getByRole('columnheader')\n    12 × locator resolved to 5 elements\n\n    at ./tests\\cart.spec.mjs:114:56",
@@ -271,7 +270,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T07:37:33.144Z",
+                      "startTime": "2026-10-27T10:38:04.823Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -321,7 +320,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4954,
+                      "duration": 4992,
                       "error": {
                         "message": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 1\nReceived: 2\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveCount\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 2 elements\n       - unexpected value \"2\"\n",
                         "stack": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('main').locator('tbody tr')\nExpected: 1\nReceived: 2\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveCount\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr')\n    12 × locator resolved to 2 elements\n       - unexpected value \"2\"\n\n    at ./tests\\cart.spec.mjs:123:30",
@@ -345,7 +344,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T07:37:38.878Z",
+                      "startTime": "2026-10-27T10:38:10.469Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -395,12 +394,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 905,
+                      "duration": 914,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T07:37:45.056Z",
+                      "startTime": "2026-10-27T10:38:16.593Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -429,7 +428,7 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4752,
+                      "duration": 4686,
                       "error": {
                         "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').getByText(/^Tổng cộng:/)\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').getByText(/^Tổng cộng:/)\n",
                         "stack": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').getByText(/^Tổng cộng:/)\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').getByText(/^Tổng cộng:/)\n\n    at ./tests\\cart.spec.mjs:142:55",
@@ -453,7 +452,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T07:37:46.309Z",
+                      "startTime": "2026-10-27T10:38:17.779Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -503,7 +502,7 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4877,
+                      "duration": 4755,
                       "error": {
                         "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\n",
                         "stack": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\n\n    at ./tests\\cart.spec.mjs:151:28",
@@ -527,7 +526,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T07:37:52.006Z",
+                      "startTime": "2026-10-27T10:38:23.372Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -577,7 +576,7 @@
                       "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4931,
+                      "duration": 4807,
                       "error": {
                         "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\n",
                         "stack": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').locator('tbody tr').filter({ has: getByRole('cell', { name: 'iPhone 15 Pro Max', exact: true }) }).getByRole('button', { name: /^(\\+|Tăng|Tăng số lượng)$/i })\n\n    at ./tests\\cart.spec.mjs:163:28",
@@ -601,7 +600,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T07:37:58.016Z",
+                      "startTime": "2026-10-27T10:38:29.275Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -651,7 +650,7 @@
                       "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4951,
+                      "duration": 4868,
                       "error": {
                         "message": "Error: FR-07 / FR-24: deleting requires a confirmation dialog\n\nFR-07 / FR-24: deleting requires a confirmation dialog\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate",
                         "stack": "Error: FR-07 / FR-24: deleting requires a confirmation dialog\n\nFR-07 / FR-24: deleting requires a confirmation dialog\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate\n    at remove (./tests\\cart.spec.mjs:77:78)\n    at ./tests\\cart.spec.mjs:175:5",
@@ -675,7 +674,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T07:38:04.132Z",
+                      "startTime": "2026-10-27T10:38:35.246Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -725,7 +724,7 @@
                       "workerIndex": 7,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4997,
+                      "duration": 4859,
                       "error": {
                         "message": "Error: FR-07 / FR-24: deleting requires a confirmation dialog\n\nFR-07 / FR-24: deleting requires a confirmation dialog\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate",
                         "stack": "Error: FR-07 / FR-24: deleting requires a confirmation dialog\n\nFR-07 / FR-24: deleting requires a confirmation dialog\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 4000ms exceeded while waiting on the predicate\n    at remove (./tests\\cart.spec.mjs:77:78)\n    at ./tests\\cart.spec.mjs:183:5",
@@ -749,7 +748,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T07:38:10.300Z",
+                      "startTime": "2026-10-27T10:38:41.273Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -799,12 +798,12 @@
                       "workerIndex": 8,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 817,
+                      "duration": 933,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T07:38:16.418Z",
+                      "startTime": "2026-10-27T10:38:47.289Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -833,12 +832,12 @@
                       "workerIndex": 8,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 791,
+                      "duration": 815,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T07:38:17.490Z",
+                      "startTime": "2026-10-27T10:38:48.490Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -867,7 +866,7 @@
                       "workerIndex": 8,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4557,
+                      "duration": 4617,
                       "error": {
                         "message": "Error: expect(locator).toContainText(expected) failed\n\nLocator: locator('header a[href=\"/cart\"]')\nExpected pattern: /\\b1\\b/\nReceived string:  \"Giỏ hàng\"\nTimeout: 4000ms\n\nCall log:\n  - Expect \"toContainText\" with timeout 4000ms\n  - waiting for locator('header a[href=\"/cart\"]')\n    12 × locator resolved to <a href=\"/cart\" data-discover=\"true\" class=\"hover:underline\">Giỏ hàng</a>\n       - unexpected value \"Giỏ hàng\"\n",
                         "stack": "Error: expect(locator).toContainText(expected) failed\n\nLocator: locator('header a[href=\"/cart\"]')\nExpected pattern: /\\b1\\b/\nReceived string:  \"Giỏ hàng\"\nTimeout: 4000ms\n\nCall log:\n  - Expect \"toContainText\" with timeout 4000ms\n  - waiting for locator('header a[href=\"/cart\"]')\n    12 × locator resolved to <a href=\"/cart\" data-discover=\"true\" class=\"hover:underline\">Giỏ hàng</a>\n       - unexpected value \"Giỏ hàng\"\n\n    at ./tests\\cart.spec.mjs:212:34",
@@ -891,7 +890,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T07:38:18.296Z",
+                      "startTime": "2026-10-27T10:38:49.319Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -941,7 +940,7 @@
                       "workerIndex": 9,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 4910,
+                      "duration": 4808,
                       "error": {
                         "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('navigation', { name: /breadcrumb|đường dẫn/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('navigation', { name: /breadcrumb|đường dẫn/i })\n",
                         "stack": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('navigation', { name: /breadcrumb|đường dẫn/i })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('navigation', { name: /breadcrumb|đường dẫn/i })\n\n    at ./tests\\cart.spec.mjs:224:30",
@@ -965,7 +964,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T07:38:23.784Z",
+                      "startTime": "2026-10-27T10:38:54.840Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1002,15 +1001,1116 @@
           ]
         }
       ]
+    },
+    {
+      "title": "checkout.spec.mjs",
+      "file": "checkout.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Thanh toán",
+          "file": "checkout.spec.mjs",
+          "line": 56,
+          "column": 6,
+          "specs": [
+            {
+              "title": "guest-must-sign-in-before-checkout",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 55135,
+                      "error": {
+                        "message": "Test timeout of 45000ms exceeded.",
+                        "stack": "Test timeout of 45000ms exceeded."
+                      },
+                      "errors": [
+                        {
+                          "message": "Test timeout of 45000ms exceeded."
+                        },
+                        {
+                          "location": {
+                            "file": "./tests\\checkout.spec.mjs",
+                            "column": 89,
+                            "line": 63
+                          },
+                          "message": "Error: locator.click: Test timeout of 45000ms exceeded.\nCall log:\n  - waiting for getByRole('main').getByRole('button', { name: 'Tiến hành thanh toán', exact: true })\n    - locator resolved to <button class=\"bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600\">Tiến hành thanh toán</button>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - performing click action\n\n\n  61 |\n  62 |     const dialogPromise = page.waitForEvent('dialog');\n> 63 |     await main(page).getByRole('button', { name: 'Tiến hành thanh toán', exact: true }).click();\n     |                                                                                         ^\n  64 |     const dialog = await dialogPromise;\n  65 |     expect(dialog.type()).toBe('alert');\n  66 |     expect(dialog.message()).toBe('Bạn cần đăng nhập để thanh toán!');\n    at ./tests\\checkout.spec.mjs:63:89"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:39:00.772Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\checkout-Thanh-toán-guest-must-sign-in-before-checkout\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\checkout-Thanh-toán-guest-must-sign-in-before-checkout\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "29b720a9ac74378ae6c8-b7710bfd545f98483435",
+              "file": "checkout.spec.mjs",
+              "line": 57,
+              "column": 3
+            },
+            {
+              "title": "checkout-shows-cart-product-and-total",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1236,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:39:57.012Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "29b720a9ac74378ae6c8-55e5afce57d3bc2d9293",
+              "file": "checkout.spec.mjs",
+              "line": 71,
+              "column": 3
+            },
+            {
+              "title": "checkout-total-is-not-editable",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4962,
+                      "error": {
+                        "message": "Error: expect(locator).not.toBeEditable() failed\n\nLocator:  getByRole('main').getByRole('spinbutton')\nExpected: not editable\nReceived: editable\nTimeout:  4000ms\n\nCall log:\n  - Expect \"not toBeEditable\" with timeout 4000ms\n  - waiting for getByRole('main').getByRole('spinbutton')\n    12 × locator resolved to <input type=\"number\" value=\"30000000\" class=\"border p-2 rounded text-red-600 font-bold\"/>\n       - unexpected value \"editable\"\n",
+                        "stack": "Error: expect(locator).not.toBeEditable() failed\n\nLocator:  getByRole('main').getByRole('spinbutton')\nExpected: not editable\nReceived: editable\nTimeout:  4000ms\n\nCall log:\n  - Expect \"not toBeEditable\" with timeout 4000ms\n  - waiting for getByRole('main').getByRole('spinbutton')\n    12 × locator resolved to <input type=\"number\" value=\"30000000\" class=\"border p-2 rounded text-red-600 font-bold\"/>\n       - unexpected value \"editable\"\n\n    at ./tests\\checkout.spec.mjs:89:43",
+                        "location": {
+                          "file": "./tests\\checkout.spec.mjs",
+                          "column": 43,
+                          "line": 89
+                        },
+                        "snippet": "  87 |\n  88 |     // FR-08: the amount must be computed from the cart and not directly editable.\n> 89 |     await expect(checkoutTotal(page)).not.toBeEditable();\n     |                                           ^\n  90 |   });\n  91 |\n  92 |   test('rejects-unknown-coupon', async ({ page, product }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\checkout.spec.mjs",
+                            "column": 43,
+                            "line": 89
+                          },
+                          "message": "Error: expect(locator).not.toBeEditable() failed\n\nLocator:  getByRole('main').getByRole('spinbutton')\nExpected: not editable\nReceived: editable\nTimeout:  4000ms\n\nCall log:\n  - Expect \"not toBeEditable\" with timeout 4000ms\n  - waiting for getByRole('main').getByRole('spinbutton')\n    12 × locator resolved to <input type=\"number\" value=\"30000000\" class=\"border p-2 rounded text-red-600 font-bold\"/>\n       - unexpected value \"editable\"\n\n\n  87 |\n  88 |     // FR-08: the amount must be computed from the cart and not directly editable.\n> 89 |     await expect(checkoutTotal(page)).not.toBeEditable();\n     |                                           ^\n  90 |   });\n  91 |\n  92 |   test('rejects-unknown-coupon', async ({ page, product }) => {\n    at ./tests\\checkout.spec.mjs:89:43"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:39:58.517Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\checkout-Thanh-toán-checkout-total-is-not-editable\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\checkout-Thanh-toán-checkout-total-is-not-editable\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\checkout-Thanh-toán-checkout-total-is-not-editable\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\checkout.spec.mjs",
+                        "column": 43,
+                        "line": 89
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "29b720a9ac74378ae6c8-344e3d6741240bbadeea",
+              "file": "checkout.spec.mjs",
+              "line": 85,
+              "column": 3
+            },
+            {
+              "title": "rejects-unknown-coupon",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1222,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:40:04.440Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "29b720a9ac74378ae6c8-047989352f6b5f5e82d7",
+              "file": "checkout.spec.mjs",
+              "line": 92,
+              "column": 3
+            },
+            {
+              "title": "rejects-expired-coupon",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1160,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:40:05.930Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "29b720a9ac74378ae6c8-390b3007ab148b6b3186",
+              "file": "checkout.spec.mjs",
+              "line": 100,
+              "column": 3
+            },
+            {
+              "title": "applies-seeded-percent-coupon",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5011,
+                      "error": {
+                        "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').getByText('Áp dụng thành công! Giảm 10%', { exact: true })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').getByText('Áp dụng thành công! Giảm 10%', { exact: true })\n",
+                        "stack": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').getByText('Áp dụng thành công! Giảm 10%', { exact: true })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').getByText('Áp dụng thành công! Giảm 10%', { exact: true })\n\n    at ./tests\\checkout.spec.mjs:113:89",
+                        "location": {
+                          "file": "./tests\\checkout.spec.mjs",
+                          "column": 89,
+                          "line": 113
+                        },
+                        "snippet": "  111 |     await applyCoupon(page).click();\n  112 |\n> 113 |     await expect(main(page).getByText('Áp dụng thành công! Giảm 10%', { exact: true })).toBeVisible();\n      |                                                                                         ^\n  114 |     const savings = main(page).getByText(/Tiết kiệm:/);\n  115 |     const finalAmount = main(page).getByText(/Thành tiền:/);\n  116 |     await expect.poll(async () => amountFrom(await savings.innerText())).toBe("
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\checkout.spec.mjs",
+                            "column": 89,
+                            "line": 113
+                          },
+                          "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('main').getByText('Áp dụng thành công! Giảm 10%', { exact: true })\nExpected: visible\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 4000ms\n  - waiting for getByRole('main').getByText('Áp dụng thành công! Giảm 10%', { exact: true })\n\n\n  111 |     await applyCoupon(page).click();\n  112 |\n> 113 |     await expect(main(page).getByText('Áp dụng thành công! Giảm 10%', { exact: true })).toBeVisible();\n      |                                                                                         ^\n  114 |     const savings = main(page).getByText(/Tiết kiệm:/);\n  115 |     const finalAmount = main(page).getByText(/Thành tiền:/);\n  116 |     await expect.poll(async () => amountFrom(await savings.innerText())).toBe(\n    at ./tests\\checkout.spec.mjs:113:89"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:40:07.103Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\checkout-Thanh-toán-applies-seeded-percent-coupon\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\checkout-Thanh-toán-applies-seeded-percent-coupon\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\checkout-Thanh-toán-applies-seeded-percent-coupon\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\checkout.spec.mjs",
+                        "column": 89,
+                        "line": 113
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "29b720a9ac74378ae6c8-aa1d7cb7f368f0dcda5d",
+              "file": "checkout.spec.mjs",
+              "line": 108,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "login.spec.mjs",
+      "file": "login.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Đăng nhập",
+          "file": "login.spec.mjs",
+          "line": 46,
+          "column": 6,
+          "specs": [
+            {
+              "title": "valid-login",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 808,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:40:13.076Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-ecbd47cffb6a0dae9ddf",
+              "file": "login.spec.mjs",
+              "line": 47,
+              "column": 3
+            },
+            {
+              "title": "reject-wrong-password",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 599,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:40:14.144Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-77e951241eba6e468bf7",
+              "file": "login.spec.mjs",
+              "line": 57,
+              "column": 3
+            },
+            {
+              "title": "reject-unknown-email",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 584,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:40:14.759Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-de6cad42c92db48fd64e",
+              "file": "login.spec.mjs",
+              "line": 62,
+              "column": 3
+            },
+            {
+              "title": "empty-email-blocked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 690,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:40:15.358Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-649e6bcf07a4d251f535",
+              "file": "login.spec.mjs",
+              "line": 67,
+              "column": 3
+            },
+            {
+              "title": "empty-password-blocked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 492,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:40:16.061Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-6cbd84a1396f3d3b3e25",
+              "file": "login.spec.mjs",
+              "line": 81,
+              "column": 3
+            },
+            {
+              "title": "email-input-type",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4440,
+                      "error": {
+                        "message": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('form input').first()\nExpected: \"email\"\nReceived: \"text\"\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" with timeout 4000ms\n  - waiting for locator('form input').first()\n    12 × locator resolved to <input value=\"\" required=\"\" type=\"text\" class=\"w-full border p-2 rounded\"/>\n       - unexpected value \"text\"\n",
+                        "stack": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('form input').first()\nExpected: \"email\"\nReceived: \"text\"\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" with timeout 4000ms\n  - waiting for locator('form input').first()\n    12 × locator resolved to <input value=\"\" required=\"\" type=\"text\" class=\"w-full border p-2 rounded\"/>\n       - unexpected value \"text\"\n\n    at ./tests\\login.spec.mjs:98:36",
+                        "location": {
+                          "file": "./tests\\login.spec.mjs",
+                          "column": 36,
+                          "line": 98
+                        },
+                        "snippet": "   96 |     // LG-06: FR-02 / FR-22 explicitly require type=email.\n   97 |     await page.goto('/login');\n>  98 |     await expect(emailInput(page)).toHaveAttribute('type', 'email');\n      |                                    ^\n   99 |   });\n  100 |\n  101 |   test('malformed-email-validation', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\login.spec.mjs",
+                            "column": 36,
+                            "line": 98
+                          },
+                          "message": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('form input').first()\nExpected: \"email\"\nReceived: \"text\"\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" with timeout 4000ms\n  - waiting for locator('form input').first()\n    12 × locator resolved to <input value=\"\" required=\"\" type=\"text\" class=\"w-full border p-2 rounded\"/>\n       - unexpected value \"text\"\n\n\n   96 |     // LG-06: FR-02 / FR-22 explicitly require type=email.\n   97 |     await page.goto('/login');\n>  98 |     await expect(emailInput(page)).toHaveAttribute('type', 'email');\n      |                                    ^\n   99 |   });\n  100 |\n  101 |   test('malformed-email-validation', async ({ page }) => {\n    at ./tests\\login.spec.mjs:98:36"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:40:16.565Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-email-input-type\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-email-input-type\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-email-input-type\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\login.spec.mjs",
+                        "column": 36,
+                        "line": 98
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-81d9bb3e6c529f5f346d",
+              "file": "login.spec.mjs",
+              "line": 95,
+              "column": 3
+            },
+            {
+              "title": "malformed-email-validation",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 696,
+                      "error": {
+                        "message": "Error: FR-02 requires HTML5 email-format validation\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false",
+                        "stack": "Error: FR-02 requires HTML5 email-format validation\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n    at ./tests\\login.spec.mjs:105:131",
+                        "location": {
+                          "file": "./tests\\login.spec.mjs",
+                          "column": 131,
+                          "line": 105
+                        },
+                        "snippet": "  103 |     await page.goto('/login');\n  104 |     await emailInput(page).fill('invalid-email');\n> 105 |     expect(await emailInput(page).evaluate(input => input.validity.typeMismatch), 'FR-02 requires HTML5 email-format validation').toBe(true);\n      |                                                                                                                                   ^\n  106 |   });\n  107 |\n  108 |   test('password-masking', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\login.spec.mjs",
+                            "column": 131,
+                            "line": 105
+                          },
+                          "message": "Error: FR-02 requires HTML5 email-format validation\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\n  103 |     await page.goto('/login');\n  104 |     await emailInput(page).fill('invalid-email');\n> 105 |     expect(await emailInput(page).evaluate(input => input.validity.typeMismatch), 'FR-02 requires HTML5 email-format validation').toBe(true);\n      |                                                                                                                                   ^\n  106 |   });\n  107 |\n  108 |   test('password-masking', async ({ page }) => {\n    at ./tests\\login.spec.mjs:105:131"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:40:21.856Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-malformed-email-validation\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-malformed-email-validation\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-malformed-email-validation\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\login.spec.mjs",
+                        "column": 131,
+                        "line": 105
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-474fe4c11b89ebe6f0c2",
+              "file": "login.spec.mjs",
+              "line": 101,
+              "column": 3
+            },
+            {
+              "title": "password-masking",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4536,
+                      "error": {
+                        "message": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('form input').nth(1)\nExpected: \"password\"\nReceived: \"text\"\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" with timeout 4000ms\n  - waiting for locator('form input').nth(1)\n    12 × locator resolved to <input value=\"\" required=\"\" type=\"text\" class=\"w-full border p-2 rounded\"/>\n       - unexpected value \"text\"\n",
+                        "stack": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('form input').nth(1)\nExpected: \"password\"\nReceived: \"text\"\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" with timeout 4000ms\n  - waiting for locator('form input').nth(1)\n    12 × locator resolved to <input value=\"\" required=\"\" type=\"text\" class=\"w-full border p-2 rounded\"/>\n       - unexpected value \"text\"\n\n    at ./tests\\login.spec.mjs:111:39",
+                        "location": {
+                          "file": "./tests\\login.spec.mjs",
+                          "column": 39,
+                          "line": 111
+                        },
+                        "snippet": "  109 |     // LG-08: FR-22 requires masked password characters.\n  110 |     await page.goto('/login');\n> 111 |     await expect(passwordInput(page)).toHaveAttribute('type', 'password');\n      |                                       ^\n  112 |   });\n  113 |\n  114 |   test('not-locked-after-two-failures', async ({ page, account }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\login.spec.mjs",
+                            "column": 39,
+                            "line": 111
+                          },
+                          "message": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('form input').nth(1)\nExpected: \"password\"\nReceived: \"text\"\nTimeout:  4000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" with timeout 4000ms\n  - waiting for locator('form input').nth(1)\n    12 × locator resolved to <input value=\"\" required=\"\" type=\"text\" class=\"w-full border p-2 rounded\"/>\n       - unexpected value \"text\"\n\n\n  109 |     // LG-08: FR-22 requires masked password characters.\n  110 |     await page.goto('/login');\n> 111 |     await expect(passwordInput(page)).toHaveAttribute('type', 'password');\n      |                                       ^\n  112 |   });\n  113 |\n  114 |   test('not-locked-after-two-failures', async ({ page, account }) => {\n    at ./tests\\login.spec.mjs:111:39"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:40:23.627Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-password-masking\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-password-masking\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-password-masking\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\login.spec.mjs",
+                        "column": 39,
+                        "line": 111
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-1e4b835d9de8b7a4b2d1",
+              "file": "login.spec.mjs",
+              "line": 108,
+              "column": 3
+            },
+            {
+              "title": "not-locked-after-two-failures",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1276,
+                      "error": {
+                        "message": "Error: FR-02: two failures must not lock the account\n\nexpect(received).toBeTruthy()\n\nReceived: false",
+                        "stack": "Error: FR-02: two failures must not lock the account\n\nexpect(received).toBeTruthy()\n\nReceived: false\n    at ./tests\\login.spec.mjs:119:96",
+                        "location": {
+                          "file": "./tests\\login.spec.mjs",
+                          "column": 96,
+                          "line": 119
+                        },
+                        "snippet": "  117 |       await expectRejected(page, await login(page, { ...account, password: WRONG_PASSWORD }));\n  118 |     }\n> 119 |     expect((await login(page, account)).ok(), 'FR-02: two failures must not lock the account').toBeTruthy();\n      |                                                                                                ^\n  120 |     await expectSignedIn(page, account);\n  121 |   });\n  122 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\login.spec.mjs",
+                            "column": 96,
+                            "line": 119
+                          },
+                          "message": "Error: FR-02: two failures must not lock the account\n\nexpect(received).toBeTruthy()\n\nReceived: false\n\n  117 |       await expectRejected(page, await login(page, { ...account, password: WRONG_PASSWORD }));\n  118 |     }\n> 119 |     expect((await login(page, account)).ok(), 'FR-02: two failures must not lock the account').toBeTruthy();\n      |                                                                                                ^\n  120 |     await expectSignedIn(page, account);\n  121 |   });\n  122 |\n    at ./tests\\login.spec.mjs:119:96"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:40:29.252Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-not-locked-after-two-failures\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-not-locked-after-two-failures\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-not-locked-after-two-failures\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\login.spec.mjs",
+                        "column": 96,
+                        "line": 119
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-d5d51e03f2756452cc00",
+              "file": "login.spec.mjs",
+              "line": 114,
+              "column": 3
+            },
+            {
+              "title": "locked-after-three-failures",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1457,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:40:31.645Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-dcb7e051d24df4a55071",
+              "file": "login.spec.mjs",
+              "line": 123,
+              "column": 3
+            },
+            {
+              "title": "lock-expires-after-thirty-seconds",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 32274,
+                      "error": {
+                        "message": "Error: FR-02: lock must expire after 30 seconds\n\nexpect(received).toBeTruthy()\n\nReceived: false",
+                        "stack": "Error: FR-02: lock must expire after 30 seconds\n\nexpect(received).toBeTruthy()\n\nReceived: false\n    at ./tests\\login.spec.mjs:137:91",
+                        "location": {
+                          "file": "./tests\\login.spec.mjs",
+                          "column": 91,
+                          "line": 137
+                        },
+                        "snippet": "  135 |     }\n  136 |     await new Promise(resolve => setTimeout(resolve, 31000));\n> 137 |     expect((await login(page, account)).ok(), 'FR-02: lock must expire after 30 seconds').toBeTruthy();\n      |                                                                                           ^\n  138 |     await expectSignedIn(page, account);\n  139 |   });\n  140 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\login.spec.mjs",
+                            "column": 91,
+                            "line": 137
+                          },
+                          "message": "Error: FR-02: lock must expire after 30 seconds\n\nexpect(received).toBeTruthy()\n\nReceived: false\n\n  135 |     }\n  136 |     await new Promise(resolve => setTimeout(resolve, 31000));\n> 137 |     expect((await login(page, account)).ok(), 'FR-02: lock must expire after 30 seconds').toBeTruthy();\n      |                                                                                           ^\n  138 |     await expectSignedIn(page, account);\n  139 |   });\n  140 |\n    at ./tests\\login.spec.mjs:137:91"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:40:33.371Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-lock-expires-after-thirty-seconds\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-lock-expires-after-thirty-seconds\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-lock-expires-after-thirty-seconds\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\login.spec.mjs",
+                        "column": 91,
+                        "line": 137
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-5f3559a1651c0b7c220e",
+              "file": "login.spec.mjs",
+              "line": 131,
+              "column": 3
+            },
+            {
+              "title": "success-breaks-failure-streak",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2429,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:41:06.585Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-6afa34b0ae5ffb25137d",
+              "file": "login.spec.mjs",
+              "line": 141,
+              "column": 3
+            },
+            {
+              "title": "required-fields-have-markers",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 566,
+                      "error": {
+                        "message": "Error: FR-22: required labels missing *\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"Username\",\n+   \"Mật khẩu\",\n+ ]",
+                        "stack": "Error: FR-22: required labels missing *\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"Username\",\n+   \"Mật khẩu\",\n+ ]\n    at ./tests\\login.spec.mjs:158:94",
+                        "location": {
+                          "file": "./tests\\login.spec.mjs",
+                          "column": 94,
+                          "line": 158
+                        },
+                        "snippet": "  156 |     const labels = await page.locator('form label').allTextContents();\n  157 |     expect(labels).toHaveLength(2);\n> 158 |     expect(labels.filter(label => !label.includes('*')), 'FR-22: required labels missing *').toEqual([]);\n      |                                                                                              ^\n  159 |   });\n  160 |\n  161 |   test('error-above-submit', async ({ page, account }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\login.spec.mjs",
+                            "column": 94,
+                            "line": 158
+                          },
+                          "message": "Error: FR-22: required labels missing *\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"Username\",\n+   \"Mật khẩu\",\n+ ]\n\n  156 |     const labels = await page.locator('form label').allTextContents();\n  157 |     expect(labels).toHaveLength(2);\n> 158 |     expect(labels.filter(label => !label.includes('*')), 'FR-22: required labels missing *').toEqual([]);\n      |                                                                                              ^\n  159 |   });\n  160 |\n  161 |   test('error-above-submit', async ({ page, account }) => {\n    at ./tests\\login.spec.mjs:158:94"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:41:09.309Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-required-fields-have-markers\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-required-fields-have-markers\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-required-fields-have-markers\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\login.spec.mjs",
+                        "column": 94,
+                        "line": 158
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-865ea38c7c684f6cff78",
+              "file": "login.spec.mjs",
+              "line": 153,
+              "column": 3
+            },
+            {
+              "title": "error-above-submit",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 939,
+                      "error": {
+                        "message": "Error: FR-22: error must appear above the submit button\n\nexpect(received).toBeLessThanOrEqual(expected)\n\nExpected: <= 425\nReceived:    565",
+                        "stack": "Error: FR-22: error must appear above the submit button\n\nexpect(received).toBeLessThanOrEqual(expected)\n\nExpected: <= 425\nReceived:    565\n    at ./tests\\login.spec.mjs:168:94",
+                        "location": {
+                          "file": "./tests\\login.spec.mjs",
+                          "column": 94,
+                          "line": 168
+                        },
+                        "snippet": "  166 |     expect(errorBox).toBeTruthy();\n  167 |     expect(buttonBox).toBeTruthy();\n> 168 |     expect(errorBox.y + errorBox.height, 'FR-22: error must appear above the submit button').toBeLessThanOrEqual(buttonBox.y);\n      |                                                                                              ^\n  169 |   });\n  170 | });\n  171 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "./tests\\login.spec.mjs",
+                            "column": 94,
+                            "line": 168
+                          },
+                          "message": "Error: FR-22: error must appear above the submit button\n\nexpect(received).toBeLessThanOrEqual(expected)\n\nExpected: <= 425\nReceived:    565\n\n  166 |     expect(errorBox).toBeTruthy();\n  167 |     expect(buttonBox).toBeTruthy();\n> 168 |     expect(errorBox.y + errorBox.height, 'FR-22: error must appear above the submit button').toBeLessThanOrEqual(buttonBox.y);\n      |                                                                                              ^\n  169 |   });\n  170 | });\n  171 |\n    at ./tests\\login.spec.mjs:168:94"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T10:41:10.755Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-error-above-submit\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-error-above-submit\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "./test-results\\artifacts\\login-Đăng-nhập-error-above-submit\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "./tests\\login.spec.mjs",
+                        "column": 94,
+                        "line": 168
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3842dacad0df568be5d4-53dc5efc31ab323cf3b4",
+              "file": "login.spec.mjs",
+              "line": 161,
+              "column": 3
+            }
+          ]
+        }
+      ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-27T07:37:21.215Z",
-    "duration": 68404.295,
-    "expected": 5,
+    "startTime": "2026-10-27T10:37:53.824Z",
+    "duration": 198756.501,
+    "expected": 15,
     "skipped": 0,
-    "unexpected": 10,
+    "unexpected": 20,
     "flaky": 0
   }
 }
