@@ -4,7 +4,7 @@ Phạm vi hiện tại: **đăng nhập FR-02, form login FR-22, giỏ hàng FR-
 
 - [`skills/playwright-cli/SKILL.md`](skills/playwright-cli/SKILL.md): skill Microsoft dùng để khảo sát và hỗ trợ AI sinh test.
 - [`tests/login.spec.mjs`](tests/login.spec.mjs): toàn bộ fixture, helper và test đăng nhập trong một file.
-- [`tests/cart.spec.mjs`](tests/cart.spec.mjs): fixture, helper và 27 test giỏ hàng, mỗi ca dùng context mới.
+- [`tests/cart.spec.mjs`](tests/cart.spec.mjs): fixture, helper và 15 test giỏ hàng, mỗi ca dùng context mới.
 - [`tests/checkout.spec.mjs`](tests/checkout.spec.mjs): đăng nhập bằng tài khoản seed, chuẩn bị giỏ qua UI và test các luồng checkout/coupon không tạo đơn.
 - [`report/REPORT.md`](report/REPORT.md): kết quả lần chạy gần nhất, được đưa lên GitHub khi commit/push.
 - [`report/results.json`](report/results.json): kết quả máy đọc được của cùng lượt chạy.
@@ -97,43 +97,25 @@ HTTP status cụ thể, text lỗi, `localStorage.token` và selector fallback c
 
 ## 5. Kế hoạch test giỏ hàng
 
-Khảo sát giao diện thật bằng `skills/playwright-cli/SKILL.md`. Mỗi ca có context trình duyệt riêng; fixture chỉ đọc API sản phẩm thật và chọn ba sản phẩm có giá nguyên dương. Các ca thông thường dùng hai sản phẩm đầu; ca xóa dòng giữa dùng cả ba. Thêm/xóa/điều hướng đều qua UI, không mock API hoặc gán trạng thái giỏ hàng. Không yêu cầu đăng nhập để kiểm thử FR-07.
+Bộ cart gồm 15 ca theo FR-07 và các yêu cầu badge, breadcrumb, phản hồi liên quan FR-23/FR-24. Mỗi ca dùng context riêng, lấy sản phẩm thật từ API và thao tác qua UI. Thêm hàng từ Home; không kiểm trang chi tiết, đăng nhập hoặc thanh toán trong bộ cart.
 
-| ID | Test | Expected chính | Nguồn |
+| ID | Test | Expected | SRS |
 |---|---|---|---|
-| GH-01 | `empty-cart-message` | Context mới có thông báo giỏ trống, không có dòng hàng/nút thanh toán. | FR-07; UI khảo sát |
-| GH-02 | `empty-cart-illustration` | Giỏ trống có icon/hình minh họa. | FR-07/FR-24 |
-| GH-03 | `empty-cart-continue-shopping` | Link tiếp tục mua sắm về danh sách sản phẩm. | FR-07 |
-| GH-04 | `add-product-from-home` | Thêm một sản phẩm: đúng tên, giá, số lượng 1 và thành tiền. | FR-07 |
-| GH-05 | `cart-column-headings` | Đủ 5 cột, nhãn đơn giá là “Đơn giá”. | FR-07 |
-| GH-06 | `merge-duplicate-product` | Thêm trùng: chỉ một dòng, số lượng và tiền cộng dồn. | FR-07 |
-| GH-07 | `sum-distinct-products` | Thành tiền từng dòng và tổng bằng giá từ API thực. | FR-07 |
-| GH-08 | `total-label` | Nhãn “Tổng cộng”, không dùng “Tổng tạm tính”. | FR-07 |
-| GH-09 | `increase-quantity` | Nút + tăng số lượng, thành tiền và tổng tiền. | FR-07 |
-| GH-10 | `decrease-quantity` | Tăng lên 3 rồi nút - giảm về 2, tiền cập nhật. | FR-07 |
-| GH-11 | `cancel-product-removal` | Có xác nhận; hủy giữ nguyên hàng và tổng tiền. | FR-07/FR-24 |
-| GH-12 | `confirm-product-removal` | Có xác nhận; đồng ý chỉ xóa dòng được chọn và tính lại tiền. | FR-07/FR-24 |
-| GH-13 | `remove-row-recalculates-total` | Xóa một trong hai sản phẩm, giữ dòng còn lại và tổng đúng. | FR-07 |
-| GH-14 | `remove-last-product-shows-empty-state` | Xóa dòng cuối chuyển về trạng thái trống. | FR-07 |
-| GH-15 | `continue-shopping-retains-cart` | Mua tiếp về Home, thêm hàng khác và giữ sản phẩm cũ. | FR-07 |
-| GH-16 | `cart-badge-updates` | Badge lần lượt 1, 2, 1 khi thêm hai sản phẩm khác nhau rồi xóa một. | FR-23 |
-| GH-17 | `product-detail-add-on-first-click` | Chi tiết sản phẩm: nhập 3, bấm thêm một lần thì giỏ có số lượng 3. | FR-06/FR-07 |
-| GH-18 | `quantity-cannot-decrease-below-one` | Nút - ở mức 1 bị vô hiệu hóa hoặc không giảm số lượng; tổng tiền giữ nguyên. | Áp dụng giới hạn FR-06 cho nút FR-07 |
-| GH-19 | `reject-zero-product-quantity` | Nhập 0 rồi thử thêm hai lần: không có dòng hàng. | FR-06 |
-| GH-20 | `reject-negative-product-quantity` | Nhập -1 rồi thử thêm hai lần: không có dòng hàng. | FR-06 |
-| GH-21 | `reject-fractional-product-quantity` | Nhập 1.5 rồi thử thêm hai lần: không tự cắt thành 1 để thêm hàng. | FR-06 |
-| GH-22 | `reject-empty-product-quantity` | Để trống số lượng rồi thử thêm hai lần: không thêm dòng hàng/NaN. | FR-06 |
-| GH-23 | `home-add-shows-feedback` | Thêm ở Home có toast thành công hoặc badge chuyển thành 1. | FR-24 |
-| GH-24 | `product-detail-add-shows-feedback` | Bấm thêm lần đầu ở chi tiết có toast thành công hoặc badge chuyển thành 1. | FR-06/FR-24 |
-| GH-25 | `cart-breadcrumb-navigation` | Breadcrumb nhận diện Giỏ hàng, có link về Home; quay lại vẫn giữ hàng. | FR-23 |
-| GH-26 | `merge-different-requested-quantities` | Thêm 2 rồi thêm 3 cùng sản phẩm: một dòng số lượng 5, tiền đúng. | FR-06/FR-07 |
-| GH-27 | `remove-middle-product-keeps-other-rows` | Xóa dòng giữa trong ba sản phẩm: giữ đúng hai dòng còn lại, số lượng và tổng tiền đúng. | FR-07 |
-
-GH-04–16 dùng nút thêm tại Home để kiểm tra giỏ hàng độc lập với lỗi lần bấm đầu ở trang chi tiết (GH-17). GH-13/14 chấp nhận xóa trực tiếp để kiểm tra kết quả xóa; yêu cầu dialog được kiểm tra riêng ở GH-11/12. Helper xác nhận hỗ trợ native confirm hoặc dialog có role và nút tiếng Việt/OK/Cancel. Selector, cấu trúc bảng và định dạng tiền là hợp đồng UI khảo sát; không đổi expected nghiệp vụ để làm xanh.
-
-GH-19–22 thử thêm hai lần để lỗi bỏ qua lần bấm đầu không tạo kết quả pass giả cho dữ liệu không hợp lệ. Nếu nút thêm bị disabled thì không ép click. GH-26 kiểm tra điều kiện thiết lập số lượng 2 trước khi thử gộp; lỗi thêm lần đầu GH-17 có thể chặn ca này trước checkpoint gộp. GH-27 chấp nhận xóa trực tiếp như GH-13/14 để kiểm tra đúng dòng độc lập với dialog. GH-18 diễn giải giới hạn tối thiểu 1 ở FR-06 cho giỏ hàng; FR-07 không mô tả riêng hành vi nút - tại mức 1.
-
-Feedback được nhận diện qua badge trong link giỏ hàng hoặc toast có role status/alert hay thư viện Toastify/Sonner và nội dung thành công. Breadcrumb dùng navigation có accessible name Breadcrumb/Đường dẫn. Đây là hợp đồng selector của bộ test; cần cập nhật selector nếu UI dùng một cấu trúc tương đương khác.
+| GH-01 | `empty-cart-state` | Giỏ trống có thông báo, icon/hình minh họa và không có dòng hàng. | FR-07/FR-24 |
+| GH-02 | `empty-cart-continue-shopping` | Link tiếp tục mua sắm về danh sách sản phẩm. | FR-07 |
+| GH-03 | `add-product-from-home` | Thêm một sản phẩm: đúng tên, giá, số lượng 1 và thành tiền. | FR-07 |
+| GH-04 | `cart-column-headings` | Đủ 5 cột, nhãn đơn giá là “Đơn giá”. | FR-07 |
+| GH-05 | `merge-duplicate-product` | Thêm trùng: chỉ một dòng, số lượng và tiền cộng dồn. | FR-07 |
+| GH-06 | `sum-distinct-products` | Thành tiền từng dòng và tổng bằng giá từ API thực. | FR-07 |
+| GH-07 | `total-label` | Nhãn “Tổng cộng”, không dùng “Tổng tạm tính”. | FR-07 |
+| GH-08 | `increase-quantity` | Nút + tăng số lượng, thành tiền và tổng tiền. | FR-07 |
+| GH-09 | `decrease-quantity` | Tăng lên 3 rồi nút - giảm về 2, tiền cập nhật. | FR-07 |
+| GH-10 | `cancel-product-removal` | Có xác nhận; hủy giữ nguyên hàng và tổng tiền. | FR-07/FR-24 |
+| GH-11 | `confirm-product-removal` | Có xác nhận; đồng ý chỉ xóa dòng được chọn và tính lại tiền. | FR-07/FR-24 |
+| GH-12 | `remove-last-product-shows-empty-state` | Xóa dòng cuối chuyển về trạng thái trống. | FR-07 |
+| GH-13 | `continue-shopping-retains-cart` | Mua tiếp về Home, thêm hàng khác và giữ sản phẩm cũ. | FR-07 |
+| GH-14 | `cart-badge-updates` | Badge lần lượt 1, 2, 1 khi thêm hai sản phẩm khác nhau rồi xóa một. | FR-23 |
+| GH-15 | `cart-breadcrumb-navigation` | Breadcrumb nhận diện Giỏ hàng, có link về Home; quay lại vẫn giữ hàng. | FR-23 |
 
 `tests/checkout.spec.mjs` kiểm tra chặn khách chưa đăng nhập, nội dung sản phẩm/tổng tiền trên checkout, coupon không tồn tại/hết hạn và coupon phần trăm seed theo công thức FR-09. Ca tổng tiền không cho sửa và kết quả coupon hợp lệ giữ expected theo SRS; source hiện tại có dấu hiệu không đáp ứng hai assertion này nên có thể fail khi chạy. Các ca không bấm xác nhận thanh toán để tránh tạo đơn.
 
